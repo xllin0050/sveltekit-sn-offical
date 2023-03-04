@@ -5,6 +5,6 @@
 	const { nextGig } = data;
 </script>
 
-<section>
+<section class="max-w-screen-lg mx-auto">
 home
 </section>
