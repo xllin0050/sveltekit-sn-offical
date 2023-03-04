@@ -1,18 +1,10 @@
-<h1 class="h-96 bg-orange-200">Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<div class="h-96 bg-orange-300"></div>
-<div class="h-96 bg-orange-400"></div>
-<div class="h-96 bg-orange-300"></div>
-<div class="h-96 bg-orange-400"></div>
-<div class="h-96 bg-orange-300"></div>
-<div class="h-96 bg-orange-400"></div>
-<div class="h-96 bg-orange-500"></div>
-<div class="h-96 bg-orange-600"></div>
-<div class="h-96 bg-orange-500"></div>
-<div class="h-96 bg-orange-600"></div>
-<div class="h-96 bg-orange-500"></div>
-<div class="h-96 bg-orange-600"></div>
-<div class="h-96 bg-orange-700"></div>
-<div class="h-96 bg-orange-400"></div>
-<div class="h-96 bg-orange-700"></div>
-<div class="h-96 bg-orange-800"></div>
+<script lang="ts">
+	// get supabase data at server side
+	import type { PageData } from './$types';
+	export let data: PageData;
+	const { nextGig } = data;
+</script>
+
+<section>
+home
+</section>
