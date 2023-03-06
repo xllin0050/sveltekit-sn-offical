@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .card-shadow {
+    box-shadow: 10px 10px 20px #d9d9d9, -10px -10px 20px #ffffff;
+  }
+  .card-shadow-elev {
+    box-shadow: 15px 15px 20px #d9d9d9, -15px -15px 20px #ffffff;
+  }
+}
