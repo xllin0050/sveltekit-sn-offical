@@ -1,15 +1,16 @@
 <script lang="ts">
-	// interface Gig  {
-	// 	id: number;
-	// 	created_at: string;
-	// 	show_time: string;
-	// 	venue: string;
-	// 	city: string;
-	// 	event_url: string;
-	// 	banner: string;
-	// 	note: string | null;
-	// };
-	export let nextGig: { [index: string]: any } = {};
+	interface Gig  {
+		id: number;
+		created_at: string;
+		show_time: string;
+		venue: string;
+		city: string;
+		event_url: string;
+		banner: string;
+		note: string | null;
+	};
+	// export let nextGig: { [index: string]: any } = {};
+	export let nextGig: Gig;
 </script>
 
 <div
