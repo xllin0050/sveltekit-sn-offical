@@ -31,7 +31,7 @@ export default [
 			'All Art Made By Shape Chen'
 		],
 		url: 'coz-i-love-you',
-		cover: new URL('$lib/assets/images/covers/coz-i-love-you-cover.jpg', import.meta.url).href
+		cover: new URL('../assets/images/covers/coz-i-love-you-cover.jpg', import.meta.url).href
 	},
 	{
 		id: 5,
@@ -67,7 +67,7 @@ export default [
 			'Released by Airhead Records (AR-024, 2022-08-16)'
 		],
 		url: 'subtropical-jet-stream',
-		cover: new URL('$lib/assets/images/covers/subtropical-jet-stream-cover.jpg', import.meta.url)
+		cover: new URL('../assets/images/covers/subtropical-jet-stream-cover.jpg', import.meta.url)
 			.href
 	},
 	{
@@ -102,7 +102,7 @@ export default [
 			'Released by Airhead Records (AR-023, 2022-08-16) '
 		],
 		url: 'sherrys-neighbors',
-		cover: new URL('$lib/assets/images/covers/sherrys-neighbors-cover.jpg', import.meta.url).href
+		cover: new URL('../assets/images/covers/sherrys-neighbors-cover.jpg', import.meta.url).href
 	},
 	{
 		id: 3,
@@ -135,7 +135,7 @@ export default [
 		],
 		url: 'theres-nothing-that-cannot-beat-me',
 		cover: new URL(
-			'$lib/assets/images/covers/theres-nothing-that-cannot-beat-me-cover.jpg',
+			'../assets/images/covers/theres-nothing-that-cannot-beat-me-cover.jpg',
 			import.meta.url
 		).href
 	},
@@ -175,7 +175,7 @@ export default [
 			'Special Thanks to I-Cheng Lin'
 		],
 		url: 'diamond-shaped-hearts',
-		cover: new URL('$lib/assets/images/covers/diamond-shaped-hearts-cover.jpg', import.meta.url)
+		cover: new URL('../assets/images/covers/diamond-shaped-hearts-cover.jpg', import.meta.url)
 			.href
 	},
 	{
@@ -204,6 +204,6 @@ export default [
 		},
 		note: ['All by Super Napkin', 'Release: 2016-04-08'],
 		url: 'rhythmic-lizard-moon',
-		cover: new URL('$lib/assets/images/covers/rhythmic-lizard-moon-cover.jpg', import.meta.url).href
+		cover: new URL('../assets/images/covers/rhythmic-lizard-moon-cover.jpg', import.meta.url).href
 	}
 ];

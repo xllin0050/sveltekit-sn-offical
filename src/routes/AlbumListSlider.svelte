@@ -12,16 +12,25 @@
 		cover: string;
 	}
 	export let albums: Album[];
+	import { onMount } from 'svelte';
+	import { scrollHeight } from '$lib/stores';
+	let scrollY;
+	onMount(() => {
+		scrollHeight.subscribe((value) => {
+			scrollY = value;
+			console.log('Y', scrollY);
+		});
+	});
 </script>
 
-<div class="relative pt-16 lg:pt-24">
+<div class="relative h-auto pt-16 lg:pt-24">
 	<h3
 		class="pb-4 text-center font-redhat text-xl font-medium uppercase tracking-widest text-neutral-800 lg:pb-20 lg:text-3xl"
 	>
 		albums
 	</h3>
 	{#each albums as album}
-		<div class="relative pb-10 lg:pb-28">
+		<div class="pb-10 lg:pb-28">
 			<div class="mx-auto max-w-[75%] lg:max-w-sm">
 				<a href={`/records/${album.release}/${album.url}`}>
 					<img

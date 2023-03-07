@@ -2,10 +2,14 @@
 	import '../app.css';
 	import Scrollbar from 'smooth-scrollbar';
 	import { onMount } from 'svelte';
+	import { scrollHeight } from '$lib/stores';
 	let scrollArea!: HTMLElement;
 
 	onMount(() => {
-		Scrollbar.init(scrollArea, { alwaysShowTracks: true });
+		const scroll = Scrollbar.init(scrollArea, { alwaysShowTracks: true });
+		scroll.addListener((status) => {
+			scrollHeight.set(status.offset.y);
+		});
 	});
 </script>
 
@@ -53,6 +57,7 @@
 	#layout {
 		width: 100%;
 		height: 100vh;
+		overflow: auto;
 	}
 	.page-link {
 		@apply pr-6 py-10 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;
