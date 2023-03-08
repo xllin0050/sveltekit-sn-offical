@@ -56,7 +56,7 @@
 <style>
 	#layout {
 		width: 100%;
-		height: 100vh;
+		height: 100%;
 		overflow: auto;
 	}
 	.page-link {

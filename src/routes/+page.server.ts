@@ -1,17 +1,15 @@
 import { supabase } from '$lib/supabaseClient';
 
-import type { Load } from '@sveltejs/kit';
-
-type Gig = {
-	id: number;
-	created_at: string;
-	show_time: string;
-	venue: string;
-	city: string;
-	event_url: string;
-	banner: string;
-	note: null;
-};
+// type Gig = {
+// 	id: number;
+// 	created_at: string;
+// 	show_time: string;
+// 	venue: string;
+// 	city: string;
+// 	event_url: string;
+// 	banner: string;
+// 	note: null;
+// };
 
 const getNextGigs = async () => {
 	const today = new Date().toISOString();

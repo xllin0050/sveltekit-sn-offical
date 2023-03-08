@@ -1,11 +1,11 @@
 <script lang="ts">
-	// get supabase data at server side
-	import type { PageData } from './$types';
+	import albums from '$lib/data/discography';
 	import MembersNameCircle from './MembersNameCircle.svelte';
 	import NextGigCard from './NextGigCard.svelte';
 	import AlbumListSlider from './AlbumListSlider.svelte';
-	import albums from '$lib/data/discography';
-
+	
+	// get supabase data at server side
+	import type { PageData } from './$types';
 	export let data: PageData | { [index: string]: any } = {};
 
 	const { nextGig } = data;

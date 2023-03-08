@@ -14,39 +14,62 @@
 	export let albums: Album[];
 	import { onMount } from 'svelte';
 	import { scrollHeight } from '$lib/stores';
+	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
+	import '@splidejs/svelte-splide/css';
 	let scrollY;
+	let _refs: HTMLElement[] = [];
 	onMount(() => {
 		scrollHeight.subscribe((value) => {
 			scrollY = value;
-			console.log('Y', scrollY);
+			// console.log('Y', scrollY);
 		});
+		// _refs.forEach((elem) => {
+		// 	console.log(elem);
+		// });
 	});
 </script>
 
-<div class="relative h-auto pt-16 lg:pt-24">
+<div class="relative">
 	<h3
-		class="pb-4 text-center font-redhat text-xl font-medium uppercase tracking-widest text-neutral-800 lg:pb-20 lg:text-3xl"
+		class="text-center text-xl font-medium uppercase tracking-widest text-neutral-800  lg:text-3xl"
 	>
-		albums
+		records
 	</h3>
-	{#each albums as album}
-		<div class="pb-10 lg:pb-28">
-			<div class="mx-auto max-w-[75%] lg:max-w-sm">
-				<a href={`/records/${album.release}/${album.url}`}>
-					<img
-						src={album.cover}
-						alt={album.title}
-						class="card-shadow mx-auto block w-full object-cover"
-					/>
-				</a>
-			</div>
-			<h5
-				class="py-4 text-center font-redhat text-sm font-medium uppercase text-neutral-800 lg:text-base"
-			>
-				<span class="rounded-lg p-6 drop-shadow">
-					{album.title}
-				</span>
-			</h5>
-		</div>
-	{/each}
+
+	<Splide
+		options={{
+			pagination: false,
+			perPage: 3,
+			arrows: false,
+			type: 'loop',
+			rewind: true,
+			rewindByDrag: true,
+			gap: '1em',
+			wheel: true,
+			waitForTransition: true,
+			wheelSleep: 500,
+			breakpoints: {
+				640: {
+					perPage: 1,
+					padding: '3em'
+				}
+			}
+		}}
+		aria-label="Albums"
+	>
+		{#each albums as album}
+			<SplideSlide>
+				<div class="bg-white">
+					<a href={`/records/${album.release}/${album.url}`} class="block">
+						<img src={album.cover} alt={album.title} />
+					</a>
+					<h5 class="py-4 text-center text-sm font-medium uppercase text-neutral-800 lg:text-base">
+						<span class="rounded-lg p-6 drop-shadow">
+							{album.title}
+						</span>
+					</h5>
+				</div>
+			</SplideSlide>
+		{/each}
+	</Splide>
 </div>
