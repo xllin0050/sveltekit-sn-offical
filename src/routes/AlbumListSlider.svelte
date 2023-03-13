@@ -15,7 +15,7 @@
 	import { onMount } from 'svelte';
 	import { scrollHeight } from '$lib/stores';
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
-	import '@splidejs/svelte-splide/css';
+	import '@splidejs/svelte-splide/css/sea-green';
 	let scrollY;
 	let _refs: HTMLElement[] = [];
 	onMount(() => {
@@ -29,7 +29,7 @@
 	});
 </script>
 
-<div class="relative">
+<div class="relative py-16 lg:py-28">
 	<h3
 		class="text-center text-xl font-medium uppercase tracking-widest text-neutral-800  lg:text-3xl"
 	>
@@ -38,16 +38,11 @@
 
 	<Splide
 		options={{
-			pagination: false,
 			perPage: 3,
-			arrows: false,
 			type: 'loop',
 			rewind: true,
 			rewindByDrag: true,
 			gap: '1em',
-			wheel: true,
-			waitForTransition: true,
-			wheelSleep: 500,
 			breakpoints: {
 				640: {
 					perPage: 1,
@@ -63,8 +58,8 @@
 					<a href={`/records/${album.release}/${album.url}`} class="block">
 						<img src={album.cover} alt={album.title} />
 					</a>
-					<h5 class="py-4 text-center text-sm font-medium uppercase text-neutral-800 lg:text-base">
-						<span class="rounded-lg p-6 drop-shadow">
+					<h5 class=" text-center text-sm font-medium uppercase text-neutral-800 lg:text-base">
+						<span class="rounded-lg drop-shadow">
 							{album.title}
 						</span>
 					</h5>
@@ -73,3 +68,18 @@
 		{/each}
 	</Splide>
 </div>
+
+<style>
+	:global(.splide__arrow) {
+		width: 1.5em;
+	}
+	:global(.splide__arrow svg) {
+		fill: #000;
+	}
+	:global(.splide__pagination__page.is-active) {
+		background: #000;
+	}
+	:global(.splide__arrow:hover:not(:disabled) svg) {
+		fill: #000;
+	}
+</style>

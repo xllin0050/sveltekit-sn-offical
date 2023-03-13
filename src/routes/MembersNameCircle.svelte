@@ -31,10 +31,10 @@
 	});
 </script>
 
-<div class="pointer-events-none relative my-0 h-[380px] w-full pb-0 lg:h-[775px]">
+<div class="pointer-events-none relative my-0 h-[380px] w-full pb-0 lg:h-[615px]">
 	<div class="hidden w-full lg:flex lg:items-center lg:justify-center">
 		<div
-			class="relative block h-[550px] w-[550px] translate-y-28 rounded-full font-redhat text-xl font-medium"
+			class="relative block h-[480px] w-[480px] translate-y-[70px] rounded-full font-redhat text-xl font-medium"
 		>
 			<p
 				bind:this={shihDrum}
@@ -50,7 +50,7 @@
 				class:text-neutral-700={backgroundName === 'yau'}
 				class:text-neutral-200={backgroundName !== 'yau'}
 			>
-				yau(gtr/vox)
+				yau(gtr)
 			</p>
 			<p
 				bind:this={weitingBass}
@@ -64,7 +64,7 @@
 	</div>
 	{#each membersName as name}
 		<div
-			class="absolute top-1/2 left-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:h-[380px] lg:w-[380px] {name}"
+			class="absolute top-1/2 left-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:h-[320px] lg:w-[320px] {name}"
 			class:opacity-100={name === backgroundName}
 			class:opacity-0={name !== backgroundName}
 		>
@@ -93,7 +93,7 @@
 	:global(.nameText > span) {
 		position: absolute;
 		left: 50%;
-		transform-origin: 0 275px;
+		transform-origin: 0px 240px;
 	}
 	.shih {
 		background: url('$lib/assets/images/members/shih.jpg');
