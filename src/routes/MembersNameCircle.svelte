@@ -3,6 +3,7 @@
 	let shihDrum: HTMLElement;
 	let yauGtr: HTMLElement;
 	let weitingBass: HTMLElement;
+	let hiddenCircle = true;
 	onMount(() => {
 		const nameCircle = (nameText: HTMLElement, position: number) => {
 			nameText.innerHTML = nameText.innerText
@@ -16,6 +17,7 @@
 		nameCircle(shihDrum, 15);
 		nameCircle(yauGtr, 0);
 		nameCircle(weitingBass, 28);
+		hiddenCircle = false;
 	});
 
 	const membersName = ['shih', 'yau', 'weiting'];
@@ -35,6 +37,7 @@
 	<div class="hidden w-full lg:flex lg:items-center lg:justify-center">
 		<div
 			class="relative block h-[480px] w-[480px] translate-y-[70px] rounded-full font-redhat text-xl font-medium"
+			class:opacity-0={hiddenCircle}
 		>
 			<p
 				bind:this={shihDrum}
