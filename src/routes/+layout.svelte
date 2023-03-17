@@ -6,7 +6,7 @@
 	let scrollArea!: HTMLElement;
 
 	onMount(() => {
-		const scroll = Scrollbar.init(scrollArea, { alwaysShowTracks: true });
+		const scroll = Scrollbar.init(scrollArea, { damping: 0.06, alwaysShowTracks: true });
 		scroll.addListener((status) => {
 			scrollHeight.set(status.offset.y);
 		});
@@ -28,7 +28,7 @@
 		<a href="/photos" class="page-link">photos</a>
 		<a href="/products" class="page-link">products</a>
 	</nav>
-	<main class="w-full h-auto min-h-[90vh]">
+	<main class="w-full min-h-screen">
 		<slot />
 	</main>
 	<footer class="max-w-screen-lg mx-auto py-12 font-medium uppercase">

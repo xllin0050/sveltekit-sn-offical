@@ -28,8 +28,8 @@
 			<div
 				class="card-shadow hover:card-shadow-elev hover:scale-105 flex flex-col items-center rounded bg-neutral-50 text-sm transition lg:text-base"
 			>
-				<div class="max-h-36 w-full">
-					<img src={nextGig.banner} alt="" class="object-fill " />
+				<div class="h-48 w-full" style={`background:url(${nextGig.banner}) center; background-size:cover;`} >
+					<!-- <img src={nextGig.banner} alt="" class="h-36 " /> -->
 				</div>
 				<a href={nextGig.event_url} target="_blank" rel="noreferrer" class="-ml-2 block w-full p-4">
 					<div class="flex py-0 lg:py-4">
