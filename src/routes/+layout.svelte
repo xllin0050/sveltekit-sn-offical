@@ -6,7 +6,7 @@
 	let scrollArea!: HTMLElement;
 
 	onMount(() => {
-		const scroll = Scrollbar.init(scrollArea, { damping: 0.06, alwaysShowTracks: true });
+		const scroll = Scrollbar.init(scrollArea, { damping: 0.04 });
 		scroll.addListener((status) => {
 			scrollHeight.set(status.offset.y);
 		});
