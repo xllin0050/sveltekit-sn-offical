@@ -78,8 +78,9 @@
 				</a>
 			</li>
 		</ul>
-		<div class="flex items-center justify-center pt-8 text-sm sm:text-base text-neutral-700">
-			<span class="iconify text-lg" data-icon="uil:copyright" />{new Date().getFullYear()} Super Napkin
+		<div class="flex items-center justify-center pt-8 text-sm text-neutral-700">
+			<span>&copy;</span>
+			{new Date().getFullYear()} Super Napkin
 		</div>
 	</footer>
 </div>
