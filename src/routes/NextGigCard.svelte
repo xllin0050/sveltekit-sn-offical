@@ -28,26 +28,23 @@
 			<div
 				class="card-shadow hover:card-shadow-elev hover:scale-105 flex flex-col items-center rounded bg-neutral-50 text-sm transition lg:text-base"
 			>
-				<div class="h-48 w-full" style={`background:url(${nextGig.banner}) center; background-size:cover;`} >
-					<!-- <img src={nextGig.banner} alt="" class="h-36 " /> -->
-				</div>
+				<div
+					class="h-48 w-full"
+					style={`background:url(${nextGig.banner}) center; background-size:cover;`}
+				/>
 				<a href={nextGig.event_url} target="_blank" rel="noreferrer" class="-ml-2 block w-full p-4">
 					<div class="flex py-0 lg:py-4">
-						<span data-icon="ic:outline-dataset" class="iconify text-xl" />
 						<div class="pl-2">{nextGig.show_time}</div>
 					</div>
 					{#if nextGig.title}
 						<div class="flex pt-1 lg:py-4">
-							<span class="iconify text-xl" data-icon="ic:outline-place" data-inline="false" />
 							<div class="pl-2">{nextGig.title}</div>
 						</div>
 					{/if}
 					<div class="flex py-1 lg:py-4">
-						<span class="iconify text-xl" data-icon="ic:outline-place" data-inline="false" />
 						<div class="pl-2">{nextGig.city}</div>
 					</div>
 					<div class="flex lg:pt-1 lg:pb-4">
-						<span data-icon="ic:outline-house" class="iconify text-lg" />
 						<div class="pl-2 lg:text-sm">
 							{nextGig.venue}
 						</div>
