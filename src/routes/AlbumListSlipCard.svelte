@@ -24,6 +24,7 @@
 
 	onMount(() => {
 		_len = _refs.length;
+
 	});
 	$: {
 		if (_refs.length) {
