@@ -1,4 +1,5 @@
 import { supabase } from '$lib/supabaseClient';
+import albums from '$lib/data/discography';
 
 // type Gig = {
 // 	id: number;
@@ -31,6 +32,7 @@ export async function load() {
 	const nextGig = await getNextGigs();
 
 	return {
-		nextGig
+		nextGig,
+		albums
 	};
 }

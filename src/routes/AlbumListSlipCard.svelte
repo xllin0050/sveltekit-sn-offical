@@ -24,15 +24,15 @@
 
 	onMount(() => {
 		_len = _refs.length;
-		scrollHeight.subscribe((scrollOffsetY) => {
-			if (_refs.length) {
-				_refHeight = _refs[0].offsetHeight;
-				if (scrollOffsetY > sessionTitle.offsetTop - innerH && _len < _refHeight) {
-					_len = scrollOffsetY / _refs.length;
-				}
-			}
-		});
 	});
+	$: {
+		if (_refs.length) {
+			_refHeight = _refs[0].offsetHeight;
+			if ($scrollHeight > sessionTitle.offsetTop - innerH && _len < _refHeight) {
+				_len = $scrollHeight / _refs.length;
+			}
+		}
+	}
 </script>
 
 <svelte:window bind:innerHeight={innerH} />

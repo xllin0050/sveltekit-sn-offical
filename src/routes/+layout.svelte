@@ -79,13 +79,13 @@
 			</li>
 		</ul>
 		<div class="flex items-center justify-center pt-8 text-sm text-neutral-700">
-			<span>&copy;</span>
+			<span class="px-1">&copy;</span>
 			{new Date().getFullYear()} Super Napkin
 		</div>
 	</footer>
 </div>
 
-<style>
+<style lang="postcss">
 	#layout {
 		width: 100%;
 		height: 100%;
