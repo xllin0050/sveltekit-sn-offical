@@ -46,11 +46,11 @@
 	{#each albums as album, idx}
 		<div
 			bind:this={_refs[idx]}
-			class="absolute bg-white left-1/2 "
+			class="absolute bg-white left-1/2 pb-8"
 			style:transform={`translate(-50%,${idx * _len}px)`}
 			style:z-index={10 - idx}
 		>
-			<div class="mx-auto max-w-[75%] lg:max-w-sm">
+			<div class="mx-auto max-w-[85%] lg:max-w-xs">
 				<a href={`/records/${album.release}/${album.url}`}>
 					<img src={album.cover} alt={album.title} class="object-cover" />
 				</a>

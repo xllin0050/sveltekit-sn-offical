@@ -14,48 +14,47 @@
 	export let nextGig: Gig;
 </script>
 
-<div
-	class="mx-auto flex max-w-4xl flex-col items-center justify-center py-16 pt-10 text-center lg:pb-36 lg:py-20"
->
+<div class="mx-auto flex flex-col items-center justify-center pb-28 pt-10 lg:pb-52 lg:pt-28">
 	<h3
-		class="pb-6 font-redhat text-xl font-medium uppercase tracking-widest text-neutral-800 lg:pb-12 lg:text-3xl"
+		class="pb-6 text-xl font-medium uppercase tracking-widest text-neutral-800 lg:pb-12 lg:text-3xl"
 	>
 		next gig
 	</h3>
 
-	<div class="w-[320px] font-redhat uppercase lg:w-[456px]">
+	<div class="w-[270px] lg:w-[426px]">
 		{#if Object.keys(nextGig).length}
 			<div
-				class="card-shadow hover:card-shadow-elev hover:scale-105 flex flex-col items-center rounded bg-neutral-50 text-sm transition lg:text-base"
+				class="card-shadow hover:card-shadow-elev hover:scale-105 flex flex-col items-center rounded bg-neutral-50 transition"
 			>
 				<div
 					class="h-48 w-full"
 					style={`background:url(${nextGig.banner}) center; background-size:cover;`}
 				/>
-				<a href={nextGig.event_url} target="_blank" rel="noreferrer" class="-ml-2 block w-full p-4">
-					<div class="flex py-0 lg:py-4">
-						<div class="pl-2">{nextGig.show_time}</div>
+				<a
+					href={nextGig.event_url}
+					target="_blank"
+					rel="noreferrer"
+					class="block w-full p-4 lg:pl-8"
+				>
+					<div class="pl-2 py-0 text-sm lg:text-base lg:py-2">
+						{nextGig.show_time}
 					</div>
 					{#if nextGig.title}
-						<div class="flex pt-1 lg:py-4">
-							<div class="pl-2">{nextGig.title}</div>
+						<div class="normal-case text-sm lg:text-base py-4 pl-2">
+							{nextGig.title}
 						</div>
 					{/if}
-					<div class="flex py-1 lg:py-4">
-						<div class="pl-2">{nextGig.city}</div>
+					<div class="uppercase pl-2 py-1 text-xs lg:text-sm lg:py-4 text-gray-800">
+						{nextGig.city}
 					</div>
-					<div class="flex lg:pt-1 lg:pb-4">
-						<div class="pl-2 lg:text-sm">
-							{nextGig.venue}
-						</div>
+					<div class="uppercase pb-4 pl-2 text-xs lg:text-sm lg:pt-1 lg:pb-4 text-gray-800">
+						{nextGig.venue}
 					</div>
 				</a>
 			</div>
 		{:else}
-			<div
-				class="card-shadow flex flex-col items-center rounded-lg bg-neutral-50 p-4 text-sm lg:text-base"
-			>
-				<div class="p-16 text-xl uppercase tracking-widest">tba</div>
+			<div class="card-shadow text-center rounded-lg bg-neutral-50 ">
+				<div class="py-12 uppercase tracking-widest text-sm lg:text-base">tba</div>
 			</div>
 		{/if}
 	</div>
