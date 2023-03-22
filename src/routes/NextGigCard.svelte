@@ -1,5 +1,5 @@
 <script lang="ts">
-	interface Gig {
+	type Gig = {
 		id: number;
 		created_at: string;
 		show_time: string;
@@ -9,12 +9,11 @@
 		event_url: string;
 		banner: string;
 		note?: string;
-	}
-	// export let nextGig: { [index: string]: any } = {};
+	};
 	export let nextGig: Gig;
 </script>
 
-<div class="mx-auto flex flex-col items-center justify-center pb-28 pt-10 lg:pb-52 lg:pt-28">
+<div class="mx-auto flex flex-col items-center justify-center pb-20 pt-10 lg:pb-52 lg:pt-36">
 	<h3
 		class="pb-6 text-xl font-medium uppercase tracking-widest text-neutral-800 lg:pb-12 lg:text-3xl"
 	>
@@ -26,10 +25,6 @@
 			<div
 				class="card-shadow hover:card-shadow-elev hover:scale-105 flex flex-col items-center rounded bg-neutral-50 transition"
 			>
-				<div
-					class="h-48 w-full"
-					style={`background:url(${nextGig.banner}) center; background-size:cover;`}
-				/>
 				<a
 					href={nextGig.event_url}
 					target="_blank"
