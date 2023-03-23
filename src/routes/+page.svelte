@@ -10,38 +10,86 @@
 	export let data: PageData | { [index: string]: any } = {};
 
 	const { nextGig, albums } = data;
-	// let screenHeight: number;
-	let y: number;
-	let pageTitle: HTMLElement;
+	let _YScroll: number;
+	let banner: HTMLElement;
 	let videoWrap: HTMLElement;
+	let pageTitle: HTMLElement;
+	let YPrev = 0;
+	let YAddition = 0;
+	let stopAnimationFrame: any;
+
+	// 初始高度
+	let titleTop: number;
+	const titleMoving = () => {
+		const YScroll = Math.floor(_YScroll);
+		// 原點
+		if (YScroll === 0) {
+			YAddition = videoWrap.offsetHeight / 2 - pageTitle.offsetHeight;
+			titleTop = videoWrap.offsetHeight / 2 - pageTitle.offsetHeight;
+			pageTitle.style.top = titleTop + 'px';
+		}
+		// 下
+		if (YScroll > YPrev) {
+			YPrev = YScroll;
+			if (YScroll + pageTitle.offsetHeight * 2 > pageTitle.offsetTop) {
+				YAddition += YScroll + pageTitle.offsetHeight * 2 - pageTitle.offsetTop;
+				if (pageTitle.offsetTop < banner.offsetHeight) {
+					pageTitle.style.top = YAddition + 'px';
+				}
+			}
+		}
+		// 上
+		if (YScroll < YPrev) {
+			YPrev = YScroll;
+			if (
+				YScroll < banner.offsetHeight - pageTitle.offsetHeight * 2 &&
+				pageTitle.offsetTop > banner.offsetHeight / 2 - pageTitle.offsetHeight
+			) {
+				YAddition = YScroll;
+				pageTitle.style.top = YAddition + pageTitle.offsetHeight + 'px';
+			}
+		}
+		// 終
+		if (YScroll + pageTitle.offsetHeight > banner.offsetHeight) {
+			pageTitle.style.top = banner.offsetHeight + 'px';
+		}
+
+		stopAnimationFrame = requestAnimationFrame(titleMoving);
+	};
 	onMount(() => {
-		console.log(pageTitle, videoWrap);
+		titleMoving();
+		return () => {
+			cancelAnimationFrame(stopAnimationFrame);
+		};
 	});
 </script>
 
-<section class="w-full">
-	<div bind:this={videoWrap} id="video">
+<section bind:this={banner} class="w-full bg-white relative hidden lg:block pb-20">
+	<div bind:this={videoWrap} id="video" class="bg-black">
 		<img src={still} alt="" class="filter grayscale" />
 	</div>
 	<h1
 		bind:this={pageTitle}
-		class="max-w-screen-lg mx-auto pt-8 sm:pt-16 text-neutral-900 text-center text-3xl font-medium uppercase tracking-[.1em] lg:text-7xl lg:tracking-[.3em]"
+		class="absolute w-full top-1/2 -translate-y-1/2 text-white mix-blend-difference "
+		style:top={titleTop + 'px'}
 	>
-		super napkin
+		<div
+			class=" text-center text-3xl font-medium uppercase tracking-[.1em] lg:text-7xl lg:tracking-[.3em]"
+		>
+			super napkin
+		</div>
 	</h1>
-	<nav class="page-links hidden bg-white md:mx-auto pt-6 md:flex max-w-screen-lg md:justify-center">
-		<a href="/">home</a>
-		<a href="/about">about us</a>
-		<a href="/discography">discography</a>
-		<a href="/gigs">gigs</a>
-		<a href="/videos">videos</a>
-		<a href="/photos">photos</a>
-		<a href="/products">products</a>
-	</nav>
 </section>
-<p class="fixed">
-	{y}
-</p>
+<nav class="page-links hidden bg-white md:mx-auto pt-12 md:flex max-w-screen-lg md:justify-center">
+	<a href="/">home</a>
+	<a href="/about">about us</a>
+	<a href="/discography">discography</a>
+	<a href="/gigs">gigs</a>
+	<a href="/videos">videos</a>
+	<a href="/photos">photos</a>
+	<a href="/products">products</a>
+</nav>
+
 <section class="max-w-screen-lg mx-auto">
 	<MembersNameCircle />
 
@@ -50,7 +98,7 @@
 	<AlbumListColumn {albums} />
 </section>
 
-<svelte:window bind:scrollY={y} />
+<svelte:window bind:scrollY={_YScroll} />
 
 <style lang="postcss">
 	#video {
