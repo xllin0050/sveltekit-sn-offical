@@ -87,6 +87,7 @@
 	>
 		<div
 			class=" text-center text-3xl font-medium uppercase tracking-[.1em] lg:text-7xl lg:tracking-[.3em]"
+			class:opacity-0={!titleTop}
 		>
 			super napkin
 		</div>
