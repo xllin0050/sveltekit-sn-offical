@@ -9,7 +9,8 @@
 	import type { PageData } from './$types';
 	export let data: PageData | { [index: string]: any } = {};
 
-	const { nextGig, albums } = data;
+	const { nextGig, videoUrl, albums } = data;
+
 	let _YScroll: number;
 	let banner: HTMLElement;
 	let videoWrap: HTMLElement;
@@ -66,7 +67,18 @@
 
 <section bind:this={banner} class="w-full bg-white relative hidden lg:block pb-20">
 	<div bind:this={videoWrap} id="video" class="bg-black">
-		<img src={still} alt="" class="filter grayscale" />
+		<video
+			width="1920"
+			height="1080"
+			poster={still}
+			autoplay
+			loop
+			muted
+			class="mx-auto"
+			preload="metadata"
+		>
+			<source src={videoUrl.signedUrl} type="video/mp4" />
+		</video>
 	</div>
 	<h1
 		bind:this={pageTitle}
@@ -78,6 +90,13 @@
 		>
 			super napkin
 		</div>
+	</h1>
+</section>
+<section class="block w-full pt-12 text-neutral-900 lg:hidden">
+	<h1
+		class="text-center text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:ml-[.3em] lg:text-7xl lg:tracking-[.3em]"
+	>
+		super napkin
 	</h1>
 </section>
 <nav class="page-links hidden bg-white md:mx-auto pt-12 md:flex max-w-screen-lg md:justify-center">
@@ -102,8 +121,7 @@
 
 <style lang="postcss">
 	#video {
-		/* width: 1920px;
-		height: 1080px; */
+		filter: contrast(1.3) grayscale(1);
 	}
 	:global(.page-links a) {
 		@apply pr-6 py-10 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;

@@ -1,17 +1,6 @@
 import { supabase } from '$lib/supabaseClient';
 import albums from '$lib/data/discography';
 
-// type Gig = {
-// 	id: number;
-// 	created_at: string;
-// 	show_time: string;
-// 	venue: string;
-// 	city: string;
-// 	event_url: string;
-// 	banner: string;
-// 	note: null;
-// };
-
 const getNextGigs = async () => {
 	const today = new Date().toISOString();
 	let { data, error } = await supabase
@@ -28,11 +17,17 @@ const getNextGigs = async () => {
 	return theNextOne;
 };
 
+const createUrl = async () => {
+	const { data } = await supabase.storage.from('assets').createSignedUrl('video-banner.mp4', 36000);
+	return data;
+};
+
 export async function load() {
 	const nextGig = await getNextGigs();
-
+	const videoUrl = await createUrl();
 	return {
 		nextGig,
+		videoUrl,
 		albums
 	};
 }
