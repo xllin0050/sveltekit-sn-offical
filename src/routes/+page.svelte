@@ -51,7 +51,7 @@
 			}
 		}
 		// 終
-		if (YScroll + pageTitle.offsetHeight > banner.offsetHeight) {
+		if (YScroll + pageTitle.offsetHeight * 1.5 > banner.offsetHeight) {
 			pageTitle.style.top = banner.offsetHeight + 'px';
 		}
 
@@ -66,7 +66,7 @@
 </script>
 
 <section bind:this={banner} class="w-full bg-white relative hidden lg:block pb-20">
-	<div bind:this={videoWrap} id="video" class="bg-black">
+	<div bind:this={videoWrap} id="video" class="bg-neutral-800">
 		<video
 			width="1920"
 			height="1080"
