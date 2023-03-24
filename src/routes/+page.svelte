@@ -75,7 +75,7 @@
 			loop
 			muted
 			class="mx-auto"
-			preload="metadata"
+			preload="auto"
 		>
 			<source src={videoUrl.signedUrl} type="video/mp4" />
 		</video>
@@ -86,7 +86,7 @@
 		style:top={titleTop + 'px'}
 	>
 		<div
-			class=" text-center text-3xl font-medium uppercase tracking-[.1em] lg:text-7xl lg:tracking-[.3em]"
+			class="text-center text-3xl font-medium uppercase tracking-[.1em] lg:text-7xl lg:tracking-[.3em]"
 			class:opacity-0={!titleTop}
 		>
 			super napkin
@@ -122,7 +122,7 @@
 
 <style lang="postcss">
 	#video {
-		filter: contrast(1.3) grayscale(1);
+		filter: contrast(70%) grayscale(98%);
 	}
 	:global(.page-links a) {
 		@apply pr-6 py-10 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;

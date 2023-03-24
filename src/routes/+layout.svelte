@@ -1,12 +1,9 @@
 <script lang="ts">
 	import '../app.css';
-	import { onMount } from 'svelte';
 	import fbIcon from '$lib/assets/icons/facebook-rounded-border-svgrepo-com.svg';
 	import igIcon from '$lib/assets/icons/instagram-svgrepo-com.svg';
 	import ytIcon from '$lib/assets/icons/youtube-svgrepo-com.svg';
 	import mailIcon from '$lib/assets/icons/mail-svgrepo-com.svg';
-
-	onMount(() => {});
 </script>
 
 <div id="layout" class="font-red-hat">

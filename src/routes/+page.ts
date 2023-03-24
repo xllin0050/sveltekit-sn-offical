@@ -18,7 +18,10 @@ const getNextGigs = async () => {
 };
 
 const createUrl = async () => {
-	const { data } = await supabase.storage.from('assets').createSignedUrl('video-banner.mp4', 36000);
+	const { data } = await supabase.storage
+		.from('assets')
+		.createSignedUrl('video-banner-2.mp4', 36000);
+
 	return data;
 };
 
