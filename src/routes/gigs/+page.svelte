@@ -17,7 +17,7 @@
 <h2 class="pt-8 text-center text-xl font-medium uppercase text-neutral-500 sm:hidden">Gigs</h2>
 
 <section class="mx-auto min-h-screen max-w-xs pb-16 lg:pt-6 lg:max-w-4xl">
-	<ul class="pt-12 md:pt-0">
+	<ul class="pt-10 md:pt-0">
 		{#each gigs as gig}
 			<li
 				class="mb-14 flex flex-col items-center text-xs rounded-md bg-neutral-50 pt-4 pb-8 uppercase shadow-md transition-shadow hover:shadow-lg lg:mb-8 lg:flex-row lg:py-8 lg:pl-4"
