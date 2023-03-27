@@ -36,7 +36,7 @@
 <div class="pointer-events-none relative my-0 h-[380px] w-full pb-0 lg:h-[615px]">
 	<div class="hidden w-full lg:flex lg:items-center lg:justify-center">
 		<div
-			class="relative block h-[480px] w-[480px] translate-y-[70px] rounded-full font-redhat text-xl font-medium"
+			class="font-redhat relative block h-[480px] w-[480px] translate-y-[70px] rounded-full text-xl font-medium"
 			class:opacity-0={hiddenCircle}
 		>
 			<p

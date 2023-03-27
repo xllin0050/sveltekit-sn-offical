@@ -24,7 +24,6 @@
 
 	onMount(() => {
 		_len = _refs.length;
-
 	});
 	$: {
 		if (_refs.length) {
@@ -39,7 +38,7 @@
 <svelte:window bind:innerHeight={innerH} />
 <h3
 	bind:this={sessionTitle}
-	class="pb-8 text-center font-redhat text-xl font-medium uppercase tracking-widest text-neutral-800   lg:text-3xl"
+	class="font-redhat pb-8 text-center text-xl font-medium uppercase tracking-widest text-neutral-800 lg:text-3xl"
 >
 	records
 </h3>
@@ -47,7 +46,7 @@
 	{#each albums as album, idx}
 		<div
 			bind:this={_refs[idx]}
-			class="absolute bg-white left-1/2 pb-8"
+			class="absolute left-1/2 bg-white pb-8"
 			style:transform={`translate(-50%,${idx * _len}px)`}
 			style:z-index={10 - idx}
 		>
@@ -57,7 +56,7 @@
 				</a>
 			</div>
 			<h5
-				class="py-4 text-center font-redhat text-xs font-medium uppercase text-neutral-800 lg:text-base"
+				class="font-redhat py-4 text-center text-xs font-medium uppercase text-neutral-800 lg:text-base"
 			>
 				<span class="rounded-lg p-0 drop-shadow">
 					{album.title}

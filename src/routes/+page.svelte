@@ -65,7 +65,7 @@
 	});
 </script>
 
-<section bind:this={banner} class="w-full bg-white relative hidden lg:block pb-20">
+<section bind:this={banner} class="relative hidden w-full bg-white pb-20 lg:block">
 	<div bind:this={videoWrap} id="video" class="bg-neutral-800">
 		<video
 			width="1920"
@@ -82,7 +82,7 @@
 	</div>
 	<h1
 		bind:this={pageTitle}
-		class="absolute w-full top-1/2 -translate-y-1/2 text-white mix-blend-difference "
+		class="absolute top-1/2 w-full -translate-y-1/2 text-white mix-blend-difference "
 		style:top={titleTop + 'px'}
 	>
 		<div
@@ -100,7 +100,7 @@
 		super napkin
 	</h1>
 </section>
-<nav class="page-links hidden bg-white md:mx-auto pt-12 md:flex max-w-screen-lg md:justify-center">
+<nav class="page-links hidden max-w-screen-lg bg-white pt-12 md:mx-auto md:flex md:justify-center">
 	<a href="/">home</a>
 	<a href="/about">about us</a>
 	<a href="/discography">discography</a>
@@ -110,7 +110,7 @@
 	<a href="/products">products</a>
 </nav>
 
-<section class="max-w-screen-lg mx-auto">
+<section class="mx-auto max-w-screen-lg">
 	<MembersNameCircle />
 
 	<NextGigCard {nextGig} />
@@ -125,7 +125,7 @@
 		filter: contrast(70%) grayscale(98%);
 	}
 	:global(.page-links a) {
-		@apply pr-6 py-10 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;
+		@apply py-10 pr-6 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;
 		word-spacing: -0.3em;
 	}
 	:global(.footer-links li) {

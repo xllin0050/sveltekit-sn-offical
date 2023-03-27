@@ -14,7 +14,7 @@
 <section class="mx-auto max-w-sm lg:max-w-4xl lg:pt-4">
 	{#each albums as album}
 		<div
-			class="flex flex-col justify-center items-center pt-10 pb-24 md:pt-2 md:pb-24 lg:flex-row lg:items-stretch  lg:pt-4 lg:pb-44"
+			class="flex flex-col items-center justify-center pt-10 pb-24 md:pt-2 md:pb-24 lg:flex-row lg:items-stretch  lg:pt-4 lg:pb-44"
 		>
 			<a
 				href={`records/${album.release}/${album.url}`}
@@ -22,7 +22,7 @@
 			>
 				<img src={album.cover} alt="" class="w-full p-1 shadow-xl ring-neutral-300 hover:ring" />
 			</a>
-			<div class="flex flex-col justify-between mx-8 w-[250px] pt-12 lg:ml-16 lg:w-full lg:py-6">
+			<div class="mx-8 flex w-[250px] flex-col justify-between pt-12 lg:ml-16 lg:w-full lg:py-6">
 				<article>
 					<h3 class="pb-8 text-sm uppercase text-neutral-800 lg:pb-4 lg:text-lg">
 						<span class="capitalize lg:hidden">title: </span>{album.title}

@@ -21,9 +21,9 @@
 
 <div
 	id="modal"
-	class="relative flex w-3/4 max-h-screen   flex-col  justify-between rounded-md bg-neutral-50 p-2 uppercase  md:w-1/3 md:px-6 md:pt-8"
+	class="relative flex max-h-screen w-3/4 flex-col justify-between rounded-md bg-neutral-50 p-2 uppercase  md:w-1/3 md:px-6 md:pt-8"
 >
-	<div class="w-8 absolute right-1 top-2 bg-neutral-50" on:click={closeModal} aria-hidden="true">
+	<div class="absolute right-1 top-2 w-8 bg-neutral-50" on:click={closeModal} aria-hidden="true">
 		<img src={closeIcon} alt="" />
 	</div>
 	<div class="w-full">
@@ -36,14 +36,14 @@
 			}}
 		/>
 		{#if !imgLoadded}
-			<div class="h-[300px] text-center pt-8 px-16">gig poster loading...</div>
+			<div class="h-[300px] px-16 pt-8 text-center">gig poster loading...</div>
 		{/if}
 	</div>
 	<div class="flex flex-col p-4 text-sm lg:text-base">
 		<p class="pt-6">{gigData.show_time}</p>
 		<p class="pt-6">{gigData.venue}</p>
 		{#if gigData.note}
-			<p class="pt-6 text-xs text-gray-500 normal-case">{gigData.note}</p>
+			<p class="pt-6 text-xs normal-case text-gray-500">{gigData.note}</p>
 		{/if}
 	</div>
 	<div class="pt-8">
@@ -52,7 +52,7 @@
 			on:click={closeModal}
 			aria-hidden="true"
 		>
-			<a href={gigData.event_url} target="_blank" class="flex justify-center items-center">info </a>
+			<a href={gigData.event_url} target="_blank" class="flex items-center justify-center">info </a>
 		</div>
 	</div>
 </div>

@@ -7,10 +7,10 @@
 </script>
 
 <div id="layout" class="font-red-hat">
-	<main class="w-full min-h-screen">
+	<main class="min-h-screen w-full">
 		<slot />
 	</main>
-	<footer class="max-w-screen-lg mx-auto py-12 font-medium uppercase">
+	<footer class="mx-auto max-w-screen-lg py-12 font-medium uppercase">
 		<ul class="footer-links flex items-center justify-center pt-12">
 			<li>
 				<a
