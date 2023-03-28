@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { userLanguage } from '$lib/stores';
 	import MembersNameCircle from './MembersNameCircle.svelte';
 	import NextGigCard from './NextGigCard.svelte';
 	import AlbumListColumn from './AlbumListColumn.svelte';
@@ -59,6 +60,12 @@
 	};
 	onMount(() => {
 		titleMoving();
+		const browser = window.navigator.language;
+		const zh = ['zh-tw', 'zh-cn', 'zh-hk'];
+		if (!zh.includes(browser.toLowerCase())) {
+			userLanguage.set('en');
+		}
+
 		return () => {
 			cancelAnimationFrame(stopAnimationFrame);
 		};
@@ -82,7 +89,7 @@
 	</div>
 	<h1
 		bind:this={pageTitle}
-		class="absolute top-1/2 w-full -translate-y-1/2 text-white mix-blend-difference "
+		class="absolute top-1/2 w-full -translate-y-1/2 text-white mix-blend-difference"
 		style:top={titleTop + 'px'}
 	>
 		<div
@@ -120,15 +127,8 @@
 
 <svelte:window bind:scrollY={_YScroll} />
 
-<style lang="postcss">
+<style>
 	#video {
 		filter: contrast(70%) grayscale(98%);
-	}
-	:global(.page-links a) {
-		@apply py-10 pr-6 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;
-		word-spacing: -0.3em;
-	}
-	:global(.footer-links li) {
-		@apply mx-4 text-neutral-700 hover:text-neutral-900;
 	}
 </style>

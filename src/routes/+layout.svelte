@@ -59,3 +59,12 @@
 		</div>
 	</footer>
 </div>
+<style lang="postcss">
+		:global(.page-links a) {
+		@apply py-10 px-0 mx-4 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;
+		word-spacing: -0.3em;
+	}
+	:global(.footer-links li ){
+		@apply mx-4 text-neutral-700 hover:text-neutral-900;
+	}
+</style>
