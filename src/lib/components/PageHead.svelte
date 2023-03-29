@@ -5,7 +5,7 @@
 </h1>
 <nav class="page-links hidden max-w-screen-lg bg-white pt-6 md:mx-auto md:flex md:justify-center">
 	<a href="/">home</a>
-	<a href="/about">about us</a>
+	<a href="/about#banner">about us</a>
 	<a href="/discography">discography</a>
 	<a href="/gigs">gigs</a>
 	<a href="/videos">videos</a>
