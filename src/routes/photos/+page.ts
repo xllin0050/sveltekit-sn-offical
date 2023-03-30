@@ -10,13 +10,15 @@ const getPhotoFiles = async () => {
 };
 const getPhotoUrls = async (files: string[]) => {
 	const { data, error } = await supabase.storage.from('live-photos').createSignedUrls(files, 1800);
+	let urls: string[] = [];
 	if (!error) {
-		return data.map((item) => item.signedUrl);
+		urls = data.map((item) => item.signedUrl).reverse();
 	}
+	return urls;
 };
 
 export async function load() {
-	let photoUrls;
+	let photoUrls: string[] = [];
 	await getPhotoFiles().then(async (files) => {
 		photoUrls = await getPhotoUrls(files);
 	});
