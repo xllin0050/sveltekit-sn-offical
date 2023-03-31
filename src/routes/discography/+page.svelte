@@ -8,7 +8,7 @@
 </script>
 
 <PageHead />
-<h2 class="pt-8 text-center text-xl font-medium uppercase text-neutral-500 sm:hidden">
+<h2 class="pt-8 text-center text-lg font-medium uppercase text-neutral-500 sm:hidden">
 	Discography
 </h2>
 <section class="mx-auto max-w-sm lg:max-w-4xl lg:pt-4">
@@ -24,10 +24,10 @@
 			</a>
 			<div class="mx-8 flex w-[250px] flex-col justify-between pt-12 lg:ml-16 lg:w-full lg:py-6">
 				<article>
-					<h3 class="pb-8 text-sm uppercase text-neutral-800 lg:pb-4 lg:text-lg">
+					<h3 class="pb-8 text-xs uppercase text-neutral-800 lg:pb-4 lg:text-lg">
 						<span class="capitalize lg:hidden">title: </span>{album.title}
 					</h3>
-					<div class="pb-8 text-sm capitalize lg:pb-12 lg:text-base">
+					<div class="pb-8 text-xs capitalize lg:pb-12 lg:text-base">
 						release: {album.release}
 					</div>
 				</article>

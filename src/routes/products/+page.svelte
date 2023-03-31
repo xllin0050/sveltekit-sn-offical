@@ -7,6 +7,9 @@
 </script>
 
 <PageHead />
+<h2 class="pt-8 text-center text-lg font-medium uppercase text-neutral-500 sm:hidden">
+	products
+</h2>
 <section class="mx-auto max-w-sm pt-4 sm:max-w-5xl sm:pt-0">
 	<div class="flex flex-col items-center pb-0 sm:flex-row sm:flex-wrap sm:items-stretch sm:pb-16">
 		{#each records as record}

@@ -1,12 +1,17 @@
 <script lang="ts">
 	import '../app.css';
+	import AppNav from './AppNavbar.svelte';
+	import ScrollHandler from './ScrollHandler.svelte';
 	import fbIcon from '$lib/assets/icons/facebook-rounded-border-svgrepo-com.svg';
 	import igIcon from '$lib/assets/icons/instagram-svgrepo-com.svg';
 	import ytIcon from '$lib/assets/icons/youtube-svgrepo-com.svg';
 	import mailIcon from '$lib/assets/icons/mail-svgrepo-com.svg';
+
 </script>
 
 <div id="layout" class="font-red-hat">
+	<AppNav />
+	<ScrollHandler />
 	<main class="min-h-screen w-full">
 		<slot />
 	</main>
@@ -59,12 +64,13 @@
 		</div>
 	</footer>
 </div>
+
 <style lang="postcss">
-		:global(.page-links a) {
-		@apply py-10 px-0 mx-4 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;
+	:global(.page-links a) {
+		@apply mx-4 py-10 px-0 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;
 		word-spacing: -0.3em;
 	}
-	:global(.footer-links li ){
+	:global(.footer-links li) {
 		@apply mx-4 text-neutral-700 hover:text-neutral-900;
 	}
 </style>

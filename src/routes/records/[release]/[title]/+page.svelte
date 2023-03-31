@@ -22,7 +22,7 @@
 			<img src={album.cover} alt="" class="w-full" />
 		</div>
 		<div class=" mb-16">
-			<div class="flex justify-between items-baseline">
+			<div class="flex items-baseline justify-between">
 				<h1 class="py-10 pb-14 text-lg font-bold uppercase lg:py-16 lg:text-2xl">
 					{album.title}
 				</h1>
@@ -51,7 +51,7 @@
 			</ul>
 			{#if album.note}
 				<h3
-					class="pt-10 pb-3 text-sm font-medium uppercase text-neutral-600 lg:pt-24 lg:pb-4 lg:text-base"
+					class="pb-3 pt-10 text-sm font-medium uppercase text-neutral-600 lg:pb-4 lg:pt-24 lg:text-base"
 				>
 					credits
 				</h3>
@@ -62,7 +62,7 @@
 				{/each}
 			{/if}
 			<h3
-				class="pt-10 pb-3 text-sm font-medium uppercase text-neutral-600 lg:pt-24 lg:pb-4 lg:text-base"
+				class="pb-3 pt-10 text-sm font-medium uppercase text-neutral-600 lg:pb-4 lg:pt-24 lg:text-base"
 			>
 				streams
 			</h3>
@@ -73,7 +73,7 @@
 					</li>
 				{/each}
 			</ul>
-			<a href="/discography" class="mt-24 block w-8">
+			<a href="/discography" class="mt-24 hidden w-8 sm:block">
 				<img src={backIcon} alt="" />
 			</a>
 		</div>

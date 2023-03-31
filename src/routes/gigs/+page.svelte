@@ -14,7 +14,7 @@
 </script>
 
 <PageHead />
-<h2 class="pt-8 text-center text-xl font-medium uppercase text-neutral-500 sm:hidden">Gigs</h2>
+<h2 class="pt-8 text-center text-lg font-medium uppercase text-neutral-500 sm:hidden">Gigs</h2>
 
 <section class="mx-auto min-h-screen max-w-xs pb-16 lg:max-w-4xl lg:pt-6">
 	<ul class="pt-10 md:pt-0">

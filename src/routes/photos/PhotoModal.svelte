@@ -12,7 +12,7 @@
 <div id="background" on:click={closeModal} aria-hidden="true" />
 <div
 	id="modal"
-	class="relative flex max-h-screen w-3/4 md:w-auto flex-col justify-between rounded-md bg-neutral-50 p-2 uppercase md:px-10 md:py-8"
+	class="relative flex max-h-screen w-3/4 xl:w-auto flex-col justify-between rounded-md bg-neutral-50 p-2 uppercase md:px-10 md:py-8"
 >
 	<div class="absolute right-2 top-2 w-8 bg-neutral-50" on:click={closeModal} aria-hidden="true">
 		<img src={closeIcon} alt="" />
