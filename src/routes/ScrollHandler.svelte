@@ -8,8 +8,8 @@
 	let scrollButton: HTMLElement;
 	let scrollHeight: number;
 	let screenHeight: number;
-	let previousPage: string | null | undefined;
-	let forwardPage: string | null | undefined;
+	let previousPage: string;
+	// let forwardPage: string | null | undefined;
 	const scrollHandler = () => {
 		if (scrollHeight > screenHeight) {
 			scrollButton.classList.remove('opacity-0');
@@ -24,9 +24,9 @@
 			if (nav?.from) {
 				previousPage = nav.from.url.pathname;
 			}
-			if (nav?.to) {
-				forwardPage = nav.to.url.pathname;
-			}
+			// if (nav?.to) {
+			// 	forwardPage = nav.to.url.pathname;
+			// }
 		});
 		scrollHandler();
 		scrollButton.classList.add('opacity-0');
@@ -47,7 +47,7 @@
 	>
 		<img src={upArrowIcon} alt="" />
 	</figure>
-	<figure
+	<!-- <figure
 		class="mb-2 ml-2 w-8"
 		on:click={() => {
 			if (forwardPage) {
@@ -57,7 +57,7 @@
 		aria-hidden
 	>
 		<img src={leftArrowIcon} alt="" class="rotate-180" />
-	</figure>
+	</figure> -->
 
 	<figure
 		class="mb-2 ml-2 w-8"

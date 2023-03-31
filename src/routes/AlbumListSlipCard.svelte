@@ -1,41 +1,40 @@
 <script lang="ts">
-	interface Album {
-		id: number;
-		release: string;
-		tracks: { [key: string]: string | undefined };
-		title: string;
-		listen: { [key: string]: string | undefined };
-		bandcamp: string;
-		desc: { [key: string]: string | undefined };
-		note: string[];
-		url: string;
-		cover: string;
-	}
-	export let albums: Album[];
-	import { onMount } from 'svelte';
-	import { scrollHeight } from '$lib/stores';
-	let _refs: HTMLElement[] = [];
-	let _refHeight: number;
-	let _len: number;
-	// scroll hight
-	let innerH: number;
+	// interface Album {
+	// 	id: number;
+	// 	release: string;
+	// 	tracks: { [key: string]: string | undefined };
+	// 	title: string;
+	// 	listen: { [key: string]: string | undefined };
+	// 	bandcamp: string;
+	// 	desc: { [key: string]: string | undefined };
+	// 	note: string[];
+	// 	url: string;
+	// 	cover: string;
+	// }
+	// export let albums: Album[];
+	// import { onMount } from 'svelte';
+	// let _refs: HTMLElement[] = [];
+	// let _refHeight: number;
+	// let _len: number;
+	// // scroll hight
+	// let innerH: number;
 
-	let sessionTitle: HTMLElement;
+	// let sessionTitle: HTMLElement;
 
-	onMount(() => {
-		_len = _refs.length;
-	});
-	$: {
-		if (_refs.length) {
-			_refHeight = _refs[0].offsetHeight;
-			if ($scrollHeight > sessionTitle.offsetTop - innerH && _len < _refHeight) {
-				_len = $scrollHeight / _refs.length;
-			}
-		}
-	}
+	// onMount(() => {
+	// 	_len = _refs.length;
+	// });
+	// $: {
+	// 	if (_refs.length) {
+	// 		_refHeight = _refs[0].offsetHeight;
+	// 		if ($scrollHeight > sessionTitle.offsetTop - innerH && _len < _refHeight) {
+	// 			_len = $scrollHeight / _refs.length;
+	// 		}
+	// 	}
+	// }
 </script>
 
-<svelte:window bind:innerHeight={innerH} />
+<!-- <svelte:window bind:innerHeight={innerH} />
 <h3
 	bind:this={sessionTitle}
 	class="font-redhat pb-8 text-center text-xl font-medium uppercase tracking-widest text-neutral-800 lg:text-3xl"
@@ -64,4 +63,4 @@
 			</h5>
 		</div>
 	{/each}
-</div>
+</div> -->

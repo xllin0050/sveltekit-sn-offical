@@ -22,7 +22,12 @@
 			<li>
 				<a href="/">home</a>
 			</li>
-			<li>
+			<li
+				on:click={() => {
+					isMenuOpen = false;
+				}}
+				aria-hidden
+			>
 				<a href="/about#banner">about us</a>
 			</li>
 			<li>
