@@ -28,7 +28,7 @@
 				}}
 				aria-hidden
 			>
-				<a href="/about#banner">about us</a>
+				<a href="/about">about us</a>
 			</li>
 			<li>
 				<a href="/discography">discography</a>

@@ -13,7 +13,10 @@
 
 <svelte:window bind:innerWidth={width} />
 <PageHead />
-<div id="banner" class="mt-10 w-[100vw] px-4 lg:mt-0 lg:px-0">
+<h2 class="pt-8 text-center text-lg font-medium uppercase text-neutral-500 sm:hidden">
+	About Us
+</h2>
+<div id="banner" class="mt-8 w-[100vw] px-4 lg:mt-4 lg:px-0">
 	<img {src} alt="" class="mx-auto object-contain" style:height={`${(width / 2048) * 1152}px`} />
 </div>
 <section class="relative mx-auto mt-8 max-w-2xl lg:mt-14">
