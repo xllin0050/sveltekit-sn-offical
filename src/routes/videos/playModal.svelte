@@ -15,7 +15,7 @@
 	id="modal"
 	class="relative flex max-h-screen w-3/4 flex-col justify-between rounded-md bg-neutral-50 p-2 uppercase md:px-12 md:py-8"
 >
-	<div class="absolute right-1 top-2 w-8 bg-neutral-50" on:click={closeModal} aria-hidden="true">
+	<div class="absolute right-1 top-1 w-6 bg-neutral-50" on:click={closeModal} aria-hidden="true">
 		<img src={closeIcon} alt="" />
 	</div>
 	<div class="resp-container">
