@@ -6,6 +6,8 @@
 	import Modal from './playModal.svelte';
 	import type { PageData } from './$types';
 	import { goto } from '$app/navigation';
+	import 'lazysizes';
+
 	export let data: PageData;
 	const { videos } = data;
 	let currentId: string = '';
@@ -49,7 +51,7 @@
 					}}
 					aria-hidden="true"
 				>
-					<img src={video.snapshot} alt="" class="card-shadow bg-white" />
+					<img src={video.snapshot} alt="" class="lazyload card-shadow bg-white" />
 					{#if currentId === video.id}
 						<div
 							class=" absolute top-0 flex h-full w-full items-center justify-center bg-neutral-700/60"
