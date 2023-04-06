@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import enterIcon from '$lib/assets/icons/enter-svgrepo-com.svg';
 	import PageHead from '$lib/components/PageHead.svelte';
 	import Modal from './playModal.svelte';
@@ -64,10 +65,12 @@
 	</ul>
 </section>
 {#if isOpenModal && !phoneScreen}
-	<Modal
-		{videoData}
-		on:closeModal={() => {
-			isOpenModal = false;
-		}}
-	/>
+	<div transition:fade={{ duration: 100 }}>
+		<Modal
+			{videoData}
+			on:closeModal={() => {
+				isOpenModal = false;
+			}}
+		/>
+	</div>
 {/if}

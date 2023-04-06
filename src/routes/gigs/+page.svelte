@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 	import PageHead from '$lib/components/PageHead.svelte';
 	import Modal from './InfoModal.svelte';
 	import type { PageData } from './$types';
@@ -20,18 +21,18 @@
 	<ul class="pt-10 md:pt-0">
 		{#each gigs as gig}
 			<li
-				class="mb-14 flex flex-col items-center rounded-md bg-neutral-50 pt-4 pb-8 text-xs uppercase shadow-md transition-shadow hover:shadow-lg lg:mb-8 lg:flex-row lg:py-8 lg:pl-4"
+				class="mb-14 flex flex-col items-center rounded-md bg-neutral-50 pb-8 pt-4 text-xs uppercase shadow-md transition-shadow hover:shadow-lg lg:mb-8 lg:flex-row lg:py-8 lg:pl-4"
 				class:ring-2={gig.coming}
 				class:ring-neutral-600={gig.coming}
 			>
 				<div class="text-sm lg:pr-4">{gig.show_time}</div>
 				{#if gig.title}
-					<div class="mt-4 mb-6 lg:m-0">
+					<div class="mb-6 mt-4 lg:m-0">
 						{gig.title}
 					</div>
 				{/if}
 				<div
-					class="my-2 flex items-center justify-end font-normal text-neutral-800 lg:my-0 lg:grow "
+					class="my-2 flex items-center justify-end font-normal text-neutral-800 lg:my-0 lg:grow"
 				>
 					{gig.venue}
 				</div>
@@ -40,7 +41,7 @@
 				</div>
 				<div class="flex w-auto pt-6 lg:w-[160px] lg:pt-0">
 					<div
-						class="mx-2 cursor-pointer rounded-md p-1 px-3 ring-1 ring-neutral-400 transition-colors hover:font-medium hover:ring-neutral-600 "
+						class="mx-2 cursor-pointer rounded-md p-1 px-3 ring-1 ring-neutral-400 transition-colors hover:font-medium hover:ring-neutral-600"
 						on:click={() => {
 							openModal(gig);
 						}}
@@ -50,7 +51,7 @@
 					</div>
 					{#if gig.coming}
 						<div
-							class="rounded-md p-1 px-3 font-medium underline underline-offset-4 hover:text-red-400 "
+							class="rounded-md p-1 px-3 font-medium underline underline-offset-4 hover:text-red-400"
 						>
 							<a href={gig.event_url} target="_blank">ticket</a>
 						</div>
@@ -61,10 +62,12 @@
 	</ul>
 </section>
 {#if isOpenModal}
-	<Modal
-		{gigData}
-		on:closeModal={() => {
-			isOpenModal = false;
-		}}
-	/>
+	<div transition:fade={{ duration: 100 }}>
+		<Modal
+			{gigData}
+			on:closeModal={() => {
+				isOpenModal = false;
+			}}
+		/>
+	</div>
 {/if}

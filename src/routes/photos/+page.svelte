@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import { lazyLoad } from './lazyLoad.js';
 	import PageHead from '$lib/components/PageHead.svelte';
 	import Modal from './PhotoModal.svelte';
@@ -21,9 +22,7 @@
 
 <svelte:window bind:outerWidth={screenWidth} />
 <PageHead />
-<h2 class="pt-8 text-center text-lg font-medium uppercase text-neutral-500 sm:hidden">
-	photos
-</h2>
+<h2 class="pt-8 text-center text-lg font-medium uppercase text-neutral-500 sm:hidden">photos</h2>
 <section id="photosWrapper" class="flex flex-col flex-wrap pt-10 md:flex-row md:px-12 md:pt-8">
 	{#each photoUrls as photoUrl}
 		<figure
@@ -38,12 +37,14 @@
 	{/each}
 </section>
 {#if isOpenModal && !phoneScreen}
-	<Modal
-		{singlePhotoUrl}
-		on:closeModal={() => {
-			isOpenModal = false;
-		}}
-	/>
+	<div transition:fade={{ duration: 100 }}>
+		<Modal
+			{singlePhotoUrl}
+			on:closeModal={() => {
+				isOpenModal = false;
+			}}
+		/>
+	</div>
 {/if}
 
 <style>
