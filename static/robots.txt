@@ -1,0 +1,8 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Allow: /
+
+Sitemap: http://www.supernapkin.com/sitemap.xml
+Sitemap: http://www.supernapkin.band/sitemap2.xml
