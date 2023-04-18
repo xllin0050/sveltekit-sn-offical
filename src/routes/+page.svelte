@@ -59,6 +59,7 @@
 		stopAnimationFrame = requestAnimationFrame(titleMoving);
 	};
 	onMount(() => {
+		titleTop = videoWrap.offsetHeight / 2 - pageTitle.offsetHeight;
 		titleMoving();
 		const browser = window.navigator.language;
 		const zh = ['zh-tw', 'zh-cn', 'zh-hk'];

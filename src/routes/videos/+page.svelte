@@ -54,6 +54,7 @@
 					<img src={video.snapshot} alt="" class="lazyload card-shadow bg-white" />
 					{#if currentId === video.id}
 						<div
+							transition:fade={{ duration: 150 }}
 							class=" absolute top-0 flex h-full w-full items-center justify-center bg-neutral-700/60"
 						>
 							<div class="w-28 invert">
@@ -67,7 +68,7 @@
 	</ul>
 </section>
 {#if isOpenModal && !phoneScreen}
-	<div transition:fade={{ duration: 100 }}>
+	<div transition:fade={{ duration: 150 }}>
 		<Modal
 			{videoData}
 			on:closeModal={() => {

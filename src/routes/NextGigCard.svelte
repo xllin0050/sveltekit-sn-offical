@@ -23,7 +23,7 @@
 	<div class="w-[270px] lg:w-[426px]">
 		{#if Object.keys(nextGig).length}
 			<div
-				class="card-shadow hover:card-shadow-elev flex flex-col items-center rounded bg-neutral-50 transition hover:scale-105"
+				class="card-shadow hover:card-shadow-elev flex flex-col items-center rounded bg-neutral-50 transition-all duration-300 hover:scale-105"
 			>
 				<a
 					href={nextGig.event_url}

@@ -27,7 +27,7 @@
 					<img
 						src={album.cover}
 						alt={album.title}
-						class="card-shadow mx-auto block w-full object-cover"
+						class="card-shadow hover:card-shadow-elev duration-600 mx-auto block w-full object-cover transition-all hover:scale-105 hover:rounded-2xl"
 					/>
 				</a>
 			</div>
