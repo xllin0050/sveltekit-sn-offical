@@ -5,12 +5,12 @@
 	import NextGigCard from './NextGigCard.svelte';
 	import AlbumListColumn from './AlbumListColumn.svelte';
 	import still from '$lib/assets/still-banner.jpeg';
-
+	import video from '$lib/assets/video-banner.mp4';
 	// get supabase data at server side
 	import type { PageData } from './$types';
 	export let data: PageData | { [index: string]: any } = {};
 
-	const { nextGig, videoUrl, albums } = data;
+	const { nextGig, albums } = data;
 
 	let _YScroll: number;
 	let banner: HTMLElement;
@@ -85,7 +85,7 @@
 			class="mx-auto"
 			preload="auto"
 		>
-			<source src={videoUrl.signedUrl} type="video/mp4" />
+			<source src={video} type="video/mp4" />
 		</video>
 	</div>
 	<h1
@@ -94,7 +94,7 @@
 		style:top={titleTop + 'px'}
 	>
 		<div
-			class="text-center text-3xl font-medium uppercase tracking-[.1em] lg:text-7xl lg:tracking-[.3em]"
+			class="lg:tracking-[.3em] text-center text-3xl font-medium uppercase tracking-[.1em] lg:text-7xl"
 			class:opacity-0={!titleTop}
 		>
 			super napkin
@@ -103,7 +103,7 @@
 </section>
 <section class="block w-full pt-12 text-neutral-900 lg:hidden">
 	<h1
-		class="text-center text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:ml-[.3em] lg:text-7xl lg:tracking-[.3em]"
+		class="lg:ml-[.3em] lg:tracking-[.3em] text-center text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:text-7xl"
 	>
 		super napkin
 	</h1>

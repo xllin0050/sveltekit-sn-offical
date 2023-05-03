@@ -3,7 +3,7 @@
 	import PageHead from '$lib/components/PageHead.svelte';
 	import Modal from './InfoModal.svelte';
 	import type { PageData } from './$types';
-	export let data: PageData | { [index: string]: any } = {};
+	export let data: PageData | { [index: string]: any };
 
 	const { gigs } = data;
 	let isOpenModal: boolean = false;
@@ -25,21 +25,21 @@
 				class:ring-2={gig.coming}
 				class:ring-neutral-600={gig.coming}
 			>
-				<div class="text-sm lg:pr-4">{gig.show_time}</div>
-				{#if gig.title}
+				<div class="text-sm lg:pr-4">{gig.gigdate.slice(0, 10)}</div>
+				{#if gig.gigtitle}
 					<div class="mb-6 mt-4 lg:m-0">
-						{gig.title}
+						{gig.gigtitle}
 					</div>
 				{/if}
 				<div
 					class="my-2 flex items-center justify-end font-normal text-neutral-800 lg:my-0 lg:grow"
 				>
-					{gig.venue}
+					{gig.gigvenue}
 				</div>
 				<div class="my-1 flex items-center font-normal text-neutral-800 lg:my-0 lg:w-24 lg:pl-3">
-					{gig.city}
+					{gig.giglocation}
 				</div>
-				<div class="flex w-auto pt-6 lg:w-[160px] lg:pt-0">
+				<div class="lg:w-[160px] flex w-auto pt-6 lg:pt-0">
 					<div
 						class="mx-2 cursor-pointer rounded-md p-1 px-3 ring-1 ring-neutral-400 transition-colors hover:font-medium hover:ring-neutral-600"
 						on:click={() => {
@@ -53,7 +53,7 @@
 						<div
 							class="rounded-md p-1 px-3 font-medium underline underline-offset-4 hover:text-red-400"
 						>
-							<a href={gig.event_url} target="_blank">ticket</a>
+							<a href={gig.gigurl} target="_blank">ticket</a>
 						</div>
 					{/if}
 				</div>
