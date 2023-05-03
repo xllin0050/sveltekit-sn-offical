@@ -1,36 +1,14 @@
-import { supabase } from '$lib/supabaseClient';
+import { pb } from '$lib/pocketbase';
 import albums from '$lib/data/discography';
 
-const getNextGigs = async () => {
-	const today = new Date().toISOString();
-	let { data, error } = await supabase
-		.from('gigs')
-		.select('*')
-		.order('show_time')
-		.gte('show_time', today);
-
-	let theNextOne = {};
-	if (data && data.length) {
-		theNextOne = data[0];
-	}
-
-	return theNextOne;
-};
-
-const createUrl = async () => {
-	const { data } = await supabase.storage
-		.from('assets')
-		.createSignedUrl('video-banner-2.mp4', 36000);
-
-	return data;
-};
-
 export async function load() {
-	const nextGig = await getNextGigs();
-	const videoUrl = await createUrl();
+	// const today = new Date().toJSON().slice(0, 10);
+	const testday = '2023-04-25';
+	const nextGig = await pb.collection('sngigs').getFirstListItem(`gigdate>"${testday}"`);
+	// console.log(nextGig);
+
 	return {
 		nextGig,
-		videoUrl,
 		albums
 	};
 }

@@ -6,11 +6,12 @@
 	import Modal from './PhotoModal.svelte';
 	import type { PageData } from './$types';
 	export let data: PageData;
-	const { photoUrls } = data;
+	const { photos } = data;
 	let isOpenModal: boolean = false;
 	let screenWidth: number;
 	let phoneScreen: boolean;
 	let singlePhotoUrl: string;
+	const thumbnailUrlPreifx = `${import.meta.env.VITE_POCKETBASE}/api/files/snphotos`
 	const openModal = (data: string) => {
 		singlePhotoUrl = data;
 		isOpenModal = true;
@@ -24,15 +25,15 @@
 <PageHead />
 <h2 class="pt-8 text-center text-lg font-medium uppercase text-neutral-500 sm:hidden">photos</h2>
 <section id="photosWrapper" class="flex flex-col flex-wrap pt-10 md:flex-row md:px-12 md:pt-8">
-	{#each photoUrls as photoUrl}
+	{#each photos as photo}
 		<figure
 			class="max-h-[500px] min-h-[200px] w-full md:min-h-[300px] md:w-1/3"
 			on:click={() => {
-				openModal(photoUrl);
+				openModal(`${thumbnailUrlPreifx}/${photo.id}/${photo.photo}`);
 			}}
 			aria-hidden="true"
 		>
-			<img use:lazyLoad={photoUrl} alt="" class="h-full w-full object-cover" />
+			<img use:lazyLoad={`${thumbnailUrlPreifx}/${photo.id}/${photo.photo}?thumb=500x375`} alt="" class="h-full w-full object-cover" />
 		</figure>
 	{/each}
 </section>

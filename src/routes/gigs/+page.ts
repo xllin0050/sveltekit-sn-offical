@@ -1,24 +1,17 @@
-import { supabase } from '$lib/supabaseClient';
-
-const getGigsData = async () => {
-	const today = new Date();
-	const { data: gigs, error } = await supabase
-		.from('gigs')
-		.select('*')
-		.order('show_time', { ascending: false });
-
-	let gigsData: any[] = [];
-	if (gigs && gigs.length) {
-		gigsData = gigs.map((gig) => {
-			const gigDate = new Date(gig.show_time);
-			gig.coming = gigDate >= today;
-			return gig;
-		});
-	}
-	return gigsData;
-};
+import { pb } from '$lib/pocketbase';
 
 export async function load() {
-	const gigs = await getGigsData();
+	// const today = new Date();
+	const testday = new Date('2023-04-25');
+
+	const gigs = await (
+		await pb.collection('sngigs').getFullList({ sort: '-gigdate' })
+	).map((gig) => {
+		const gigDate = new Date(gig.gigdate);
+		gig.coming = gigDate >= testday;
+		return gig;
+	});
+	// console.log(gigs);
+
 	return { gigs };
 }

@@ -2,6 +2,9 @@
 	import { createEventDispatcher, onMount, onDestroy } from 'svelte';
 	import closeIcon from '$lib/assets/icons/close-square-svgrepo-com.svg';
 	export let gigData: any;
+	const posterUrl = `${import.meta.env.VITE_POCKETBASE}/api/files/sngigs/${gigData.id}/${
+		gigData.gigbanner
+	}`;
 
 	const dispatch = createEventDispatcher();
 	let imgLoadded = false;
@@ -21,14 +24,14 @@
 
 <div
 	id="modal"
-	class="relative flex max-h-screen w-3/4 flex-col justify-between rounded-md bg-neutral-50 p-2 uppercase  md:w-1/3 md:px-6 md:pt-8"
+	class="md:w-1/3 relative flex max-h-screen w-3/4 flex-col justify-between rounded-md bg-neutral-50 p-2 uppercase md:px-6 md:pt-8"
 >
 	<div class="absolute right-1 top-2 w-8 bg-neutral-50" on:click={closeModal} aria-hidden="true">
 		<img src={closeIcon} alt="" />
 	</div>
 	<div class="w-full">
 		<img
-			src={gigData.banner}
+			src={posterUrl}
 			alt=""
 			class="mx-auto"
 			on:load={() => {
@@ -40,10 +43,10 @@
 		{/if}
 	</div>
 	<div class="flex flex-col p-4 text-sm lg:text-base">
-		<p class="pt-6">{gigData.show_time}</p>
-		<p class="pt-6">{gigData.venue}</p>
-		{#if gigData.note}
-			<p class="pt-6 text-xs normal-case text-gray-500">{gigData.note}</p>
+		<p class="pt-6">{gigData.gigdate.slice(0, 10)}</p>
+		<p class="pt-6">{gigData.gigvenue}</p>
+		{#if gigData.gignote}
+			<p class="pt-6 text-xs normal-case text-gray-500">{gigData.gignote}</p>
 		{/if}
 	</div>
 	<div class="pt-8">
@@ -52,7 +55,7 @@
 			on:click={closeModal}
 			aria-hidden="true"
 		>
-			<a href={gigData.event_url} target="_blank" class="flex items-center justify-center">info </a>
+			<a href={gigData.gigurl} target="_blank" class="flex items-center justify-center">info </a>
 		</div>
 	</div>
 </div>
