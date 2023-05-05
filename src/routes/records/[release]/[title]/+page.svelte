@@ -22,12 +22,16 @@
 			<img src={album.cover} alt="" class="w-full" />
 		</div>
 		<div class=" mb-16">
-			<div class="flex items-baseline justify-between">
-				<h1 class="py-10 pb-14 text-lg font-bold uppercase lg:py-16 lg:text-2xl">
+			<div class="flex items-center justify-between">
+				<h1 class="py-10 pb-0 text-lg font-bold uppercase lg:pt-16 lg:pb-4 lg:text-2xl">
 					{album.title}
 				</h1>
-				<TextSwitch />
 			</div>
+			{#if album.desc[displayText]}
+				<div class="mb-4 flex justify-end">
+					<TextSwitch />
+				</div>
+			{/if}
 
 			<div class=" max-w-xl pb-14">
 				<div

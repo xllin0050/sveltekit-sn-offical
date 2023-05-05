@@ -8,6 +8,15 @@
 	const { gigs } = data;
 	let isOpenModal: boolean = false;
 	let gigData: any;
+
+	// const today = new Date();
+	const testday = new Date('2023-04-25');
+
+	gigs.forEach((gig: { [index: string]: any }) => {
+		const gigDate = new Date(gig.gigdate);
+		gig.coming = gigDate >= testday;
+	});
+
 	const openModal = (data: any) => {
 		gigData = data;
 		isOpenModal = true;
@@ -21,7 +30,7 @@
 	<ul class="pt-10 md:pt-0">
 		{#each gigs as gig}
 			<li
-				class="mb-14 flex flex-col items-center rounded-md bg-neutral-50 pb-8 pt-4 text-xs uppercase shadow-md transition-shadow hover:shadow-lg lg:mb-8 lg:flex-row lg:py-8 lg:pl-4"
+				class="mb-14 flex flex-col items-center rounded-md bg-neutral-50 pb-8 pt-4 text-xs uppercase shadow-md transition-shadow hover:shadow-lg lg:mb-8 lg:flex-row lg:px-4 lg:py-8"
 				class:ring-2={gig.coming}
 				class:ring-neutral-600={gig.coming}
 			>
@@ -31,15 +40,15 @@
 						{gig.gigtitle}
 					</div>
 				{/if}
-				<div
-					class="my-2 flex items-center justify-end font-normal text-neutral-800 lg:my-0 lg:grow"
-				>
-					{gig.gigvenue}
-				</div>
-				<div class="my-1 flex items-center font-normal text-neutral-800 lg:my-0 lg:w-24 lg:pl-3">
-					{gig.giglocation}
-				</div>
-				<div class="lg:w-[160px] flex w-auto pt-6 lg:pt-0">
+
+				<div class="flex w-auto grow justify-end pt-6 lg:w-[160px] lg:pt-0">
+					{#if gig.coming}
+						<div
+							class="rounded-md p-1 px-3 font-medium underline underline-offset-4 hover:text-red-400"
+						>
+							<a href={gig.gigurl} target="_blank">ticket</a>
+						</div>
+					{/if}
 					<div
 						class="mx-2 cursor-pointer rounded-md p-1 px-3 ring-1 ring-neutral-400 transition-colors hover:font-medium hover:ring-neutral-600"
 						on:click={() => {
@@ -49,13 +58,6 @@
 					>
 						info
 					</div>
-					{#if gig.coming}
-						<div
-							class="rounded-md p-1 px-3 font-medium underline underline-offset-4 hover:text-red-400"
-						>
-							<a href={gig.gigurl} target="_blank">ticket</a>
-						</div>
-					{/if}
 				</div>
 			</li>
 		{/each}

@@ -11,7 +11,7 @@
 	let previousPage: string;
 	// let forwardPage: string | null | undefined;
 	const scrollHandler = () => {
-		if (scrollHeight > screenHeight) {
+		if (scrollHeight > screenHeight / 2) {
 			scrollButton.classList.remove('opacity-0');
 		} else {
 			scrollButton.classList.add('opacity-0');
