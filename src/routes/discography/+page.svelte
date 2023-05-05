@@ -8,7 +8,7 @@
 </script>
 
 <PageHead />
-<h2 class="pt-8 text-center text-lg font-medium uppercase text-neutral-500 sm:hidden">
+<h2 class="pt-8 text-center text-sm font-medium uppercase text-neutral-500 sm:hidden">
 	Discography
 </h2>
 <section class="mx-auto max-w-sm lg:max-w-4xl lg:pt-4">

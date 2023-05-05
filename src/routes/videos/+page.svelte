@@ -27,11 +27,11 @@
 
 <svelte:window bind:outerWidth={screenWidth} />
 <PageHead />
-<h2 class="pt-8 text-center text-lg font-medium uppercase text-neutral-500 sm:hidden">videos</h2>
+<h2 class="pt-8 text-center text-sm font-medium uppercase text-neutral-500 sm:hidden">videos</h2>
 <section>
 	<ul class="mx-auto max-w-3xl sm:pt-0 lg:mt-16">
 		{#each videos as video}
-			<li class="px-8 pb-0 lg:mb-28">
+			<li class="mb-20 px-8 lg:mb-28">
 				<h3 class="pb-3 pt-10 text-center text-xs font-medium lg:pb-6 lg:text-left lg:text-base">
 					{video.title}
 				</h3>

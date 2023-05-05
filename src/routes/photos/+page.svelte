@@ -23,7 +23,7 @@
 
 <svelte:window bind:outerWidth={screenWidth} />
 <PageHead />
-<h2 class="pt-8 text-center text-lg font-medium uppercase text-neutral-500 sm:hidden">photos</h2>
+<h2 class="pt-8 text-center text-sm font-medium uppercase text-neutral-500 sm:hidden">photos</h2>
 <section id="photosWrapper" class="flex flex-col flex-wrap pt-10 md:flex-row md:px-12 md:pt-8">
 	{#each photos as photo}
 		<figure

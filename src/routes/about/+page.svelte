@@ -13,7 +13,7 @@
 
 <svelte:window bind:innerWidth={width} />
 <PageHead />
-<h2 class="pt-8 text-center text-lg font-medium uppercase text-neutral-500 sm:hidden">
+<h2 class="pt-8 text-center text-sm font-medium uppercase text-neutral-500 sm:hidden">
 	About Us
 </h2>
 <div id="banner" class="mt-8 w-[100vw] px-4 lg:mt-4 lg:px-0">

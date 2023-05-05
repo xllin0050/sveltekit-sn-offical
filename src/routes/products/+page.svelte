@@ -7,7 +7,7 @@
 </script>
 
 <PageHead />
-<h2 class="pt-8 text-center text-lg font-medium uppercase text-neutral-500 sm:hidden">
+<h2 class="pt-8 text-center text-sm font-medium uppercase text-neutral-500 sm:hidden">
 	products
 </h2>
 <section class="mx-auto max-w-sm pt-0 sm:max-w-5xl sm:pt-2">

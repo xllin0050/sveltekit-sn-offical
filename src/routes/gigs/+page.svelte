@@ -24,7 +24,7 @@
 </script>
 
 <PageHead />
-<h2 class="pt-8 text-center text-lg font-medium uppercase text-neutral-500 sm:hidden">Gigs</h2>
+<h2 class="pt-8 text-center text-sm font-medium uppercase text-neutral-500 sm:hidden">Gigs</h2>
 
 <section class="mx-auto min-h-screen max-w-xs pb-16 lg:max-w-4xl lg:pt-6">
 	<ul class="pt-10 md:pt-0">
@@ -33,6 +33,7 @@
 				class="mb-14 flex flex-col items-center rounded-md bg-neutral-50 pb-8 pt-4 text-xs uppercase shadow-md transition-shadow hover:shadow-lg lg:mb-8 lg:flex-row lg:px-4 lg:py-8"
 				class:ring-2={gig.coming}
 				class:ring-neutral-600={gig.coming}
+				class:hidden={!gig.announce}
 			>
 				<div class="text-sm lg:pr-4">{gig.gigdate.slice(0, 10)}</div>
 				{#if gig.gigtitle}
