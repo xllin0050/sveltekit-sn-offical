@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { beforeNavigate } from '$app/navigation';
+	import { afterNavigate } from '$app/navigation';
 	import menuIcon from '$lib/assets/icons/menu-04-svgrepo-com.svg';
 	import closeIcon from '$lib/assets/icons/close-square-svgrepo-com.svg';
 	let isMenuOpen = false;
 	const menuSwitch = () => {
 		isMenuOpen = !isMenuOpen;
 	};
-	beforeNavigate(() => {
+	afterNavigate(() => {
 		isMenuOpen = false;
 	});
 </script>

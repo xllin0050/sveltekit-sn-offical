@@ -14,7 +14,7 @@
 			<div
 				class="card-shadow hover:card-shadow-elev flex flex-col items-center rounded bg-neutral-50 transition-all duration-300 hover:scale-105"
 			>
-				<a href={nextGig.gigurl} target="_blank" rel="noreferrer" class="block w-full p-4 lg:pl-16">
+				<a href={nextGig.gigurl} target="_blank" rel="noreferrer" class="block w-full p-4 pl-8 lg:pl-16">
 					<div class="py-0 text-sm lg:py-2 lg:text-base">
 						{nextGig.gigdate.slice(0, 10)}
 					</div>
@@ -23,7 +23,7 @@
 							{nextGig.gigtitle}
 						</div>
 					{/if}
-					<div class="py-1 text-xs uppercase text-gray-800 lg:py-4 lg:text-sm">
+					<div class="pb-2 text-xs uppercase text-gray-800 lg:py-4 lg:text-sm">
 						{nextGig.giglocation}
 					</div>
 					<div class="pb-4 text-xs uppercase text-gray-800 lg:pb-4 lg:pt-1 lg:text-sm">

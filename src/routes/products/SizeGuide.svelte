@@ -3,7 +3,7 @@
 </script>
 
 <div class="py-2">Size Guide (CM)</div>
-<div class="flex justify-center">
+<div class="flex flex-col items-center">
 	<ul>
 		{#each Object.entries(data) as [sizeName, sizeNum]}
 			<li class="flex py-2">
@@ -16,4 +16,5 @@
 			</li>
 		{/each}
 	</ul>
+	<div class="w-[24ch] pt-4 text-gray-500">Sizes may rarely vary in the range of 5%</div>
 </div>
