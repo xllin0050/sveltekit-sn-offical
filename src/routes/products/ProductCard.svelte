@@ -7,7 +7,7 @@
 </script>
 
 <div
-	class="card-shadow hover:card-shadow-elev flex h-full w-[280px] flex-col justify-start rounded-lg bg-white"
+	class="card-shadow hover:card-shadow-elev flex h-full w-[280px] flex-col justify-start rounded-lg bg-neutral-50"
 >
 	<div class="mx-auto min-h-[280px] w-full p-2 sm:p-4">
 		<img src={pictureUrl} alt="super napkin goods" />
@@ -25,7 +25,7 @@
 			<SizeGuide data={data.itemsize} />
 		{/if}
 		{#if data.itemnote}
-			<div class="pt-8 text-left sm:pt-12">
+			<div class="pt-8 pl-0 text-left sm:pt-12 sm:pl-4">
 				<div class="pb-2">Notice:</div>
 				{#each Object.entries(data.itemnote) as [line, text]}
 					<div class="pb-2">{text}</div>
