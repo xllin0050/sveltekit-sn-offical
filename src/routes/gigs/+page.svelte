@@ -37,7 +37,7 @@
 			>
 				<div class="text-sm lg:pr-4">{gig.gigdate.slice(0, 10)}</div>
 				{#if gig.gigtitle}
-					<div class="mb-6 mt-4 lg:m-0">
+					<div class="pt-4 sm:pt-0">
 						{gig.gigtitle}
 					</div>
 				{/if}
