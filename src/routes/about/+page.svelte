@@ -11,11 +11,14 @@
 	});
 </script>
 
+<svelte:head>
+	<link rel="preload" as="image" href={src} />
+</svelte:head>
+
 <svelte:window bind:innerWidth={width} />
+
 <PageHead />
-<h2 class="pt-8 text-center text-sm font-medium uppercase text-neutral-500 sm:hidden">
-	About Us
-</h2>
+<h2 class="pt-8 text-center text-sm font-medium uppercase text-neutral-500 sm:hidden">About Us</h2>
 <div id="banner" class="mt-8 w-[100vw] px-4 lg:mt-4 lg:px-0">
 	<img {src} alt="" class="mx-auto object-contain" style:height={`${(width / 2048) * 1152}px`} />
 </div>
