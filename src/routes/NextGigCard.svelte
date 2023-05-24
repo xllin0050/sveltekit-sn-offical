@@ -10,11 +10,16 @@
 	</h3>
 
 	<div class="w-[270px] lg:w-[426px]">
-		{#if nextGig}
+		{#if Object.keys(nextGig).length}
 			<div
 				class="card-shadow hover:card-shadow-elev flex flex-col items-center rounded bg-neutral-50 transition-all duration-300 hover:scale-105"
 			>
-				<a href={nextGig.gigurl} target="_blank" rel="noreferrer" class="block w-full p-4 pl-8 lg:pl-16">
+				<a
+					href={nextGig.gigurl}
+					target="_blank"
+					rel="noreferrer"
+					class="block w-full p-4 pl-8 lg:pl-16"
+				>
 					<div class="py-0 text-sm lg:py-2 lg:text-base">
 						{nextGig.gigdate.slice(0, 10)}
 					</div>

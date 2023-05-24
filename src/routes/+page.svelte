@@ -94,7 +94,7 @@
 		style:top={titleTop + 'px'}
 	>
 		<div
-			class="lg:tracking-[.3em] text-center text-3xl font-medium uppercase tracking-[.1em] lg:text-7xl"
+			class="text-center text-3xl font-medium uppercase tracking-[.1em] lg:text-7xl lg:tracking-[.3em]"
 			class:opacity-0={!titleTop}
 		>
 			super napkin
@@ -103,7 +103,7 @@
 </section>
 <section class="block w-full pt-12 text-neutral-900 lg:hidden">
 	<h1
-		class="lg:ml-[.3em] lg:tracking-[.3em] text-center text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:text-7xl"
+		class="text-center text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:ml-[.3em] lg:text-7xl lg:tracking-[.3em]"
 	>
 		super napkin
 	</h1>

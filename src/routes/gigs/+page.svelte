@@ -6,15 +6,16 @@
 	export let data: PageData | { [index: string]: any };
 
 	const { gigs } = data;
+
 	let isOpenModal: boolean = false;
+
 	let gigData: any;
 
-	// const today = new Date();
-	const testday = new Date('2023-04-25');
+	const today = new Date();
 
 	gigs.forEach((gig: { [index: string]: any }) => {
 		const gigDate = new Date(gig.gigdate);
-		gig.coming = gigDate >= testday;
+		gig.coming = gigDate >= today;
 	});
 
 	const openModal = (data: any) => {
