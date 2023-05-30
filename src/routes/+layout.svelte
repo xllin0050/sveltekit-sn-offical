@@ -6,9 +6,11 @@
 	import igIcon from '$lib/assets/icons/instagram-svgrepo-com.svg';
 	import ytIcon from '$lib/assets/icons/youtube-svgrepo-com.svg';
 	import mailIcon from '$lib/assets/icons/mail-svgrepo-com.svg';
-
 </script>
 
+<svelte:head>
+	<title>Super Npakin Offical</title>
+</svelte:head>
 <div id="layout" class="font-red-hat">
 	<AppNav />
 	<ScrollHandler />
@@ -67,7 +69,7 @@
 
 <style lang="postcss">
 	:global(.page-links a) {
-		@apply mx-4 py-10 px-0 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;
+		@apply mx-4 px-0 py-10 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;
 		word-spacing: -0.3em;
 	}
 	:global(.footer-links li) {

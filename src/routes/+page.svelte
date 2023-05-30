@@ -5,7 +5,7 @@
 	import NextGigCard from './NextGigCard.svelte';
 	import AlbumListColumn from './AlbumListColumn.svelte';
 	import still from '$lib/assets/still-banner.jpeg';
-	import video from '$lib/assets/video-banner.mp4';
+	// import video from '$lib/assets/video-banner.mp4';
 	// get supabase data at server side
 	import type { PageData } from './$types';
 	export let data: PageData | { [index: string]: any } = {};
@@ -19,7 +19,6 @@
 	let YPrev = 0;
 	let YAddition = 0;
 	let stopAnimationFrame: any;
-
 	// 初始高度
 	let titleTop: number;
 	const titleMoving = () => {
@@ -74,7 +73,7 @@
 </script>
 
 <section bind:this={banner} class="relative hidden w-full bg-white pb-20 lg:block">
-	<div bind:this={videoWrap} id="video" class="bg-neutral-800">
+	<div bind:this={videoWrap} id="video" class="bg-black">
 		<video
 			width="1920"
 			height="1080"
@@ -85,7 +84,12 @@
 			class="mx-auto"
 			preload="auto"
 		>
-			<source src={video} type="video/mp4" />
+			<source
+				src={`${
+					import.meta.env.VITE_POCKETBASE
+				}/api/files/snassets/evu9t9ejyt0oryg/video_banner_FJtDjqk85B.mp4`}
+				type="video/mp4"
+			/>
 		</video>
 	</div>
 	<h1
