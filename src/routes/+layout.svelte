@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>Super Npakin Offical</title>
+	<title>Super Napkin Offical</title>
 </svelte:head>
 <div id="layout" class="font-red-hat">
 	<AppNav />
