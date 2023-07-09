@@ -5,7 +5,9 @@ export async function load() {
 	const today = new Date().toJSON().slice(0, 10);
 	let nextGig = {};
 	try {
-		nextGig = await pb.collection('sngigs').getFirstListItem(`gigdate>"${today}"`);
+		nextGig = (
+			await pb.collection('sngigs').getFullList({ sort: 'gigdate', filter: `gigdate>"${today}"` })
+		).shift();
 	} catch (err: any) {
 		console.log(err.response);
 	}
