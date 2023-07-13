@@ -5,7 +5,6 @@
 	import NextGigCard from './NextGigCard.svelte';
 	import AlbumListColumn from './AlbumListColumn.svelte';
 	import still from '$lib/assets/still-banner.jpeg';
-	// import video from '$lib/assets/video-banner.mp4';
 	// get supabase data at server side
 	import type { PageData } from './$types';
 	export let data: PageData | { [index: string]: any } = {};

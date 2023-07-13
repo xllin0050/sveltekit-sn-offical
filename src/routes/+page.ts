@@ -5,9 +5,11 @@ export async function load() {
 	const today = new Date().toJSON().slice(0, 10);
 	let nextGig = {};
 	try {
-		nextGig = (
-			await pb.collection('sngigs').getFullList({ sort: 'gigdate', filter: `gigdate>"${today}"` })
-		).shift();
+		const gigdates = await pb
+			.collection('sngigs')
+			.getFullList({ sort: 'gigdate', filter: `gigdate>"${today}"` });
+
+		if (gigdates.length) Object.assign(nextGig, gigdates.shift());
 	} catch (err: any) {
 		console.log(err.response);
 	}
