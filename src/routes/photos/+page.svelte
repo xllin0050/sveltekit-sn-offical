@@ -38,7 +38,7 @@
 	{/each}
 </section>
 {#if isOpenModal && !phoneScreen}
-	<div transition:fade={{ duration: 100 }}>
+	<div transition:fade|global={{ duration: 100 }}>
 		<Modal
 			{singlePhotoUrl}
 			on:closeModal={() => {

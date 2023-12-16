@@ -66,7 +66,7 @@
 	</ul>
 </section>
 {#if isOpenModal}
-	<div transition:fade={{ duration: 100 }}>
+	<div transition:fade|global={{ duration: 100 }}>
 		<Modal
 			{gigData}
 			on:closeModal={() => {
