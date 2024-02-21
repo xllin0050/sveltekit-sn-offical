@@ -1,4 +1,4 @@
-const data = [
+const videos = [
 	{
 		title: 'Love as a Bullet (OFFICIAL VIDEO)',
 		snapshot: '/videos/love_as_ a_bullet.jpg',
@@ -43,4 +43,4 @@ const data = [
 	}
 ];
 
-export default data;
+export default videos;

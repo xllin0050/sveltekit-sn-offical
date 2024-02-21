@@ -1,15 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { userLanguage } from '$lib/stores';
+	import { pb } from '$lib/pocketbase';
+
 	import MembersNameCircle from './MembersNameCircle.svelte';
 	import NextGigCard from './NextGigCard.svelte';
 	import AlbumListColumn from './AlbumListColumn.svelte';
 	import still from '$lib/assets/still-banner.jpeg';
-	// get supabase data at server side
-	import type { PageData } from './$types';
-	export let data: PageData | { [index: string]: any } = {};
-
-	const { nextGig, albums } = data;
+	import albums from '$lib/data/discography';
 
 	let _YScroll: number;
 	let banner: HTMLElement;
@@ -56,6 +54,15 @@
 
 		stopAnimationFrame = requestAnimationFrame(titleMoving);
 	};
+
+	let gigDates: { [key: string]: string }[] = [];
+
+	let nextGig: { [key: string]: string } = {};
+
+	if (gigDates.length) {
+		nextGig = Object.assign({}, gigDates.shift());
+	}
+
 	onMount(() => {
 		titleTop = videoWrap.offsetHeight / 2 - pageTitle.offsetHeight;
 		titleMoving();
@@ -64,10 +71,14 @@
 		if (!zh.includes(browser.toLowerCase())) {
 			userLanguage.set('en');
 		}
+		const today = new Date().toJSON().slice(0, 10);
+		(async () => {
+			gigDates = await pb
+				.collection('sngigs')
+				.getFullList({ sort: 'gigdate', filter: `gigdate>"${today}"` });
+		})();
 
-		return () => {
-			cancelAnimationFrame(stopAnimationFrame);
-		};
+		return () => cancelAnimationFrame(stopAnimationFrame);
 	});
 </script>
 
@@ -123,10 +134,12 @@
 
 <section class="mx-auto max-w-screen-lg">
 	<MembersNameCircle />
-
-	<NextGigCard {nextGig} />
-
-	<AlbumListColumn {albums} />
+	{#if nextGig && Object.keys(nextGig).length}
+		<NextGigCard {nextGig} />
+	{/if}
+	{#if albums && albums.length}
+		<AlbumListColumn {albums} />
+	{/if}
 </section>
 
 <svelte:window bind:scrollY={_YScroll} />

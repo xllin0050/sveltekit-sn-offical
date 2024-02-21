@@ -1,27 +1,27 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { pb } from '$lib/pocketbase';
 	import PageHead from '$lib/components/PageHead.svelte';
 	import Modal from './InfoModal.svelte';
-	import type { PageData } from './$types';
-	export let data: PageData | { [index: string]: any };
 
-	const { gigs } = data;
-
-	let isOpenModal: boolean = false;
-
-	let gigData: any;
-
+	let gigs: { [index: string]: any }[] = [];
 	const today = new Date();
-
 	gigs.forEach((gig: { [index: string]: any }) => {
 		const gigDate = new Date(gig.gigdate);
 		gig.coming = gigDate >= today;
 	});
 
+	let isOpenModal: boolean = false;
+	let gigData: any;
 	const openModal = (data: any) => {
 		gigData = data;
 		isOpenModal = true;
 	};
+
+	onMount(async () => {
+		gigs = await pb.collection('sngigs').getFullList({ sort: '-gigdate' });
+	});
 </script>
 
 <PageHead />
