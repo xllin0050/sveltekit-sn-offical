@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let nextGig: { [index: string]: any };
+	export let nextGig: any;
 </script>
 
 <div class="mx-auto flex flex-col items-center justify-center pb-20 pt-10 lg:pb-52 lg:pt-36">

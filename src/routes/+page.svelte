@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { userLanguage } from '$lib/stores';
 	import { pb } from '$lib/pocketbase';
+	import { userLanguage } from '$lib/stores';
+	import { onMount } from 'svelte';
 
-	import MembersNameCircle from './MembersNameCircle.svelte';
-	import NextGigCard from './NextGigCard.svelte';
-	import AlbumListColumn from './AlbumListColumn.svelte';
 	import still from '$lib/assets/still-banner.jpeg';
 	import albums from '$lib/data/discography';
+	import AlbumListColumn from './AlbumListColumn.svelte';
+	import MembersNameCircle from './MembersNameCircle.svelte';
+	import NextGigCard from './NextGigCard.svelte';
 
 	let _YScroll: number;
 	let banner: HTMLElement;
@@ -55,12 +55,13 @@
 		stopAnimationFrame = requestAnimationFrame(titleMoving);
 	};
 
-	let gigDates: { [key: string]: string }[] = [];
+	async function getNextGig() {
+		const today = new Date().toJSON().slice(0, 10);
+		const gigDates = await pb
+			.collection('sngigs')
+			.getFullList({ sort: 'gigdate', filter: `gigdate>"${today}"` });
 
-	let nextGig: { [key: string]: string } = {};
-
-	if (gigDates.length) {
-		nextGig = Object.assign({}, gigDates.shift());
+		return Object.assign({}, gigDates.shift());
 	}
 
 	onMount(() => {
@@ -71,12 +72,6 @@
 		if (!zh.includes(browser.toLowerCase())) {
 			userLanguage.set('en');
 		}
-		const today = new Date().toJSON().slice(0, 10);
-		(async () => {
-			gigDates = await pb
-				.collection('sngigs')
-				.getFullList({ sort: 'gigdate', filter: `gigdate>"${today}"` });
-		})();
 
 		return () => cancelAnimationFrame(stopAnimationFrame);
 	});
@@ -134,9 +129,9 @@
 
 <section class="mx-auto max-w-screen-lg">
 	<MembersNameCircle />
-	{#if nextGig && Object.keys(nextGig).length}
+	{#await getNextGig() then nextGig}
 		<NextGigCard {nextGig} />
-	{/if}
+	{/await}
 	{#if albums && albums.length}
 		<AlbumListColumn {albums} />
 	{/if}

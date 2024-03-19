@@ -1,5 +1,42 @@
 export default [
 	{
+		id: 7,
+		release: '2024-03-19',
+		tracks: {
+			track1: 'Nothing Shaped Hearts',
+			track2: 'Nothing is Diamond, Diamond is Wrong'
+		},
+		title: 'Nothing is Diamond, Diamond is Wrong',
+		listen: {
+			bandcamp: 'https://supernapkin.bandcamp.com/album/nothing-is-diamond-diamond-is-wrong',
+			Spotify: 'https://open.spotify.com/album/3ny1FFWk6PQF98kodYn9WQ',
+			'apple music':
+				'https://music.apple.com/tw/album/nothing-is-diamond-diamond-is-wrong-single/1734596033'
+		},
+		bandcamp:
+			'https://bandcamp.com/EmbeddedPlayer/album=3479095005/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/',
+		desc: {
+			zh: '三十出頭寫鑽石心的時候，以為要做的是不要被打倒。四十歲的現在，發現還沒有倒的部分或許才稱得上自己。要講的東西一樣，只是講法不太一樣。兩首舊歌重新編曲，珍貴的不是鑽石，是讓鑽石變成鑽石的時間。',
+			en: "In my early thirties, I wrote about ‘Diamond Shaped Hearts,’ thinking the goal was not to be knocked down. Now at forty, I realize it’s the parts that haven't fallen define who I am. New versions of two old tracks. The message remains the same, just told differently. The precious thing isn't the diamond itself, but the time it takes to turn a diamond into one."
+		},
+		note: [
+			'Recording - Slater Chiang',
+			'Mixing - Brian ‘Wish You Merry Christmas’ Elgin',
+			'Mastering - Brian ‘Wish You Merry Christmas’ Elgin',
+			'Mixing & Mastering Assistant - pada (Lin, Szu Tung)',
+			'Producer - Yau',
+			'Recording Studio - Rebel Sound Studio',
+			'Mixing Studio - Sentient Sound Labs',
+			'Mastering Studio - Resident Entertainment',
+			'Photo - Etang Chen',
+			'Design - Sherry Chen',
+			'All Sounds Made by Super Napkin',
+			'Special Thanks: Airhead Records'
+		],
+		url: 'nothing-is-diamond-diamond-is-wrong',
+		cover: '/covers/nothing-is-diamond-is-wrong.jpg'
+	},
+	{
 		id: 6,
 		release: '2023-03-15',
 		tracks: {
