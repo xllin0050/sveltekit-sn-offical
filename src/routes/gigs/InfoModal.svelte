@@ -7,7 +7,6 @@
 	}?thumb=300x225f`;
 
 	const dispatch = createEventDispatcher();
-	let imgLoadded = false;
 	const closeModal = () => {
 		dispatch('closeModal');
 	};
