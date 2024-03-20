@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { createEventDispatcher, onMount, onDestroy } from 'svelte';
 	import closeIcon from '$lib/assets/icons/close-square-svgrepo-com.svg';
+	import { createEventDispatcher, onDestroy, onMount } from 'svelte';
 	export let gigData: any;
 	const posterUrl = `${import.meta.env.VITE_POCKETBASE}/api/files/sngigs/${gigData.id}/${
 		gigData.gigbanner
@@ -24,34 +24,25 @@
 
 <div
 	id="modal"
-	class="relative flex h-[520px] w-[320px] flex-col justify-between rounded-md bg-neutral-50 p-2 uppercase"
+	class="relative flex h-[520px] w-[90%] flex-col justify-between rounded-md bg-neutral-50 p-2 uppercase lg:w-[45%] lg:p-8"
 >
 	<div class="absolute right-1 top-2 w-6 bg-neutral-50" on:click={closeModal} aria-hidden="true">
 		<img src={closeIcon} alt="" />
 	</div>
-	<div class="w-full pt-14">
-		<img
-			src={posterUrl}
-			alt=""
-			class="mx-auto"
-			on:load={() => {
-				imgLoadded = true;
-			}}
-		/>
-		{#if !imgLoadded}
-			<div class="h-[100px] px-16 pt-8 text-center">gig poster loading...</div>
-		{/if}
-	</div>
-	<div class="grow flex flex-col justify-end p-4 text-sm lg:text-base">
+	<div
+		class="w-full grow"
+		style="background-image: url({posterUrl}); background-size: contain; background-repeat: no-repeat; background-position: center;"
+	/>
+	<div class="flex flex-col justify-end p-4 text-center text-sm lg:text-base">
 		<p class="pt-6">{gigData.gigdate.slice(0, 10)}</p>
 		<p class="pt-6">{gigData.gigvenue} / {gigData.giglocation}</p>
 		{#if gigData.gignote}
 			<p class="pt-6 text-xs normal-case text-gray-500">{gigData.gignote}</p>
 		{/if}
 	</div>
-	<div class="pt-8">
+	<div class="flex flex-col items-center pt-8">
 		<div
-			class="rounded bg-neutral-100 p-2 text-base shadow hover:bg-neutral-100"
+			class="w-1/3 rounded bg-neutral-100 p-2 text-base shadow hover:bg-neutral-100"
 			on:click={closeModal}
 			aria-hidden="true"
 		>
