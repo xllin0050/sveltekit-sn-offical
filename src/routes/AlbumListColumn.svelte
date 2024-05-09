@@ -18,7 +18,7 @@
 	<h3
 		class="pb-4 text-center text-xl font-medium uppercase tracking-widest text-neutral-800 lg:pb-20 lg:text-3xl"
 	>
-		albums
+		releases
 	</h3>
 	{#each albums as album}
 		<div class="relative pb-10 lg:pb-28">

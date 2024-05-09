@@ -1,15 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { goto } from '$app/navigation';
 	import enterIcon from '$lib/assets/icons/enter-svgrepo-com.svg';
 	import PageHead from '$lib/components/PageHead.svelte';
 	import Modal from './playModal.svelte';
-	import type { PageData } from './$types';
-	import { goto } from '$app/navigation';
+	import videos from './data';
 	import 'lazysizes';
 
-	export let data: PageData;
-	const { videos } = data;
 	let currentId: string = '';
 	let screenWidth: number;
 	let phoneScreen: boolean;
