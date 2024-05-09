@@ -1,11 +1,11 @@
 <script lang="ts">
+	import fbIcon from '$lib/assets/icons/facebook-rounded-border-svgrepo-com.svg';
+	import igIcon from '$lib/assets/icons/instagram-svgrepo-com.svg';
+	import mailIcon from '$lib/assets/icons/mail-svgrepo-com.svg';
+	import ytIcon from '$lib/assets/icons/youtube-svgrepo-com.svg';
 	import '../app.css';
 	import AppNav from './AppNavbar.svelte';
 	import ScrollHandler from './ScrollHandler.svelte';
-	import fbIcon from '$lib/assets/icons/facebook-rounded-border-svgrepo-com.svg';
-	import igIcon from '$lib/assets/icons/instagram-svgrepo-com.svg';
-	import ytIcon from '$lib/assets/icons/youtube-svgrepo-com.svg';
-	import mailIcon from '$lib/assets/icons/mail-svgrepo-com.svg';
 </script>
 
 <svelte:head>
@@ -68,10 +68,6 @@
 </div>
 
 <style lang="postcss">
-	:global(.page-links a) {
-		@apply mx-4 px-0 py-10 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;
-		word-spacing: -0.3em;
-	}
 	:global(.footer-links li) {
 		@apply mx-4 text-neutral-700 hover:text-neutral-900;
 	}
