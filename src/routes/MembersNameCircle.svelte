@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	let shihDrum: HTMLElement;
 	let yauGtr: HTMLElement;
 	let weitingBass: HTMLElement;
@@ -27,7 +27,7 @@
 		nameIndex++;
 		if (nameIndex === 3) nameIndex = 0;
 		backgroundName = membersName[nameIndex];
-	}, 1600);
+	}, 1800);
 	onDestroy(() => {
 		clearInterval(changeNameTimer);
 	});
@@ -67,7 +67,7 @@
 	</div>
 	{#each membersName as name}
 		<div
-			class="absolute top-1/2 left-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:h-[320px] lg:w-[320px] {name}"
+			class="absolute left-1/2 top-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:h-[320px] lg:w-[320px] {name}"
 			class:opacity-100={name === backgroundName}
 			class:opacity-0={name !== backgroundName}
 		>

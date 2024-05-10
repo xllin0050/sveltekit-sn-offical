@@ -18,3 +18,10 @@
 	<a href="/photos" class:underline={$page.route.id === '/photos'}>photos</a>
 	<a href="/products" class:underline={$page.route.id === '/products'}>products</a>
 </nav>
+
+<style lang="postcss">
+	.page-links a {
+		@apply mx-4 px-0 py-10 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;
+		word-spacing: -0.3em;
+	}
+</style>
