@@ -3,7 +3,7 @@
 	import igIcon from '$lib/assets/icons/instagram-svgrepo-com.svg';
 	import mailIcon from '$lib/assets/icons/mail-svgrepo-com.svg';
 	import ytIcon from '$lib/assets/icons/youtube-svgrepo-com.svg';
-	import '../app.css';
+	import '../../app.css';
 	import AppNav from './AppNavbar.svelte';
 	import ScrollHandler from './ScrollHandler.svelte';
 </script>
