@@ -13,6 +13,7 @@ export default [
 			'apple music':
 				'https://music.apple.com/tw/album/nothing-is-diamond-diamond-is-wrong-single/1734596033'
 		},
+		spotify: 'https://open.spotify.com/album/3ny1FFWk6PQF98kodYn9WQ?si=R-9DqY9MTxiDXbtb2wlt1g',
 		bandcamp:
 			'https://bandcamp.com/EmbeddedPlayer/album=3479095005/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/',
 		desc: {
@@ -49,6 +50,7 @@ export default [
 			Spotify: 'https://open.spotify.com/album/5QMi9gH1Zh4T40hBgjXUrG?si=aGip3jweTkidIH-D17nLKQ',
 			'apple music': 'https://music.apple.com/tw/album/coz-i-love-you-single/1676219690'
 		},
+		spotify: 'https://open.spotify.com/album/5QMi9gH1Zh4T40hBgjXUrG?si=R1feSvtaSqim-TuRo3fgqg',
 		bandcamp:
 			'https://bandcamp.com/EmbeddedPlayer/album=3787555656/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/',
 		desc: {
@@ -87,6 +89,7 @@ export default [
 			Spotify: 'https://open.spotify.com/album/5hqci3zLGUIzKQ9SFFKLlr?si=tm_rz4A3T_iRlEDMJ9M4kQ',
 			'apple music': 'https://music.apple.com/tw/album/subtropical-jet-stream/1637577614'
 		},
+		spotify: 'https://open.spotify.com/album/5hqci3zLGUIzKQ9SFFKLlr?si=FhU8nXGVTnm6ntZ-m67DHA',
 		bandcamp:
 			'https://bandcamp.com/EmbeddedPlayer/album=3721763089/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/',
 		desc: {
