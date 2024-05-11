@@ -4,7 +4,7 @@
 	let sp: { [key: string]: string | undefined };
 	const endpoint = 'https://open.spotify.com/oembed';
 	onMount(() => {
-		fetch(`${endpoint}?url=${link}`)
+		fetch(`${endpoint}?url=${link}`, { mode: 'no-cors' })
 			.then((res) => res.json())
 			.then((data) => {
 				sp = data;
