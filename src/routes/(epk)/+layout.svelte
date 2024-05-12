@@ -19,7 +19,7 @@
 	</h1>
 	<slot />
 
-	<footer class="footer pt-8">
+	<footer class="footer py-8">
 		<p class="pb-8 text-center font-medium capitalize">more about us</p>
 		<ul>
 			<li>

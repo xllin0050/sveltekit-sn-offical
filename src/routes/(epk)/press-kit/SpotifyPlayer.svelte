@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	export let link: string;
+	export let link: string | undefined;
 	let sp: { [key: string]: string | undefined };
 	const endpoint = 'https://open.spotify.com/oembed';
 	onMount(() => {
