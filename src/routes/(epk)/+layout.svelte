@@ -2,6 +2,7 @@
 	import facebook from '$lib/assets/icons/epk/icons8-facebook.svg';
 	import instagram from '$lib/assets/icons/epk/icons8-instagram.svg';
 	import youtube from '$lib/assets/icons/epk/icons8-youtube-logo.svg';
+	import offical from '$lib/assets/images/napkin-logo.svg';
 	import '../../app.css';
 </script>
 
@@ -36,14 +37,14 @@
 			</li>
 			<li>
 				<a href="https://www.instagram.com/super_napkin/" target="_blank" rel="noreferrer">
-					<img src={instagram} alt="band logo" />
+					<img src={instagram} alt="instagram" />
 				</a>
 			</li>
-			<!-- <li>
-				<a href="mailto:supernapkinsogood@gmail.com" target="_blank" rel="noreferrer">
-					<img src={mail} alt="band logo" />
+			<li class="">
+				<a href="https://www.supernapkin.com" target="_blank" rel="noreferrer">
+					<img src={offical} alt="band logo" class="h-[40px]" />
 				</a>
-			</li> -->
+			</li>
 		</ul>
 		<p class="pb-4 pt-8 text-center font-medium capitalize">contact</p>
 		<div class="flex justify-center pb-8">
