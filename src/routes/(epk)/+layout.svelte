@@ -19,7 +19,7 @@
 	</h1>
 	<slot />
 	<footer class="footer py-8">
-		<p class="pb-8 text-center font-medium capitalize">more about us</p>
+		<p class="pb-8 text-center font-medium capitalize">links</p>
 		<ul>
 			<li>
 				<a href="https://www.facebook.com/SuperNapkin/" target="_blank" rel="noreferrer">
@@ -42,7 +42,7 @@
 			</li>
 			<li class="">
 				<a href="https://www.supernapkin.com" target="_blank" rel="noreferrer">
-					<img src={offical} alt="band logo" class="h-[40px]" />
+					<img src={offical} alt="offical site" class="h-[40px]" />
 				</a>
 			</li>
 		</ul>

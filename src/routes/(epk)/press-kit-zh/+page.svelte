@@ -13,17 +13,16 @@
 <!-- bio -->
 <article class="w-full sm:mx-auto sm:w-[50ch] lg:w-[80ch]">
 	<p class="px-6 text-justify">
-		Super Napkin is a fuzz-pop trio hailing from Taiwan. As 80’s kids born in the Taipei Basin, the
-		drone of motorbikes comprised their early childhood ‘soundtrack’. So when they came of age in
-		the Soulseek 56k baud modem era, it made perfect sense for them to fall in love with the equally
-		droney sounds of Yo La Tengo, Sonic Youth, Eric's Trip, The Microphones, and My Bloody
-		Valentine.
+		「如果要構思一個超級英雄的故事，我想寫一個叫做紙巾人的角色，能力是好好地聽
+		每個心靈受傷的人說話，陪著他們將傷口上的污垢和血淚都擦拭乾淨。」
 	</p>
 </article>
 <!-- release -->
 <section>
 	<p class="mx-auto px-6 py-4 sm:w-[50ch] lg:w-[80ch]">
-		Since 2016, they’ve released 3 full length albums, 2 EPs. and 2 singles.
+		Super Napkin 超級紙巾 2014 年底成團，由黃尾 (Bass/Vocal)、小帕 (Guitar/Vocal)、施霖 (Drum)
+		三人組成，至今發行 3 張專輯，2 張 EP，2 張單曲，從 Shoegaze 到 Grunge，Indie Pop 到 Noise
+		Experiment， 像是把所有喜歡的音樂攤在桌上，吸收成自己的模樣，染上各種顏色的紙巾。
 	</p>
 	{#if albums && albums.length}
 		<ReleaseCovers {albums} />
@@ -71,13 +70,9 @@
 <!-- live  -->
 <section class="px-2 pb-8 md:pb-12">
 	<p class="section-title">live gig</p>
-	<p class="mx-auto px-4 text-justify sm:w-[50ch] lg:w-[80ch]">
-		With the experience of over a hundred shows and the musicality that covers lots of ground, Super
-		Napkin has become the opening act of choice for overseas bands who still use distortion pedals
-		and the wedding band for local band friends who can't afford to hire someone better.
-	</p>
 	<p class="mx-auto px-4 py-4 text-justify sm:w-[50ch] lg:w-[80ch]">
-		They’ve played major festivals in Taiwan, such as Megaport, Vegabond, and LUCfest.
+		至今超過百場演出，參與過包含大港開唱、浪人祭、貴人散步等大型音樂祭。Super Napkin
+		多樣的面貌也讓他們成為國外樂團共演，以及台灣友團發片暖場的受邀常客。無論音量大小，超級紙巾都有可以說的故事。他們舉辦過兩小時的專場，未來計畫挑戰三小時。
 	</p>
 	<LivePhotos />
 	<div class="youtubeWrap my-4 sm:w-[40em] md:my-8">
