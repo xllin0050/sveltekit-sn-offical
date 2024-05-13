@@ -1,9 +1,8 @@
 <script lang="ts">
-	import '../../app.css';
 	import facebook from '$lib/assets/icons/epk/icons8-facebook.svg';
-	import youtube from '$lib/assets/icons/epk/icons8-youtube-logo.svg';
 	import instagram from '$lib/assets/icons/epk/icons8-instagram.svg';
-	import mail from '$lib/assets/icons/epk/icons8-mail.svg';
+	import youtube from '$lib/assets/icons/epk/icons8-youtube-logo.svg';
+	import '../../app.css';
 </script>
 
 <svelte:head>
@@ -13,12 +12,11 @@
 <div id="epk" class="font-red-hat">
 	<div class="band-picture h-[15em] w-full lg:h-[30em]" />
 	<h1
-		class="py-4 text-center text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:py-12 lg:text-7xl lg:tracking-[.3em]"
+		class="py-8 text-center text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:py-12 lg:text-7xl lg:tracking-[.3em]"
 	>
 		super napkin
 	</h1>
 	<slot />
-
 	<footer class="footer py-8">
 		<p class="pb-8 text-center font-medium capitalize">more about us</p>
 		<ul>
@@ -41,12 +39,18 @@
 					<img src={instagram} alt="band logo" />
 				</a>
 			</li>
-			<li>
+			<!-- <li>
 				<a href="mailto:supernapkinsogood@gmail.com" target="_blank" rel="noreferrer">
 					<img src={mail} alt="band logo" />
 				</a>
-			</li>
+			</li> -->
 		</ul>
+		<p class="pb-4 pt-8 text-center font-medium capitalize">contact</p>
+		<div class="flex justify-center pb-8">
+			<a href="mailto:supernapkinsogood@gmail.com" target="_blank" rel="noreferrer"
+				>supernapkinsogood@gmail.com</a
+			>
+		</div>
 	</footer>
 </div>
 

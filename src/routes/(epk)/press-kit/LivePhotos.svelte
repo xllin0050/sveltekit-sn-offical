@@ -21,10 +21,10 @@
 	});
 </script>
 
-<div class="flex">
+<div class="flex justify-center py-4 2xl:py-8">
 	{#if photos && photos.length}
 		{#each photos as photo}
-			<figure class="w-full" aria-hidden="true">
+			<figure class="flex w-full flex-col items-center" aria-hidden="true">
 				<img
 					src={`${thumbnailUrlPreifx}/${photo.id}/${photo.photo}?thumb=500x375`}
 					alt=""

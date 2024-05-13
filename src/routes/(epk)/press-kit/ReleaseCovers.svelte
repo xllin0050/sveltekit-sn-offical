@@ -15,10 +15,10 @@
 	export let albums: Album[];
 </script>
 
-<div class="album-row w-full px-6 lg:w-[40em] lg:py-12">
+<div class="album-row w-full px-6 sm:w-[40em] lg:py-6">
 	{#each albums as album}
 		<div
-			class="album-cover h-[7em] w-[7em] lg:h-[12em] lg:w-[12em]"
+			class="album-cover h-[7em] w-[7em] sm:h-[12em] sm:w-[12em]"
 			style="background-image:url({album.cover})"
 		/>
 	{/each}
