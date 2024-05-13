@@ -22,6 +22,16 @@
 		<p class="pb-8 text-center font-medium capitalize">links</p>
 		<ul>
 			<li>
+				<a href="https://www.instagram.com/super_napkin/" target="_blank" rel="noreferrer">
+					<img src={instagram} alt="instagram" />
+				</a>
+			</li>
+			<li>
+				<a href="https://www.supernapkin.com" target="_blank" rel="noreferrer">
+					<img src={offical} alt="offical site" class="h-[40px]" />
+				</a>
+			</li>
+			<li>
 				<a href="https://www.facebook.com/SuperNapkin/" target="_blank" rel="noreferrer">
 					<img src={facebook} alt="facebook" />
 				</a>
@@ -33,16 +43,6 @@
 					rel="noreferrer"
 				>
 					<img src={youtube} alt="youtube" />
-				</a>
-			</li>
-			<li>
-				<a href="https://www.instagram.com/super_napkin/" target="_blank" rel="noreferrer">
-					<img src={instagram} alt="instagram" />
-				</a>
-			</li>
-			<li class="">
-				<a href="https://www.supernapkin.com" target="_blank" rel="noreferrer">
-					<img src={offical} alt="offical site" class="h-[40px]" />
 				</a>
 			</li>
 		</ul>

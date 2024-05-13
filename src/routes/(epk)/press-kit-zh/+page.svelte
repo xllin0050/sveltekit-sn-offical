@@ -24,55 +24,57 @@
 		三人組成，至今發行 3 張專輯，2 張 EP，2 張單曲，從 Shoegaze 到 Grunge，Indie Pop 到 Noise
 		Experiment， 像是把所有喜歡的音樂攤在桌上，吸收成自己的模樣，染上各種顏色的紙巾。
 	</p>
-	{#if albums && albums.length}
-		<ReleaseCovers {albums} />
-		<ReleasePlayers {albums} />
-	{/if}
+
+	<ReleaseCovers {albums} />
+	<div class="py-4">
+		<p class="section-title">stream</p>
+		<ul>
+			<li>
+				<a
+					href="https://open.spotify.com/artist/5zqQabBzjxOyA0VkIRjPZw?si=UixVxPwzQ2WfVNw2k10kJA"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<img src={spotify} alt="spotify" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://music.apple.com/tw/artist/super-napkin/1387820661"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<img src={appleMusic} alt="apple music" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://music.youtube.com/channel/UCeYL_IGXzTMgFIjOzetbTlg?si=yPIg8FpjrMFWv7N5"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<img src={youtubeMusic} alt="youtube music" />
+				</a>
+			</li>
+			<li>
+				<a href="https://supernapkin.bandcamp.com/" target="_blank" rel="noreferrer">
+					<img src={bandcamp} alt="bandcamp" />
+				</a>
+			</li>
+		</ul>
+	</div>
+	<ReleasePlayers {albums} />
 </section>
-<!-- stream -->
-<section class="pb-4 md:pb-12">
-	<p class="section-title">stream</p>
-	<ul>
-		<li>
-			<a
-				href="https://open.spotify.com/artist/5zqQabBzjxOyA0VkIRjPZw?si=UixVxPwzQ2WfVNw2k10kJA"
-				target="_blank"
-				rel="noreferrer"
-			>
-				<img src={spotify} alt="spotify" />
-			</a>
-		</li>
-		<li>
-			<a
-				href="https://music.apple.com/tw/artist/super-napkin/1387820661"
-				target="_blank"
-				rel="noreferrer"
-			>
-				<img src={appleMusic} alt="apple music" />
-			</a>
-		</li>
-		<li>
-			<a
-				href="https://music.youtube.com/channel/UCeYL_IGXzTMgFIjOzetbTlg?si=yPIg8FpjrMFWv7N5"
-				target="_blank"
-				rel="noreferrer"
-			>
-				<img src={youtubeMusic} alt="youtube music" />
-			</a>
-		</li>
-		<li>
-			<a href="https://supernapkin.bandcamp.com/" target="_blank" rel="noreferrer">
-				<img src={bandcamp} alt="bandcamp" />
-			</a>
-		</li>
-	</ul>
-</section>
+
 <!-- live  -->
 <section class="px-2 pb-8 md:pb-12">
 	<p class="section-title">live gig</p>
 	<p class="mx-auto px-4 py-4 text-justify sm:w-[50ch] lg:w-[80ch]">
 		至今超過百場演出，參與過包含大港開唱、浪人祭、貴人散步等大型音樂祭。Super Napkin
 		多樣的面貌也讓他們成為國外樂團共演，以及台灣友團發片暖場的受邀常客。無論音量大小，超級紙巾都有可以說的故事。他們舉辦過兩小時的專場，未來計畫挑戰三小時。
+	</p>
+	<p class="mx-auto px-4 pb-4 pt-2 text-justify sm:w-[50ch] lg:w-[80ch]">
+		更多資訊，請至<a href="www.supernapkin.com">www.supernapkin.com</a>
 	</p>
 	<LivePhotos />
 	<div class="youtubeWrap my-4 sm:w-[40em] md:my-8">

@@ -17,7 +17,7 @@
 </script>
 
 <div class=" w-full px-4 py-6 sm:mx-auto sm:w-[25em] lg:w-[35em] lg:py-6">
-	{#each albums.slice(0, 2) as album}
-		<SpotifyPlayer link={album.spotify} />
+	{#each albums.slice(0, 6) as album}
+		<SpotifyPlayer link={album.listen.Spotify} />
 	{/each}
 </div>

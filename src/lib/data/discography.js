@@ -47,7 +47,7 @@ export default [
 		title: 'Coz I Love You',
 		listen: {
 			bandcamp: 'https://supernapkin.bandcamp.com/album/coz-i-love-you',
-			Spotify: 'https://open.spotify.com/album/5QMi9gH1Zh4T40hBgjXUrG?si=aGip3jweTkidIH-D17nLKQ',
+			Spotify: 'https://open.spotify.com/album/5QMi9gH1Zh4T40hBgjXUrG',
 			'apple music': 'https://music.apple.com/tw/album/coz-i-love-you-single/1676219690'
 		},
 		spotify: 'https://open.spotify.com/album/5QMi9gH1Zh4T40hBgjXUrG?si=R1feSvtaSqim-TuRo3fgqg',
@@ -86,7 +86,7 @@ export default [
 		title: 'Subtropical Jet Stream',
 		listen: {
 			bandcamp: 'https://supernapkin.bandcamp.com/album/subtropical-jet-stream',
-			Spotify: 'https://open.spotify.com/album/5hqci3zLGUIzKQ9SFFKLlr?si=tm_rz4A3T_iRlEDMJ9M4kQ',
+			Spotify: 'https://open.spotify.com/album/5hqci3zLGUIzKQ9SFFKLlr',
 			'apple music': 'https://music.apple.com/tw/album/subtropical-jet-stream/1637577614'
 		},
 		spotify: 'https://open.spotify.com/album/5hqci3zLGUIzKQ9SFFKLlr?si=FhU8nXGVTnm6ntZ-m67DHA',
@@ -122,7 +122,7 @@ export default [
 		title: "Sherry's Neighbors",
 		listen: {
 			bandcamp: 'https://supernapkin.bandcamp.com/album/sherrys-neighbors',
-			Spotify: 'https://open.spotify.com/album/1Qa5ZTNruO48cK29ErV8f1?si=VuGw2FKjQUu7wb9VKRG45w',
+			Spotify: 'https://open.spotify.com/album/1Qa5ZTNruO48cK29ErV8f1',
 			'apple music': 'https://music.apple.com/tw/album/sherrys-neighbors-ep/1637576215'
 		},
 		bandcamp:
@@ -156,7 +156,7 @@ export default [
 		title: "There's Nothing That Cannot Beat Me",
 		listen: {
 			bandcamp: 'https://supernapkin.bandcamp.com/album/theres-nothing-that-cannot-beat-me',
-			Spotify: 'https://open.spotify.com/album/5MD1zeCYPjOlqFFk9dAJAm?si=lVMc-8dBQGiH-Nd-xzRJlQ',
+			Spotify: 'https://open.spotify.com/album/5MD1zeCYPjOlqFFk9dAJAm',
 			'apple music':
 				'https://music.apple.com/tw/album/theres-nothing-that-cannot-beat-me/1518778453'
 		},
@@ -193,7 +193,7 @@ export default [
 		title: 'Diamond Shaped Hearts',
 		listen: {
 			bandcamp: 'https://supernapkin.bandcamp.com/album/diamond-shaped-hearts',
-			Spotify: 'https://open.spotify.com/album/0jSDgk9TP5df5IH94fjIPD?si=GtFxvxzHQiCeqIU0HeSz_Q',
+			Spotify: 'https://open.spotify.com/album/0jSDgk9TP5df5IH94fjIPD',
 			'apple music': 'https://music.apple.com/tw/album/diamond-shaped-hearts/1387820653'
 		},
 		bandcamp:
