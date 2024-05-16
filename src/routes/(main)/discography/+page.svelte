@@ -14,7 +14,7 @@
 <section class="mx-auto max-w-sm lg:max-w-4xl lg:pt-4">
 	{#each albums as album}
 		<div
-			class="flex flex-col items-center justify-center pt-10 pb-24 md:pt-2 md:pb-24 lg:flex-row lg:items-stretch  lg:pt-4 lg:pb-44"
+			class="flex flex-col items-center justify-center pb-24 pt-10 md:pb-24 md:pt-2 lg:flex-row lg:items-stretch lg:pb-44 lg:pt-4"
 		>
 			<a
 				href={`records/${album.release}/${album.url}`}
@@ -35,7 +35,7 @@
 					title={album.title}
 					class="lazyload shadow"
 					style="border: 0; width: 100%; height: 120px; "
-					data-src={album.bandcamp}
+					data-src="https://bandcamp.com/EmbeddedPlayer/{album.bandcamp}/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/"
 					seamless
 				/>
 			</div>
