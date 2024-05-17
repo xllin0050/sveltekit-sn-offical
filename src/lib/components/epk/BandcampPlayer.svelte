@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let bcNum: string | undefined;
 	export let title: string | undefined;
+	export let link: string | undefined;
 </script>
 
 <div class="flex w-full flex-col items-center justify-center">
@@ -9,7 +10,6 @@
 		src="https://bandcamp.com/EmbeddedPlayer/{bcNum}/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/transparent=true/"
 		seamless
 		title=""
-		><a href="https://supernapkin.bandcamp.com/album/nothing-is-diamond-diamond-is-wrong">{title}</a
-		></iframe
-	>
+		><a href={link}>{title}</a>
+	</iframe>
 </div>

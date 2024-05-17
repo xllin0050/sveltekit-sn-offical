@@ -28,7 +28,7 @@
 				<img
 					src={`${thumbnailUrlPreifx}/${photo.id}/${photo.photo}?thumb=500x375`}
 					alt=""
-					class="object-cover"
+					class="w-full"
 				/>
 			</figure>
 		{/each}
