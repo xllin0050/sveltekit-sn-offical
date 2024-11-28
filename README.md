@@ -1,40 +1,31 @@
-# create-svelte
+# 搖滾樂團官方網站 Rock Band Official Website
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+這是一個使用 SvelteKit 和 PocketBase 開發的現代化搖滾樂團官方網站。
 
-## Creating a project
+## 專案特點 Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- 展示樂團最新動態和音樂作品
+- 音樂播放器和歌曲列表
+- 演出活動日程表
+- 照片和影片畫廊
+- 周邊商品展示
+- 響應式設計，支持各種設備瀏覽
+- 現代化的動畫效果
+- 即時更新的內容管理系統
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## 技術棧 Tech Stack
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- **Frontend**: SvelteKit
+- **Backend**: PocketBase
+- **Styling**: TailwindCSS
+- **Hosting**: Vercel/Netlify
 
-## Developing
+## 內容管理 Content Management
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+使用 PocketBase 管理後台可以：
+- 更新樂團動態
+- 管理音樂作品
+- 編輯演出日程
+- 上傳媒體內容
+- 管理商品信息
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-<!-- icons by <a target="_blank" href="https://icons8.com">Icons8</a> -->
