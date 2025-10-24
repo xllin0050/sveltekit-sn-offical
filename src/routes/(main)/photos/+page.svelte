@@ -51,7 +51,7 @@
 	<div transition:fade|global={{ duration: 100 }}>
 		<Modal
 			{singlePhotoUrl}
-			on:closeModal={() => {
+			onclose={() => {
 				isOpenModal = false;
 			}}
 		/>

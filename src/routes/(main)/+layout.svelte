@@ -14,7 +14,7 @@
 <div id="layout" class="font-red-hat">
 	<AppNav />
 	<ScrollHandler />
-	<main class="min-h-screen w-full">
+	<main class="min-h-screen w-full" style="view-transition-name: page" tabindex="-1" data-autofocus>
 		<slot />
 	</main>
 	<footer class="mx-auto max-w-screen-lg py-12 font-medium uppercase">

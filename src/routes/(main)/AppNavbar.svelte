@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation';
+	import { fade } from 'svelte/transition';
 	import menuIcon from '$lib/assets/icons/menu-04-svgrepo-com.svg';
 	import closeIcon from '$lib/assets/icons/close-square-svgrepo-com.svg';
 	let isMenuOpen = false;
@@ -9,6 +10,12 @@
 	afterNavigate(() => {
 		isMenuOpen = false;
 	});
+
+	const reduced = typeof window !== 'undefined' &&
+		window.matchMedia &&
+		window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	const t = { duration: reduced ? 0 : 150 };
 </script>
 
 <nav class="absolute right-2 top-2 block md:hidden">
@@ -17,7 +24,7 @@
 	</div>
 </nav>
 {#if isMenuOpen}
-	<section class="fixed top-0 z-10 flex min-h-screen w-full bg-neutral-50">
+	<section class="fixed top-0 z-10 flex min-h-screen w-full bg-neutral-50" transition:fade={t}>
 		<ul class="pt-10 font-medium uppercase tracking-wider">
 			<li>
 				<a href="/">home</a>

@@ -69,7 +69,7 @@
 	<div transition:fade|global={{ duration: 100 }}>
 		<Modal
 			{gigData}
-			on:closeModal={() => {
+			onclose={() => {
 				isOpenModal = false;
 			}}
 		/>

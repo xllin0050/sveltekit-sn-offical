@@ -3,6 +3,7 @@
 	import { pb } from '$lib/pocketbase';
 	import PageHead from '$lib/components/PageHead.svelte';
 	import Card from './ProductCard.svelte';
+	import { fade } from 'svelte/transition';
 
 	let records: { [key: string]: any }[] = [];
 	let tshirts: { [key: string]: any }[] = [];
@@ -10,6 +11,12 @@
 		records = await pb.collection('snsellrecords').getFullList();
 		tshirts = await pb.collection('snselltshirts').getFullList();
 	});
+
+	const reduced = typeof window !== 'undefined' &&
+		window.matchMedia &&
+		window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	const t = { duration: reduced ? 0 : 150 };
 </script>
 
 <PageHead />
@@ -19,7 +26,7 @@
 	<div class="flex flex-col items-center pb-0 sm:flex-row sm:flex-wrap sm:items-stretch sm:pb-16">
 		{#if records && records.length}
 			{#each records as record}
-				<div class="mx-0 my-8 sm:mx-6 sm:my-0 sm:mb-12">
+				<div class="mx-0 my-8 sm:mx-6 sm:my-0 sm:mb-12" transition:fade={t}>
 					<Card data={record} />
 				</div>
 			{/each}
@@ -28,7 +35,7 @@
 	<div class="flex flex-col items-center pt-0 sm:flex-row sm:items-stretch sm:py-16">
 		{#if tshirts && tshirts.length}
 			{#each tshirts as tshirt}
-				<div class="mx-0 my-8 sm:mx-8 sm:my-0">
+				<div class="mx-0 my-8 sm:mx-8 sm:my-0" transition:fade={t}>
 					<Card data={tshirt} />
 				</div>
 			{/each}

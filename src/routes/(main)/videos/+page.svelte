@@ -69,7 +69,7 @@
 	<div transition:fade|global={{ duration: 150 }}>
 		<Modal
 			{videoData}
-			on:closeModal={() => {
+			onclose={() => {
 				isOpenModal = false;
 			}}
 		/>
