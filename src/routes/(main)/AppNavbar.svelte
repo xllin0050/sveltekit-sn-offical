@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 	import menuIcon from '$lib/assets/icons/menu-04-svgrepo-com.svg';
 	import closeIcon from '$lib/assets/icons/close-square-svgrepo-com.svg';
-	let isMenuOpen = false;
+	let isMenuOpen = $state(false);
 	const menuSwitch = () => {
 		isMenuOpen = !isMenuOpen;
 	};
@@ -18,11 +18,13 @@
 	const t = { duration: reduced ? 0 : 150 };
 </script>
 
-<nav class="absolute right-2 top-2 block md:hidden">
-	<div class="w-8 opacity-70 hover:opacity-100" on:click={menuSwitch} aria-hidden="true">
-		<img src={menuIcon} alt="" />
-	</div>
-</nav>
+{#if !isMenuOpen}
+	<nav class="absolute right-4 top-4 block md:hidden z-50">
+		<div class="w-8 opacity-70 hover:opacity-100" onclick={menuSwitch} aria-hidden="true">
+			<img src={menuIcon} alt="" />
+		</div>
+	</nav>
+{/if}
 {#if isMenuOpen}
 	<section class="fixed top-0 z-10 flex min-h-screen w-full bg-neutral-50" transition:fade={t}>
 		<ul class="pt-10 font-medium uppercase tracking-wider">
@@ -49,7 +51,7 @@
 			</li>
 		</ul>
 		<div class="relative grow">
-			<figure class="absolute right-6 top-6 w-8" on:click={menuSwitch} aria-hidden="true">
+			<figure class="absolute right-6 top-6 w-8" onclick={menuSwitch} aria-hidden="true">
 				<img src={closeIcon} alt="" />
 			</figure>
 		</div>
