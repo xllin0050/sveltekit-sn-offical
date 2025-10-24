@@ -1,37 +1,33 @@
 <script lang="ts">
 	import closeIcon from '$lib/assets/icons/close-square-svgrepo-com.svg';
-	import { createEventDispatcher, onDestroy, onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
+	import { fade, scale } from 'svelte/transition';
 	export let gigData: any;
-	const posterUrl = `${import.meta.env.VITE_POCKETBASE}/api/files/sngigs/${gigData.id}/${
-		gigData.gigbanner
-	}?thumb=300x225f`;
+	export let onclose: () => void;
+	const posterUrl = `${import.meta.env.VITE_POCKETBASE}/api/files/sngigs/${gigData.id}/${gigData.gigbanner}?thumb=300x225f`;
 
-	const dispatch = createEventDispatcher();
-	const closeModal = () => {
-		dispatch('closeModal');
-	};
+	const reduced = typeof window !== 'undefined' &&
+		window.matchMedia &&
+		window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-	onMount(() => {
-		document.body.style.overflow = 'hidden';
-	});
-	onDestroy(() => {
-		document.body.style.overflow = 'auto';
-	});
+	const backdrop = { duration: reduced ? 0 : 150 };
+	const modal = { duration: reduced ? 0 : 150, start: 0.98 };
 </script>
 
-<div id="background" on:click={closeModal} aria-hidden="true" />
+<div id="background" on:click={onclose} aria-hidden="true" transition:fade={backdrop}></div>
 
 <div
 	id="modal"
 	class="relative flex h-[520px] w-[90%] flex-col justify-between rounded-md bg-neutral-50 p-2 uppercase lg:w-[45%] lg:p-8"
+	transition:scale={modal}
 >
-	<div class="absolute right-1 top-2 w-6 bg-neutral-50" on:click={closeModal} aria-hidden="true">
+	<div class="absolute right-1 top-2 w-6 bg-neutral-50" on:click={onclose} aria-hidden="true">
 		<img src={closeIcon} alt="" />
 	</div>
 	<div
 		class="w-full grow"
 		style="background-image: url({posterUrl}); background-size: contain; background-repeat: no-repeat; background-position: center;"
-	/>
+	></div>
 	<div class="flex flex-col justify-end p-4 text-center text-sm lg:text-base">
 		<p class="pt-6">{gigData.gigdate.slice(0, 10)}</p>
 		<p class="pt-6">{gigData.gigvenue} / {gigData.giglocation}</p>
@@ -42,7 +38,7 @@
 	<div class="flex flex-col items-center pt-8">
 		<div
 			class="w-1/3 rounded bg-neutral-100 p-2 text-base shadow hover:bg-neutral-100"
-			on:click={closeModal}
+			on:click={onclose}
 			aria-hidden="true"
 		>
 			<a href={gigData.gigurl} target="_blank" class="flex items-center justify-center">info </a>

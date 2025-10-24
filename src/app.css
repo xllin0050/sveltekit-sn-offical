@@ -21,3 +21,37 @@ html,
 body {
 	height: 100%;
 }
+
+/* gentle interactive transitions */
+a, button, [role="button"] {
+  transition: color 150ms ease, background-color 150ms ease, box-shadow 150ms ease, transform 150ms ease, opacity 150ms ease;
+}
+
+.card-shadow, .card-shadow-elev {
+  transition: box-shadow 150ms ease, transform 150ms ease;
+}
+
+img {
+  transition: opacity 150ms ease;
+}
+
+/* View Transitions: light 150ms for the named 'page' */
+::view-transition-old(page),
+::view-transition-new(page) {
+  animation-duration: 150ms;
+  animation-timing-function: ease;
+}
+
+/* reduced motion safeguard */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-old(page),
+  ::view-transition-new(page) {
+    animation-duration: 0.01ms !important;
+  }
+}

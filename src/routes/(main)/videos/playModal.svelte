@@ -1,21 +1,25 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
+	import { fade, scale } from 'svelte/transition';
 	import closeIcon from '$lib/assets/icons/close-square-svgrepo-com.svg';
 	export let videoData: any;
+	export let onclose: () => void;
 
-	const dispatch = createEventDispatcher();
-	const closeModal = () => {
-		dispatch('closeModal');
-	};
+	const reduced = typeof window !== 'undefined' &&
+		window.matchMedia &&
+		window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	const backdrop = { duration: reduced ? 0 : 150 };
+	const modal = { duration: reduced ? 0 : 150, start: 0.98 };
 </script>
 
-<div id="background" on:click={closeModal} aria-hidden="true" />
+<div id="background" on:click={onclose} aria-hidden="true" transition:fade={backdrop}></div>
 
 <div
 	id="modal"
 	class="relative flex max-h-screen w-3/4 flex-col justify-between rounded-md bg-neutral-50 p-2 uppercase md:px-12 md:py-8"
+	transition:scale={modal}
 >
-	<div class="absolute right-1 top-1 w-6 bg-neutral-50" on:click={closeModal} aria-hidden="true">
+	<div class="absolute right-1 top-1 w-6 bg-neutral-50" on:click={onclose} aria-hidden="true">
 		<img src={closeIcon} alt="" />
 	</div>
 	<div class="resp-container">
@@ -26,7 +30,7 @@
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			class="responsive-iframe"
 			allowfullscreen
-		/>
+		></iframe>
 	</div>
 </div>
 
