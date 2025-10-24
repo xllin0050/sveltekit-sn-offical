@@ -43,7 +43,7 @@
 		on:click={() => {
 			document.body.scrollIntoView();
 		}}
-		aria-hidden
+		aria-hidden="false"
 	>
 		<img src={upArrowIcon} alt="" />
 	</figure>
@@ -66,7 +66,7 @@
 				goto(previousPage);
 			}
 		}}
-		aria-hidden
+		aria-hidden="false"
 	>
 		<img src={leftArrowIcon} alt="" />
 	</figure>
