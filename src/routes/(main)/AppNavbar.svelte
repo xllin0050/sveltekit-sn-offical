@@ -63,7 +63,9 @@
 		word-spacing: -0.3em;
 	}
 	ul li {
-		padding: 0.75rem 3rem;
+		width: 100dvw;
+		padding: 0.5rem 1em;
+		margin: 0.5rem 0;
 	}
 	ul li:hover {
 		text-decoration-line: underline;
