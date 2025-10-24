@@ -11,7 +11,7 @@
 </svelte:head>
 
 <div id="epk" class="font-red-hat" style="view-transition-name: page" tabindex="-1" data-autofocus>
-	<div class="band-picture h-[15em] w-full lg:h-[30em]" />
+	<div class="band-picture h-[15em] w-full lg:h-[30em]"></div>
 	<h1
 		class="py-8 text-center text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:py-12 lg:text-7xl lg:tracking-[.3em]"
 	>

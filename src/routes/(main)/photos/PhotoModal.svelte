@@ -11,6 +11,20 @@
 
 	const backdrop = { duration: reduced ? 0 : 150 };
 	const modal = { duration: reduced ? 0 : 150, start: 0.98 };
+
+	let hiLoaded = false;
+	let previewUrl: string;
+	let hi800: string;
+	let hi1200: string;
+	let hi1600: string;
+
+	$: {
+		previewUrl = `${singlePhotoUrl}?thumb=500x375`;
+		hi800 = `${singlePhotoUrl}?thumb=800x600`;
+		hi1200 = `${singlePhotoUrl}?thumb=1200x900`;
+		hi1600 = `${singlePhotoUrl}?thumb=1600x1200`;
+		hiLoaded = false;
+	}
 </script>
 
 <div id="background" on:click={onclose} aria-hidden="true" transition:fade={backdrop}></div>
@@ -22,7 +36,28 @@
 	<div class="absolute right-2 top-2 w-6 bg-neutral-50" on:click={onclose} aria-hidden="true">
 		<img src={closeIcon} alt="" />
 	</div>
-	<img src={singlePhotoUrl} alt="" class="max-h-[90vh] object-scale-down" />
+	<div class="relative w-full" style="height: min(90vh, 80vw);">
+		<img
+			src={previewUrl}
+			alt=""
+			aria-hidden="true"
+			class="absolute inset-0 h-full w-full object-contain"
+			style="filter: blur(12px); transform: scale(1.02);"
+			style:opacity={hiLoaded ? 0 : 1}
+		/>
+		<img
+			srcset={`${hi800} 800w, ${hi1200} 1200w, ${hi1600} 1600w`}
+			sizes="(min-width: 1280px) 1200px, (min-width: 768px) 900px, 80vw"
+			src={hi1200}
+			alt=""
+			class="absolute inset-0 h-full w-full object-contain"
+			decoding="async"
+			fetchpriority="high"
+			on:load={() => (hiLoaded = true)}
+			style:opacity={hiLoaded ? 1 : 0}
+			style:transition="opacity 150ms ease"
+		/>
+	</div>
 </div>
 
 <style>
