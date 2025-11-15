@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let nextGig: any;
+	interface Props {
+		nextGig: any;
+	}
+
+	let { nextGig }: Props = $props();
 </script>
 
 <div class="mx-auto flex flex-col items-center justify-center pb-20 pt-10 lg:pb-52 lg:pt-36">

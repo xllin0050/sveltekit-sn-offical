@@ -4,8 +4,8 @@
 	import TextSwitch from '$lib/components/TextSwitch.svelte';
 	import src from '$lib/assets/images/band-image-2022.jpg';
 
-	let width: number;
-	let displayText = 'en';
+	let width: number = $state();
+	let displayText = $state('en');
 	userLanguage.subscribe((lang) => {
 		displayText = lang;
 	});

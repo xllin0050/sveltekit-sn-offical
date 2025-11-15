@@ -1,8 +1,14 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import closeIcon from '$lib/assets/icons/close-square-svgrepo-com.svg';
 	import { fade, scale } from 'svelte/transition';
-	export let singlePhotoUrl: string;
-	export let onclose: () => void;
+	interface Props {
+		singlePhotoUrl: string;
+		onclose: () => void;
+	}
+
+	let { singlePhotoUrl, onclose }: Props = $props();
 
 
 	const reduced = typeof window !== 'undefined' &&
@@ -12,29 +18,29 @@
 	const backdrop = { duration: reduced ? 0 : 150 };
 	const modal = { duration: reduced ? 0 : 150, start: 0.98 };
 
-	let hiLoaded = false;
-	let previewUrl: string;
-	let hi800: string;
-	let hi1200: string;
-	let hi1600: string;
-    let ratio: number = 4 / 3; // 預設比例，避免尚未載入前佈局塌陷
+	let hiLoaded = $state(false);
+	let previewUrl: string = $state();
+	let hi800: string = $state();
+	let hi1200: string = $state();
+	let hi1600: string = $state();
+    let ratio: number = $state(4 / 3); // 預設比例，避免尚未載入前佈局塌陷
 
-	$: {
+	run(() => {
 		previewUrl = `${singlePhotoUrl}?thumb=500x375`;
 		hi800 = `${singlePhotoUrl}?thumb=800x600`;
 		hi1200 = `${singlePhotoUrl}?thumb=1200x900`;
 		hi1600 = `${singlePhotoUrl}?thumb=1600x1200`;
 		hiLoaded = false;
-	}
+	});
 </script>
 
-<div id="background" on:click={onclose} aria-hidden="true" transition:fade={backdrop}></div>
+<div id="background" onclick={onclose} aria-hidden="true" transition:fade={backdrop}></div>
 <div
     id="modal"
     class="relative flex max-h-screen flex-col justify-between rounded-md bg-neutral-50 p-2 md:p-3 uppercase max-w-[92vw]"
     transition:scale={modal}
 >
-	<div class="absolute right-2 top-2 w-6 bg-neutral-50" on:click={onclose} aria-hidden="true">
+	<div class="absolute right-2 top-2 w-6 bg-neutral-50" onclick={onclose} aria-hidden="true">
 		<img src={closeIcon} alt="" />
 	</div>
 	    <div
@@ -48,7 +54,7 @@
             class="absolute inset-0 h-full w-full object-contain"
             style="filter: blur(12px); transform: scale(1.02);"
             style:opacity={hiLoaded ? 0 : 1}
-            on:load={(e) => {
+            onload={(e) => {
                 const img = e.currentTarget as HTMLImageElement;
                 if (img.naturalHeight) ratio = img.naturalWidth / img.naturalHeight;
             }}
@@ -61,7 +67,7 @@
 			class="absolute inset-0 h-full w-full object-contain"
 			decoding="async"
 			fetchpriority="high"
-			on:load={() => (hiLoaded = true)}
+			onload={() => (hiLoaded = true)}
 			style:opacity={hiLoaded ? 1 : 0}
 			style:transition="opacity 150ms ease"
 		/>

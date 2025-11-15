@@ -2,7 +2,11 @@
 	import 'lazysizes';
 	import PageHead from '$lib/components/PageHead.svelte';
 	import type { PageData } from './$types';
-	export let data: PageData | { [index: string]: any } = {};
+	interface Props {
+		data?: PageData | { [index: string]: any };
+	}
+
+	let { data = {} }: Props = $props();
 
 	const { albums } = data;
 </script>
@@ -37,7 +41,7 @@
 					style="border: 0; width: 100%; height: 120px; "
 					data-src="https://bandcamp.com/EmbeddedPlayer/{album.bandcamp}/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/"
 					seamless
-				/>
+				></iframe>
 			</div>
 		</div>
 	{/each}

@@ -1,6 +1,10 @@
 <script lang="ts">
-	export let bcNum: string | undefined;
-	export let title: string | undefined;
+	interface Props {
+		bcNum: string | undefined;
+		title: string | undefined;
+	}
+
+	let { bcNum, title }: Props = $props();
 </script>
 
 <div class="flex w-full flex-col items-center justify-center">

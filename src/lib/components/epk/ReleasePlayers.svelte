@@ -13,7 +13,11 @@
 		url: string;
 		cover: string;
 	}
-	export let albums: Album[];
+	interface Props {
+		albums: Album[];
+	}
+
+	let { albums }: Props = $props();
 </script>
 
 <div class=" w-full px-4 py-6 sm:mx-auto sm:w-[25em] lg:w-[35em] lg:py-6">

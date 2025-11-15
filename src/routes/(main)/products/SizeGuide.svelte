@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let data: { [key: string]: any };
+	interface Props {
+		data: { [key: string]: any };
+	}
+
+	let { data }: Props = $props();
 </script>
 
 <div class="py-2">Size Guide (CM)</div>

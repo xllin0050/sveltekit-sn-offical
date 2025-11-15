@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
-	let shihDrum: HTMLElement;
-	let yauGtr: HTMLElement;
-	let weitingBass: HTMLElement;
-	let hiddenCircle = true;
+	let shihDrum: HTMLElement = $state();
+	let yauGtr: HTMLElement = $state();
+	let weitingBass: HTMLElement = $state();
+	let hiddenCircle = $state(true);
 	onMount(() => {
 		const nameCircle = (nameText: HTMLElement, position: number) => {
 			nameText.innerHTML = nameText.innerText
@@ -22,7 +22,7 @@
 
 	const membersName = ['shih', 'yau', 'weiting'];
 	let nameIndex = 0;
-	let backgroundName = 'yau';
+	let backgroundName = $state('yau');
 	const changeNameTimer = setInterval(() => {
 		nameIndex++;
 		if (nameIndex === 3) nameIndex = 0;

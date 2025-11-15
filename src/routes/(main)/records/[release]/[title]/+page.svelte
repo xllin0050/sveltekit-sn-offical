@@ -3,9 +3,13 @@
 	import backIcon from '$lib/assets/icons/arrow-back-circle-outline-svgrepo-com.svg';
 	import PageHead from '$lib/components/PageHead.svelte';
 	import TextSwitch from '$lib/components/TextSwitch.svelte';
-	export let data: any;
+	interface Props {
+		data: any;
+	}
+
+	let { data }: Props = $props();
 	const { album } = data;
-	let displayText = 'en';
+	let displayText = $state('en');
 	userLanguage.subscribe((lang) => {
 		displayText = lang;
 	});

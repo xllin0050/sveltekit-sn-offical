@@ -5,10 +5,10 @@
 	import upArrowIcon from '$lib/assets/icons/up-arrow-circle-svgrepo-com.svg';
 	import leftArrowIcon from '$lib/assets/icons/left-arrow-circle-svgrepo-com.svg';
 	let stopAnimationFrame: any;
-	let scrollButton: HTMLElement;
-	let scrollHeight: number;
-	let screenHeight: number;
-	let previousPage: string;
+	let scrollButton: HTMLElement = $state();
+	let scrollHeight: number = $state();
+	let screenHeight: number = $state();
+	let previousPage: string = $state();
 	// let forwardPage: string | null | undefined;
 	const scrollHandler = () => {
 		if (scrollHeight > screenHeight / 2) {
@@ -40,7 +40,7 @@
 <div bind:this={scrollButton} class="fixed bottom-5 z-10 block transition sm:hidden">
 	<figure
 		class="mb-2 ml-2 w-8"
-		on:click={() => {
+		onclick={() => {
 			document.body.scrollIntoView();
 		}}
 		aria-hidden="false"
@@ -61,7 +61,7 @@
 
 	<figure
 		class="mb-2 ml-2 w-8"
-		on:click={() => {
+		onclick={() => {
 			if (previousPage) {
 				goto(previousPage);
 			}

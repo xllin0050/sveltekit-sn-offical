@@ -1,6 +1,10 @@
 <script lang="ts">
 	import SizeGuide from './SizeGuide.svelte';
-	export let data: { [key: string]: any };
+	interface Props {
+		data: { [key: string]: any };
+	}
+
+	let { data }: Props = $props();
 	const pictureUrl = `${import.meta.env.VITE_POCKETBASE}/api/files/${data.collectionName}/${
 		data.id
 	}/${data.picture}`;

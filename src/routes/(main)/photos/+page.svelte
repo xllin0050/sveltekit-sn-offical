@@ -6,12 +6,12 @@
 	import Modal from './PhotoModal.svelte';
 	import { lazyLoad } from './lazyLoad.js';
 
-	let isOpenModal: boolean = false;
-	let screenWidth: number;
-	let phoneScreen: boolean;
-	let singlePhotoUrl: string;
+	let isOpenModal: boolean = $state(false);
+	let screenWidth: number = $state();
+	let phoneScreen: boolean = $state();
+	let singlePhotoUrl: string = $state();
 	const thumbnailUrlPreifx = `${import.meta.env.VITE_POCKETBASE}/api/files/snphotos`;
-	let photos: { [key: string]: string }[] = [];
+	let photos: { [key: string]: string }[] = $state([]);
 
 	const openModal = (data: string) => {
 		singlePhotoUrl = data;
@@ -33,7 +33,7 @@
 		{#each photos as photo}
 			<figure
 				class="max-h-[500px] min-h-[200px] w-full md:min-h-[300px] md:w-1/3"
-				on:click={() => {
+				onclick={() => {
 					openModal(`${thumbnailUrlPreifx}/${photo.id}/${photo.photo}`);
 				}}
 				aria-hidden="true"

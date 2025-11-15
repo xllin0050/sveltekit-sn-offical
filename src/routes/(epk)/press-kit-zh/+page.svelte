@@ -87,7 +87,7 @@
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 			referrerpolicy="strict-origin-when-cross-origin"
 			allowfullscreen
-		/>
+		></iframe>
 	</div>
 	<div class="youtubeWrap sm:w-[40em]">
 		<iframe
@@ -99,7 +99,7 @@
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 			referrerpolicy="strict-origin-when-cross-origin"
 			allowfullscreen
-		/>
+		></iframe>
 	</div>
 	<p class="pb-4 pt-8 text-center font-medium capitalize md:py-8 md:text-lg">recent gigs</p>
 	<LastGigList />

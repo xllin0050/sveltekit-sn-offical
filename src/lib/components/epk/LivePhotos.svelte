@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 
 	const thumbnailUrlPreifx = `${import.meta.env.VITE_POCKETBASE}/api/files/snphotos`;
-	let photos: any;
+	let photos: any = $state();
 	async function getPhotos() {
 		const year = new Date().getFullYear();
 		const photos = await pb

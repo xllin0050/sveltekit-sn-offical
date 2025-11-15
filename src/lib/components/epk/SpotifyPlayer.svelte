@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	export let link: string | undefined;
-	let sp: { [key: string]: string | undefined };
+	interface Props {
+		link: string | undefined;
+	}
+
+	let { link }: Props = $props();
+	let sp: { [key: string]: string | undefined } = $state();
 	const endpoint = 'https://open.spotify.com/oembed';
 	onMount(() => {
 		fetch(`${endpoint}?url=${link}`)

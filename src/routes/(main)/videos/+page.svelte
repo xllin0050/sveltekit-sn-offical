@@ -8,12 +8,12 @@
 	import videos from './data';
 	import 'lazysizes';
 
-	let currentId: string = '';
-	let screenWidth: number;
-	let phoneScreen: boolean;
-	let isOpenModal: boolean = false;
+	let currentId: string = $state('');
+	let screenWidth: number = $state();
+	let phoneScreen: boolean = $state();
+	let isOpenModal: boolean = $state(false);
 
-	let videoData: any;
+	let videoData: any = $state();
 	const openModal = (data: any) => {
 		videoData = data;
 		isOpenModal = true;
@@ -35,13 +35,13 @@
 				</h3>
 				<div
 					class="relative"
-					on:mouseenter={() => {
+					onmouseenter={() => {
 						currentId = video.id;
 					}}
-					on:mouseleave={() => {
+					onmouseleave={() => {
 						currentId = '';
 					}}
-					on:click={() => {
+					onclick={() => {
 						if (phoneScreen) {
 							goto(video.url);
 						}

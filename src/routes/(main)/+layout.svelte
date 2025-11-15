@@ -6,6 +6,11 @@
 	import '../../app.css';
 	import AppNav from './AppNavbar.svelte';
 	import ScrollHandler from './ScrollHandler.svelte';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 </script>
 
 <svelte:head>
@@ -15,7 +20,7 @@
 	<AppNav />
 	<ScrollHandler />
 	<main class="min-h-screen w-full" style="view-transition-name: page" tabindex="-1" data-autofocus>
-		<slot />
+		{@render children?.()}
 	</main>
 	<footer class="mx-auto max-w-screen-lg py-12 font-medium uppercase">
 		<ul class="footer-links flex items-center justify-center pt-12">

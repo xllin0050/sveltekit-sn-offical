@@ -4,6 +4,11 @@
 	import youtube from '$lib/assets/icons/epk/icons8-youtube-logo.svg';
 	import offical from '$lib/assets/images/napkin-logo.svg';
 	import '../../app.css';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 </script>
 
 <svelte:head>
@@ -17,7 +22,7 @@
 	>
 		super napkin
 	</h1>
-	<slot />
+	{@render children?.()}
 	<footer class="footer py-8">
 		<p class="pb-8 text-center font-medium capitalize">links</p>
 		<ul>

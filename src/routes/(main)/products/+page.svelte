@@ -5,8 +5,8 @@
 	import Card from './ProductCard.svelte';
 	import { fade } from 'svelte/transition';
 
-	let records: { [key: string]: any }[] = [];
-	let tshirts: { [key: string]: any }[] = [];
+	let records: { [key: string]: any }[] = $state([]);
+	let tshirts: { [key: string]: any }[] = $state([]);
 	onMount(async () => {
 		records = await pb.collection('snsellrecords').getFullList();
 		tshirts = await pb.collection('snselltshirts').getFullList();

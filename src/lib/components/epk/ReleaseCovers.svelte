@@ -12,7 +12,11 @@
 		url: string;
 		cover: string;
 	}
-	export let albums: Album[];
+	interface Props {
+		albums: Album[];
+	}
+
+	let { albums }: Props = $props();
 </script>
 
 <div class="album-row w-full px-6 sm:w-[40em] lg:py-6">
@@ -20,7 +24,7 @@
 		<div
 			class="album-cover h-[7em] w-[7em] sm:h-[12em] sm:w-[12em]"
 			style="background-image:url({album.cover})"
-		/>
+		></div>
 	{/each}
 </div>
 

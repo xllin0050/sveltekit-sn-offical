@@ -14,6 +14,6 @@
 	};
 </script>
 
-<button class="w-6" on:click={switchLang} aria-hidden="true">
+<button class="w-6" onclick={switchLang} aria-hidden="true">
 	<img src={translateIcon} alt="" />
 </button>

@@ -5,15 +5,15 @@
 	import PageHead from '$lib/components/PageHead.svelte';
 	import Modal from './InfoModal.svelte';
 
-	let gigs: { [index: string]: any }[] = [];
+	let gigs: { [index: string]: any }[] = $state([]);
 	const today = new Date();
 	gigs.forEach((gig: { [index: string]: any }) => {
 		const gigDate = new Date(gig.gigdate);
 		gig.coming = gigDate >= today;
 	});
 
-	let isOpenModal: boolean = false;
-	let gigData: any;
+	let isOpenModal: boolean = $state(false);
+	let gigData: any = $state();
 	const openModal = (data: any) => {
 		gigData = data;
 		isOpenModal = true;
@@ -53,7 +53,7 @@
 					{/if}
 					<div
 						class="mx-2 cursor-pointer rounded-md p-1 px-3 ring-1 ring-neutral-400 transition-colors hover:font-medium hover:ring-neutral-600"
-						on:click={() => {
+						onclick={() => {
 							openModal(gig);
 						}}
 						aria-hidden="true"

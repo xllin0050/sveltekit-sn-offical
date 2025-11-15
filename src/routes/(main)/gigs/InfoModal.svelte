@@ -2,8 +2,12 @@
 	import closeIcon from '$lib/assets/icons/close-square-svgrepo-com.svg';
 	import { onDestroy, onMount } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
-	export let gigData: any;
-	export let onclose: () => void;
+	interface Props {
+		gigData: any;
+		onclose: () => void;
+	}
+
+	let { gigData, onclose }: Props = $props();
 	const posterUrl = `${import.meta.env.VITE_POCKETBASE}/api/files/sngigs/${gigData.id}/${gigData.gigbanner}?thumb=300x225f`;
 
 	const reduced = typeof window !== 'undefined' &&
@@ -14,14 +18,14 @@
 	const modal = { duration: reduced ? 0 : 150, start: 0.98 };
 </script>
 
-<div id="background" on:click={onclose} aria-hidden="true" transition:fade={backdrop}></div>
+<div id="background" onclick={onclose} aria-hidden="true" transition:fade={backdrop}></div>
 
 <div
 	id="modal"
 	class="relative flex h-[520px] w-[90%] flex-col justify-between rounded-md bg-neutral-50 p-2 uppercase lg:w-[45%] lg:p-8"
 	transition:scale={modal}
 >
-	<div class="absolute right-1 top-2 w-6 bg-neutral-50" on:click={onclose} aria-hidden="true">
+	<div class="absolute right-1 top-2 w-6 bg-neutral-50" onclick={onclose} aria-hidden="true">
 		<img src={closeIcon} alt="" />
 	</div>
 	<div
@@ -38,7 +42,7 @@
 	<div class="flex flex-col items-center pt-8">
 		<div
 			class="w-1/3 rounded bg-neutral-100 p-2 text-base shadow hover:bg-neutral-100"
-			on:click={onclose}
+			onclick={onclose}
 			aria-hidden="true"
 		>
 			<a href={gigData.gigurl} target="_blank" class="flex items-center justify-center">info </a>

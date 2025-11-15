@@ -11,7 +11,11 @@
 		url: string;
 		cover: string;
 	}
-	export let albums: Album[];
+	interface Props {
+		albums: Album[];
+	}
+
+	let { albums }: Props = $props();
 </script>
 
 <div class="relative pt-16 lg:pt-24">
