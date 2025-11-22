@@ -29,7 +29,7 @@
 <!-- mobile title -->
 <section class="block w-full pt-12 text-neutral-900 lg:hidden">
 	<h1
-		class="text-center text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:ml-[.3em] lg:text-7xl lg:tracking-[.3em]"
+		class="text-center text-3xl font-medium uppercase tracking-widest text-inherit lg:ml-[.3em] lg:text-7xl lg:tracking-[.3em]"
 	>
 		super napkin
 	</h1>
@@ -38,7 +38,7 @@
 <section class="block lg:flex lg:justify-center lg:pt-8 xl:pt-10">
 	<div class="hidden lg:block">
 		<h1
-			class="text-base font-medium uppercase tracking-[.1em] lg:text-5xl lg:tracking-[.3em] xl:text-7xl"
+			class="text-base font-medium uppercase tracking-widest lg:text-5xl lg:tracking-[.3em] xl:text-7xl"
 		>
 			super napkin
 		</h1>
@@ -56,7 +56,7 @@
 	</div>
 </section>
 
-<section class="mx-auto max-w-screen-lg">
+<section class="mx-auto max-w-(--breakpoint-lg)">
 	{#await getNextGig() then nextGig}
 		<NextGigCard {nextGig} />
 	{/await}
@@ -66,6 +66,7 @@
 </section>
 
 <style lang="postcss">
+	@reference '../../app.css';
 	nav a {
 		@apply my-2 p-2 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-xl;
 		letter-spacing: 0.1em;

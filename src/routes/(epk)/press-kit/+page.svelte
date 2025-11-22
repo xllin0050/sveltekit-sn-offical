@@ -110,6 +110,7 @@
 </section>
 
 <style lang="postcss">
+	@reference '../../../app.css';
 	.youtubeWrap {
 		@apply mx-auto;
 	}

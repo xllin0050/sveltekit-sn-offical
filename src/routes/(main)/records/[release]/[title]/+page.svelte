@@ -22,7 +22,7 @@
 
 <section class="lg:pt-18 flex flex-col items-center p-12">
 	<div class="max-w-xl">
-		<div class="shadow">
+		<div class="shadow-sm">
 			<img src={album.cover} alt="" class="w-full" />
 		</div>
 		<div class=" mb-16">

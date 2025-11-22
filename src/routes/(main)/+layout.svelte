@@ -22,7 +22,7 @@
 	<main class="min-h-screen w-full" style="view-transition-name: page" tabindex="-1" data-autofocus>
 		{@render children?.()}
 	</main>
-	<footer class="mx-auto max-w-screen-lg py-12 font-medium uppercase">
+	<footer class="mx-auto max-w-(--breakpoint-lg) py-12 font-medium uppercase">
 		<ul class="footer-links flex items-center justify-center pt-12">
 			<li>
 				<a
@@ -73,6 +73,7 @@
 </div>
 
 <style lang="postcss">
+	@reference '../../app.css';
 	:global(.footer-links li) {
 		@apply mx-4 text-neutral-700 hover:text-neutral-900;
 	}

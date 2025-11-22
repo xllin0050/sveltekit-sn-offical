@@ -1,20 +1,39 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@layer utilities {
-	.card-shadow {
-		/* box-shadow: 10px 10px 20px #d9d9d9, -10px -10px 20px #ffffff; */
-		box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.2);
-		-webkit-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.2);
-		-moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.2);
-	}
-	.card-shadow-elev {
-		/* box-shadow: 15px 15px 20px #d9d9d9, -15px -15px 20px #ffffff; */
-    box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.2);
-		-webkit-box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.2);
-		-moz-box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.2);
-	}
+@theme {
+  --font-red-hat: 'Red Hat Mono', monospace;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility card-shadow {
+  /* box-shadow: 10px 10px 20px #d9d9d9, -10px -10px 20px #ffffff; */
+  box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.2);
+}
+
+@utility card-shadow-elev {
+  /* box-shadow: 15px 15px 20px #d9d9d9, -15px -15px 20px #ffffff; */
+  box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.2);
 }
 
 html,

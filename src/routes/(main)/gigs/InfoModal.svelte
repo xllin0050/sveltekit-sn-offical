@@ -41,7 +41,7 @@
 	</div>
 	<div class="flex flex-col items-center pt-8">
 		<div
-			class="w-1/3 rounded bg-neutral-100 p-2 text-base shadow hover:bg-neutral-100"
+			class="w-1/3 rounded-sm bg-neutral-100 p-2 text-base shadow-sm hover:bg-neutral-100"
 			onclick={onclose}
 			aria-hidden="true"
 		>

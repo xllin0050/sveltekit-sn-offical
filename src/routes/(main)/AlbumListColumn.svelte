@@ -36,7 +36,7 @@
 				</a>
 			</div>
 			<h5 class="py-4 text-center text-sm font-medium uppercase text-neutral-800 lg:text-base">
-				<span class="rounded-lg p-6 drop-shadow">
+				<span class="rounded-lg p-6 drop-shadow-sm">
 					{album.title}
 				</span>
 			</h5>

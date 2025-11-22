@@ -24,7 +24,7 @@
 				href={`records/${album.release}/${album.url}`}
 				class="block w-[250px] shrink-0 lg:w-[400px]"
 			>
-				<img src={album.cover} alt="" class="w-full p-1 shadow-xl ring-neutral-300 hover:ring" />
+				<img src={album.cover} alt="" class="w-full p-1 shadow-xl ring-neutral-300 hover:ring-3" />
 			</a>
 			<div class="mx-8 flex w-[250px] flex-col justify-between pt-12 lg:ml-16 lg:w-full lg:py-6">
 				<article>
@@ -37,7 +37,7 @@
 				</article>
 				<iframe
 					title={album.title}
-					class="lazyload shadow"
+					class="lazyload shadow-sm"
 					style="border: 0; width: 100%; height: 120px; "
 					data-src="https://bandcamp.com/EmbeddedPlayer/{album.bandcamp}/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/"
 					seamless
