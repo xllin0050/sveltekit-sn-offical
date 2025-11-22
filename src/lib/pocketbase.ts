@@ -1,3 +1,3 @@
-import PocketBase from 'pocketbase';
+import { createPocketBaseClient } from '$lib/core/services/pocketbase.client';
 
-export const pb = new PocketBase(import.meta.env.VITE_POCKETBASE);
+export const pb = createPocketBaseClient();

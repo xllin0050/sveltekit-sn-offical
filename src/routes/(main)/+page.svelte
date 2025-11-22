@@ -1,21 +1,15 @@
 <script lang="ts">
-	import { pb } from '$lib/pocketbase';
+	import type { PageData } from './$types';
 	import { userLanguage } from '$lib/stores';
 	import { onMount } from 'svelte';
 
-	import albums from '$lib/data/discography';
 	import AlbumListColumn from './AlbumListColumn.svelte';
 	import MembersNameCircle from './MembersNameCircle.svelte';
 	import NextGigCard from './NextGigCard.svelte';
 
-	async function getNextGig() {
-		const today = new Date().toJSON().slice(0, 10);
-		const gigDates = await pb
-			.collection('sngigs')
-			.getFullList({ sort: 'gigdate', filter: `gigdate>"${today}"` });
-
-		return Object.assign({}, gigDates.shift());
-	}
+	let { data }: { data: PageData } = $props();
+	const nextGig = $derived(data.nextGig ?? {});
+	const albums = $derived(data.albums);
 
 	onMount(() => {
 		const browser = window.navigator.language;
@@ -57,9 +51,7 @@
 </section>
 
 <section class="mx-auto max-w-(--breakpoint-lg)">
-	{#await getNextGig() then nextGig}
-		<NextGigCard {nextGig} />
-	{/await}
+	<NextGigCard {nextGig} />
 	{#if albums && albums.length}
 		<AlbumListColumn {albums} />
 	{/if}

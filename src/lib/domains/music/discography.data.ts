@@ -1,4 +1,6 @@
-export default [
+import type { AlbumRecord } from './album.types';
+
+export const albums: AlbumRecord[] = [
 	{
 		id: 7,
 		release: '2024-03-19',
@@ -158,7 +160,8 @@ export default [
 		},
 		bandcamp: 'album=1653117453',
 		desc: {
-			zh: '當一切聲音停下，你才發現我們已經到了很遠的地方，到了那個當時我們以為還要很久很久才會來到的，像是比外太空還要遠的 2020 年代。 —— 林易澄'
+			zh: '當一切聲音停下，你才發現我們已經到了很遠的地方，到了那個當時我們以為還要很久很久才會來到的，像是比外太空還要遠的 2020 年代。 —— 林易澄',
+			en: 'When every sound finally fades, you realize we have drifted far away—into the distant 2020s that once felt farther than outer space. — Forest Lin'
 		},
 		note: [
 			'Tracking/Mixing/Mastering - Brian Elgin',
@@ -193,7 +196,8 @@ export default [
 		},
 		bandcamp: 'album=3934228572',
 		desc: {
-			zh: '鑽石形狀的心，仍然只是顆心。為了不易碎，我們都扭曲成該成為的模樣。堅硬地碰撞再一起淌血，也許是我們唯一認識彼此的方式。'
+			zh: '鑽石形狀的心，仍然只是顆心。為了不易碎，我們都扭曲成該成為的模樣。堅硬地碰撞再一起淌血，也許是我們唯一認識彼此的方式。',
+			en: 'A diamond-shaped heart is still just a heart. To avoid shattering we bend into shapes we think we need, crash hard, bleed together, and maybe that is the only way we truly know one another.'
 		},
 		note: [
 			'Production: Jyun-Ao Caesar / Hung-Yu Hsieh',
@@ -228,10 +232,13 @@ export default [
 		},
 		bandcamp: 'album=3755431565',
 		desc: {
-			zh: '如果要構思一個超級英雄的故事，我想寫一個叫做紙巾人的角色，能力是好好地聽每個心靈受傷的人說話，陪著他們將傷口上的污垢和血淚都擦拭乾淨。每個人都需要這樣的英雄。'
+			zh: '如果要構思一個超級英雄的故事，我想寫一個叫做紙巾人的角色，能力是好好地聽每個心靈受傷的人說話，陪著他們將傷口上的污垢和血淚都擦拭乾淨。每個人都需要這樣的英雄。',
+			en: 'If we were to invent a superhero, it would be Tissue Man—someone who listens to every wounded soul and patiently wipes away the grime and tears. Everyone needs that kind of hero.'
 		},
 		note: ['All by Super Napkin', 'Release: 2016-04-08'],
 		url: 'rhythmic-lizard-moon',
 		cover: '/covers/rhythmic-lizard-moon-cover.jpg'
 	}
 ];
+
+export default albums;

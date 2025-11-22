@@ -1,26 +1,23 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { pb } from '$lib/pocketbase';
+	import type { PageData } from './$types';
 	import PageHead from '$lib/components/PageHead.svelte';
 	import Modal from './PhotoModal.svelte';
 	import { lazyLoad } from './lazyLoad.js';
 
+	let { data }: { data: PageData } = $props();
+	const photos = $derived(data.photos);
+
 	let isOpenModal: boolean = $state(false);
-	let screenWidth: number = $state();
-	let phoneScreen: boolean = $state();
-	let singlePhotoUrl: string = $state();
-	const thumbnailUrlPreifx = `${import.meta.env.VITE_POCKETBASE}/api/files/snphotos`;
-	let photos: { [key: string]: string }[] = $state([]);
+	let screenWidth: number = $state(0);
+	let phoneScreen: boolean = $state(false);
+	let singlePhotoUrl: string = $state('');
 
 	const openModal = (data: string) => {
 		singlePhotoUrl = data;
 		isOpenModal = true;
 	};
-	onMount(() => {
-		(async () => {
-			photos = await pb.collection('snphotos').getFullList({ sort: '-photodate' });
-		})();
+	$effect(() => {
 		phoneScreen = screenWidth < 768;
 	});
 </script>
@@ -34,12 +31,12 @@
 			<figure
 				class="max-h-[500px] min-h-[200px] w-full md:min-h-[300px] md:w-1/3"
 				onclick={() => {
-					openModal(`${thumbnailUrlPreifx}/${photo.id}/${photo.photo}`);
+					openModal(photo.fullUrl);
 				}}
 				aria-hidden="true"
 			>
 				<img
-					use:lazyLoad={`${thumbnailUrlPreifx}/${photo.id}/${photo.photo}?thumb=500x375`}
+					use:lazyLoad={photo.thumbnailUrl}
 					alt=""
 					class="h-full w-full object-cover"
 				/>

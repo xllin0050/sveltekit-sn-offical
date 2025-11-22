@@ -1,20 +1,9 @@
 <script lang="ts">
 	import BandcampPlayer from './BandcampPlayer.svelte';
-	interface Album {
-		id: number;
-		release: string;
-		tracks: { [key: string]: string | undefined };
-		title: string;
-		listen: { [key: string]: string | undefined };
-		spotify?: string;
-		bandcamp: string;
-		desc: { [key: string]: string | undefined };
-		note: string[];
-		url: string;
-		cover: string;
-	}
+	import type { AlbumRecord } from '$lib/domains/music/album.types';
+
 	interface Props {
-		albums: Album[];
+		albums: AlbumRecord[];
 	}
 
 	let { albums }: Props = $props();

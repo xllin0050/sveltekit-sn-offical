@@ -19,11 +19,11 @@
 	const modal = { duration: reduced ? 0 : 150, start: 0.98 };
 
 	let hiLoaded = $state(false);
-	let previewUrl: string = $state();
-	let hi800: string = $state();
-	let hi1200: string = $state();
-	let hi1600: string = $state();
-    let ratio: number = $state(4 / 3); // 預設比例，避免尚未載入前佈局塌陷
+	let previewUrl: string = $state('');
+	let hi800: string = $state('');
+	let hi1200: string = $state('');
+	let hi1600: string = $state('');
+	let ratio: number = $state(4 / 3); // 預設比例，避免尚未載入前佈局塌陷
 
 	run(() => {
 		previewUrl = `${singlePhotoUrl}?thumb=500x375`;

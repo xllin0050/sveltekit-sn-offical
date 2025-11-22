@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { PageData } from './$types';
 	import bandcamp from '$lib/assets/icons/epk/icons8-bandcamp.svg';
 	import appleMusic from '$lib/assets/icons/epk/icons8-music.svg';
 	import spotify from '$lib/assets/icons/epk/icons8-spotify.svg';
@@ -7,7 +8,11 @@
 	import LivePhotos from '$lib/components/epk/LivePhotos.svelte';
 	import ReleaseCovers from '$lib/components/epk/ReleaseCovers.svelte';
 	import ReleasePlayers from '$lib/components/epk/ReleasePlayers.svelte';
-	import albums from '$lib/data/discography';
+
+	let { data }: { data: PageData } = $props();
+	const albums = $derived(data.albums);
+	const recentGigs = $derived(data.recentGigs);
+	const photoHighlights = $derived(data.photoHighlights);
 </script>
 
 <!-- bio -->
@@ -80,7 +85,7 @@
 		For more information, please go to
 		<a href="www.supernapkin.com">www.supernapkin.com</a>
 	</p>
-	<LivePhotos />
+	<LivePhotos photos={photoHighlights} />
 	<div class="youtubeWrap my-4 sm:w-[40em] md:my-8">
 		<iframe
 			width="100%"
@@ -106,7 +111,7 @@
 		></iframe>
 	</div>
 	<p class="pb-4 pt-8 text-center font-medium capitalize md:py-8 md:text-lg">recent gigs</p>
-	<LastGigList />
+	<LastGigList gigs={recentGigs} />
 </section>
 
 <style lang="postcss">
