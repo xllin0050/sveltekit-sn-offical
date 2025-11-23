@@ -1,0 +1,11 @@
+:root {
+  color-scheme: dark;
+  --color-bg: #0c0c0c;
+  --color-surface: #111111;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #bcbcbc;
+  --color-accent: #8ca6ff;
+  --color-link: #a6c8ff;
+  --layout-max-width: 1280px;
+}
+

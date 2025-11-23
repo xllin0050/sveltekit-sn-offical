@@ -1,0 +1,65 @@
+@layer base {
+  *,
+  ::before,
+  ::after,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-surface, currentcolor);
+  }
+
+  html {
+    min-height: 100%;
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-feature-settings: 'liga' 1, 'kern' 1;
+  }
+
+  body {
+    min-height: 100%;
+    margin: 0;
+    background-color: var(--color-bg);
+    color: inherit;
+    font-family: inherit;
+  }
+
+  a,
+  button,
+  [role='button'] {
+    transition:
+      color 150ms ease,
+      background-color 150ms ease,
+      opacity 150ms ease,
+      transform 150ms ease;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    transition: opacity 150ms ease;
+  }
+
+  ::view-transition-old(page),
+  ::view-transition-new(page) {
+    animation-duration: 150ms;
+    animation-timing-function: ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  ::view-transition-old(page),
+  ::view-transition-new(page) {
+    animation-duration: 0.01ms !important;
+  }
+}
+
