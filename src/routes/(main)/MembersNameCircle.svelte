@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
-	let shihDrum: HTMLElement | null = $state(null);
-	let yauGtr: HTMLElement | null = $state(null);
-	let weitingBass: HTMLElement | null = $state(null);
+	let shihDrum: HTMLElement = $state();
+	let yauGtr: HTMLElement = $state();
+	let weitingBass: HTMLElement = $state();
 	let hiddenCircle = $state(true);
 	onMount(() => {
-		const nameCircle = (nameText: HTMLElement | null, position: number) => {
-			if (!nameText) return;
+		const nameCircle = (nameText: HTMLElement, position: number) => {
 			nameText.innerHTML = nameText.innerText
 				.split('')
 				.map(

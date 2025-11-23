@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { goto } from '$app/navigation';
 	import enterIcon from '$lib/assets/icons/enter-svgrepo-com.svg';
@@ -8,8 +9,8 @@
 	import 'lazysizes';
 
 	let currentId: string = $state('');
-	let screenWidth: number = $state(0);
-	let phoneScreen: boolean = $state(false);
+	let screenWidth: number = $state();
+	let phoneScreen: boolean = $state();
 	let isOpenModal: boolean = $state(false);
 
 	let videoData: any = $state();
@@ -17,7 +18,7 @@
 		videoData = data;
 		isOpenModal = true;
 	};
-	$effect(() => {
+	onMount(() => {
 		phoneScreen = screenWidth < 768;
 	});
 </script>

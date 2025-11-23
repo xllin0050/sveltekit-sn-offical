@@ -1,20 +1,17 @@
 <script lang="ts">
-	import type { Gig } from '$lib/domains/gigs/gig.types';
-
-	interface Props {
-		gigs: Gig[];
-	}
-
-	let { gigs }: Props = $props();
-	const recentGigs = $derived(gigs.slice(0, 3));
+	import { pb } from '$lib/pocketbase';
+	import { onMount } from 'svelte';
+	let gigs: { [index: string]: any }[] = $state([]);
+	onMount(async () => {
+		gigs = await pb.collection('sngigs').getFullList({ sort: '-gigdate' });
+	});
 </script>
 
 <ul class="gigs-list flex flex-col items-center px-2">
-	{#if recentGigs.length}
-		{#each recentGigs as gig}
-			<li class="my-3 w-full text-xs sm:text-sm md:w-2/3 lg:w-1/2">
-				<span>
-					{gig.gigdate.slice(0, 10)}
+	{#each gigs.slice(0, 3) as gig}
+		<li class="my-3 w-full text-xs sm:text-sm md:w-2/3 lg:w-1/2">
+			<span>
+				{gig.gigdate.slice(0, 10)}
 			</span>
 			<span class="uppercase text-gray-600">
 				{gig.gigtitle}
@@ -23,10 +20,7 @@
 				{gig.giglocation}
 			</span>
 		</li>
-		{/each}
-	{:else}
-		<li class="py-4 text-center text-xs uppercase text-neutral-500">No gigs scheduled.</li>
-	{/if}
+	{/each}
 </ul>
 
 <style>

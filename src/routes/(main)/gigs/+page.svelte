@@ -1,11 +1,16 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import type { PageData } from './$types';
+	import { pb } from '$lib/pocketbase';
 	import PageHead from '$lib/components/PageHead.svelte';
 	import Modal from './InfoModal.svelte';
 
-	let { data }: { data: PageData } = $props();
-	const gigs = $derived(data.gigs);
+	let gigs: { [index: string]: any }[] = $state([]);
+	const today = new Date();
+	gigs.forEach((gig: { [index: string]: any }) => {
+		const gigDate = new Date(gig.gigdate);
+		gig.coming = gigDate >= today;
+	});
 
 	let isOpenModal: boolean = $state(false);
 	let gigData: any = $state();
@@ -13,6 +18,10 @@
 		gigData = data;
 		isOpenModal = true;
 	};
+
+	onMount(async () => {
+		gigs = await pb.collection('sngigs').getFullList({ sort: '-gigdate' });
+	});
 </script>
 
 <PageHead />

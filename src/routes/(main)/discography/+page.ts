@@ -1,8 +1,7 @@
-import type { PageLoad } from './$types';
-import { albums } from '$lib/domains/music/discography.data';
+import albums from '$lib/data/discography';
 
-export const load = (() => {
-	return {
-		albums
-	};
-}) satisfies PageLoad;
+export async function load() {
+  return {
+    albums
+  };
+}

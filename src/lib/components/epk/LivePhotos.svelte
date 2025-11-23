@@ -1,19 +1,35 @@
 <script lang="ts">
-	import type { PhotoAsset } from '$lib/domains/media/photo.types';
+	import { pb } from '$lib/pocketbase';
 
-	interface Props {
-		photos: PhotoAsset[];
+	import { onMount } from 'svelte';
+
+	const thumbnailUrlPreifx = `${import.meta.env.VITE_POCKETBASE}/api/files/snphotos`;
+	let photos: any = $state();
+	async function getPhotos() {
+		const year = new Date().getFullYear();
+		const photos = await pb
+			.collection('snphotos')
+			.getList(1, 3, { filter: `photodate>"${year}-01-01"` });
+
+		if (Object.hasOwn(photos, 'items')) {
+			return photos.items;
+		}
+		return [];
 	}
-
-	let { photos }: Props = $props();
-	const gallery = $derived(photos.slice(0, 3));
+	onMount(async () => {
+		photos = await getPhotos();
+	});
 </script>
 
 <div class="flex justify-center py-4 2xl:py-8">
-	{#if gallery && gallery.length}
-		{#each gallery as photo}
+	{#if photos && photos.length}
+		{#each photos as photo}
 			<figure class="flex w-full flex-col items-center" aria-hidden="true">
-				<img src={photo.thumbnailUrl} alt="" class="w-full" />
+				<img
+					src={`${thumbnailUrlPreifx}/${photo.id}/${photo.photo}?thumb=500x375`}
+					alt=""
+					class="w-full"
+				/>
 			</figure>
 		{/each}
 	{/if}

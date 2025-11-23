@@ -1,12 +1,16 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	import { onMount } from 'svelte';
+	import { pb } from '$lib/pocketbase';
 	import PageHead from '$lib/components/PageHead.svelte';
 	import Card from './ProductCard.svelte';
 	import { fade } from 'svelte/transition';
 
-	let { data }: { data: PageData } = $props();
-	const records = $derived(data.records);
-	const tshirts = $derived(data.apparel);
+	let records: { [key: string]: any }[] = $state([]);
+	let tshirts: { [key: string]: any }[] = $state([]);
+	onMount(async () => {
+		records = await pb.collection('snsellrecords').getFullList();
+		tshirts = await pb.collection('snselltshirts').getFullList();
+	});
 
 	const reduced = typeof window !== 'undefined' &&
 		window.matchMedia &&

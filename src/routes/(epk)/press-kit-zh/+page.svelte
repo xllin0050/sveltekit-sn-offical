@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { PageData } from './$types';
 	import bandcamp from '$lib/assets/icons/epk/icons8-bandcamp.svg';
 	import appleMusic from '$lib/assets/icons/epk/icons8-music.svg';
 	import spotify from '$lib/assets/icons/epk/icons8-spotify.svg';
@@ -8,11 +7,7 @@
 	import LivePhotos from '$lib/components/epk/LivePhotos.svelte';
 	import ReleaseCovers from '$lib/components/epk/ReleaseCovers.svelte';
 	import ReleasePlayers from '$lib/components/epk/ReleasePlayers.svelte';
-
-	let { data }: { data: PageData } = $props();
-	const albums = $derived(data.albums);
-	const recentGigs = $derived(data.recentGigs);
-	const photoHighlights = $derived(data.photoHighlights);
+	import albums from '$lib/data/discography';
 </script>
 
 <!-- bio -->
@@ -81,7 +76,7 @@
 	<p class="mx-auto px-4 pb-4 pt-2 text-justify sm:w-[50ch] lg:w-[80ch]">
 		更多資訊，請至<a href="www.supernapkin.com">www.supernapkin.com</a>
 	</p>
-	<LivePhotos photos={photoHighlights} />
+	<LivePhotos />
 	<div class="youtubeWrap my-4 sm:w-[40em] md:my-8">
 		<iframe
 			width="100%"
@@ -107,7 +102,7 @@
 		></iframe>
 	</div>
 	<p class="pb-4 pt-8 text-center font-medium capitalize md:py-8 md:text-lg">recent gigs</p>
-	<LastGigList gigs={recentGigs} />
+	<LastGigList />
 </section>
 
 <style lang="postcss">
