@@ -17,12 +17,12 @@
 	<title>Super Napkin Offical</title>
 </svelte:head>
 <div id="layout" class="font-red-hat">
-	<AppNav />
-	<ScrollHandler />
+	<!-- <AppNav /> -->
+	<!-- <ScrollHandler /> -->
 	<main class="min-h-screen w-full" style="view-transition-name: page" tabindex="-1" data-autofocus>
 		{@render children?.()}
 	</main>
-	<footer class="mx-auto max-w-(--breakpoint-lg) py-12 font-medium uppercase">
+	<!-- <footer class="mx-auto max-w-(--breakpoint-lg) py-12 font-medium uppercase">
 		<ul class="footer-links flex items-center justify-center pt-12">
 			<li>
 				<a
@@ -69,7 +69,7 @@
 			<span class="px-1">&copy;</span>
 			{new Date().getFullYear()} Super Napkin
 		</div>
-	</footer>
+	</footer> -->
 </div>
 
 <style lang="postcss">
