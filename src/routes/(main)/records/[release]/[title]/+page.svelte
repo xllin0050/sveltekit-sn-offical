@@ -20,7 +20,7 @@
 
 <PageHead />
 
-<section class="lg:pt-18 flex flex-col items-center p-12">
+<section class="flex flex-col items-center p-12 lg:pt-18">
 	<div class="max-w-xl">
 		<div class="shadow-sm">
 			<img src={album.cover} alt="" class="w-full" />
@@ -47,7 +47,7 @@
 					{/if}
 				</div>
 			</div>
-			<h3 class="pb-3 text-sm font-medium uppercase text-neutral-600 lg:pb-4 lg:text-base">
+			<h3 class="pb-3 text-sm font-medium text-neutral-600 uppercase lg:pb-4 lg:text-base">
 				tracks
 			</h3>
 			<ul>
@@ -59,7 +59,7 @@
 			</ul>
 			{#if album.note}
 				<h3
-					class="pb-3 pt-10 text-sm font-medium uppercase text-neutral-600 lg:pb-4 lg:pt-24 lg:text-base"
+					class="pt-10 pb-3 text-sm font-medium text-neutral-600 uppercase lg:pt-24 lg:pb-4 lg:text-base"
 				>
 					credits
 				</h3>
@@ -70,7 +70,7 @@
 				{/each}
 			{/if}
 			<h3
-				class="pb-3 pt-10 text-sm font-medium uppercase text-neutral-600 lg:pb-4 lg:pt-24 lg:text-base"
+				class="pt-10 pb-3 text-sm font-medium text-neutral-600 uppercase lg:pt-24 lg:pb-4 lg:text-base"
 			>
 				streams
 			</h3>

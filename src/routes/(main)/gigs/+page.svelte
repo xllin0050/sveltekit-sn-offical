@@ -1,37 +1,33 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { pb } from '$lib/pocketbase';
 	import PageHead from '$lib/components/PageHead.svelte';
+	import type { GigRecord } from '$lib/models/gig';
+	import { getAllGigs } from '$lib/services/gigs';
 	import Modal from './InfoModal.svelte';
 
-	let gigs: { [index: string]: any }[] = $state([]);
-	const today = new Date();
-	gigs.forEach((gig: { [index: string]: any }) => {
-		const gigDate = new Date(gig.gigdate);
-		gig.coming = gigDate >= today;
-	});
+	let gigs: GigRecord[] = $state([]);
 
 	let isOpenModal: boolean = $state(false);
-	let gigData: any = $state();
-	const openModal = (data: any) => {
+	let gigData: GigRecord | null = $state(null);
+	const openModal = (data: GigRecord) => {
 		gigData = data;
 		isOpenModal = true;
 	};
 
 	onMount(async () => {
-		gigs = await pb.collection('sngigs').getFullList({ sort: '-gigdate' });
+		gigs = await getAllGigs();
 	});
 </script>
 
 <PageHead />
-<h2 class="pt-8 text-center text-sm font-medium uppercase text-neutral-500 sm:hidden">Gigs</h2>
+<h2 class="pt-8 text-center text-sm font-medium text-neutral-500 uppercase sm:hidden">Gigs</h2>
 
 <section class="mx-auto min-h-screen max-w-xs pb-16 lg:max-w-4xl lg:pt-6">
 	<ul class="pt-10 md:pt-0">
 		{#each gigs as gig}
 			<li
-				class="mb-14 flex flex-col items-center rounded-md bg-neutral-50 pb-8 pt-4 text-xs uppercase shadow-md transition-shadow hover:shadow-lg lg:mb-8 lg:flex-row lg:px-4 lg:py-8"
+				class="mb-14 flex flex-col items-center rounded-md bg-neutral-50 pt-4 pb-8 text-xs uppercase shadow-md transition-shadow hover:shadow-lg lg:mb-8 lg:flex-row lg:px-4 lg:py-8"
 				class:ring-2={gig.coming}
 				class:ring-neutral-600={gig.coming}
 				class:hidden={!gig.announce}
@@ -65,12 +61,13 @@
 		{/each}
 	</ul>
 </section>
-{#if isOpenModal}
+{#if isOpenModal && gigData}
 	<div transition:fade|global={{ duration: 100 }}>
 		<Modal
 			{gigData}
 			onclose={() => {
 				isOpenModal = false;
+				gigData = null;
 			}}
 		/>
 	</div>

@@ -18,7 +18,7 @@
 <svelte:window bind:innerWidth={width} />
 
 <PageHead />
-<h2 class="pt-8 text-center text-sm font-medium uppercase text-neutral-500 sm:hidden">About Us</h2>
+<h2 class="pt-8 text-center text-sm font-medium text-neutral-500 uppercase sm:hidden">About Us</h2>
 <div id="banner" class="mt-8 w-screen px-4 lg:mt-4 lg:px-0">
 	<img {src} alt="" class="mx-auto object-contain" style:height={`${(width / 2048) * 1152}px`} />
 </div>
@@ -26,7 +26,7 @@
 	<div class="pl-8">
 		<TextSwitch />
 	</div>
-	<article class="pt-2 text-sm font-normal leading-relaxed text-neutral-700 sm:pt-0 sm:text-base">
+	<article class="pt-2 text-sm leading-relaxed font-normal text-neutral-700 sm:pt-0 sm:text-base">
 		{#if displayText === 'zh'}
 			<p class="paragraph">Super Napkin 是個所有事都要有點不可理喻的樂團，但僅限有點。</p>
 			<p class="paragraph">

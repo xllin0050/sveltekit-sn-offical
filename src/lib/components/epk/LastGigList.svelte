@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { pb } from '$lib/pocketbase';
+	import { getAllGigs } from '$lib/services/gigs';
 	import { onMount } from 'svelte';
 	let gigs: { [index: string]: any }[] = $state([]);
 	onMount(async () => {
-		gigs = await pb.collection('sngigs').getFullList({ sort: '-gigdate' });
+		gigs = await getAllGigs();
 	});
 </script>
 
@@ -13,7 +13,7 @@
 			<span>
 				{gig.gigdate.slice(0, 10)}
 			</span>
-			<span class="uppercase text-gray-600">
+			<span class="text-gray-600 uppercase">
 				{gig.gigtitle}
 			</span>
 			<span class="uppercase">

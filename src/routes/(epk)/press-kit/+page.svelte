@@ -105,7 +105,7 @@
 			allowfullscreen
 		></iframe>
 	</div>
-	<p class="pb-4 pt-8 text-center font-medium capitalize md:py-8 md:text-lg">recent gigs</p>
+	<p class="pt-8 pb-4 text-center font-medium capitalize md:py-8 md:text-lg">recent gigs</p>
 	<LastGigList />
 </section>
 

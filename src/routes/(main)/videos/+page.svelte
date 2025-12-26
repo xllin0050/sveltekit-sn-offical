@@ -8,13 +8,22 @@
 	import videos from './data';
 	import 'lazysizes';
 
+	type VideoItem = {
+		id: string;
+		title?: string;
+		url?: string;
+		snapshot?: string;
+	};
+
+	const videoList = videos as VideoItem[];
+
 	let currentId: string = $state('');
-	let screenWidth: number = $state();
-	let phoneScreen: boolean = $state();
+	let screenWidth: number = $state(0);
+	let phoneScreen: boolean = $state(false);
 	let isOpenModal: boolean = $state(false);
 
-	let videoData: any = $state();
-	const openModal = (data: any) => {
+	let videoData: VideoItem | null = $state(null);
+	const openModal = (data: VideoItem) => {
 		videoData = data;
 		isOpenModal = true;
 	};
@@ -25,12 +34,12 @@
 
 <svelte:window bind:outerWidth={screenWidth} />
 <PageHead />
-<h2 class="pt-8 text-center text-sm font-medium uppercase text-neutral-500 sm:hidden">videos</h2>
+<h2 class="pt-8 text-center text-sm font-medium text-neutral-500 uppercase sm:hidden">videos</h2>
 <section>
 	<ul class="mx-auto max-w-3xl sm:pt-0 lg:mt-16">
-		{#each videos as video}
+		{#each videoList as video}
 			<li class="mb-20 px-8 lg:mb-28">
-				<h3 class="pb-3 pt-10 text-center text-xs font-medium lg:pb-6 lg:text-left lg:text-base">
+				<h3 class="pt-10 pb-3 text-center text-xs font-medium lg:pb-6 lg:text-left lg:text-base">
 					{video.title}
 				</h3>
 				<div
@@ -42,7 +51,7 @@
 						currentId = '';
 					}}
 					onclick={() => {
-						if (phoneScreen) {
+						if (phoneScreen && video.url) {
 							goto(video.url);
 						}
 						openModal(video);
@@ -65,12 +74,13 @@
 		{/each}
 	</ul>
 </section>
-{#if isOpenModal && !phoneScreen}
+{#if isOpenModal && !phoneScreen && videoData}
 	<div transition:fade|global={{ duration: 150 }}>
 		<Modal
 			{videoData}
 			onclose={() => {
 				isOpenModal = false;
+				videoData = null;
 			}}
 		/>
 	</div>

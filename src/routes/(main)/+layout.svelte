@@ -4,8 +4,8 @@
 	import mailIcon from '$lib/assets/icons/mail-svgrepo-com.svg';
 	import ytIcon from '$lib/assets/icons/youtube-svgrepo-com.svg';
 	import '../../app.css';
-	import AppNav from './AppNavbar.svelte';
-	import ScrollHandler from './ScrollHandler.svelte';
+	import AppNav from '$lib/components/main/AppNavbar.svelte';
+	import ScrollHandler from '$lib/components/main/ScrollHandler.svelte';
 	interface Props {
 		children?: import('svelte').Snippet;
 	}

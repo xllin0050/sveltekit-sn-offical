@@ -18,7 +18,7 @@
 <div id="epk" class="font-red-hat" style="view-transition-name: page" tabindex="-1" data-autofocus>
 	<div class="band-picture h-[15em] w-full lg:h-[30em]"></div>
 	<h1
-		class="py-8 text-center text-3xl font-medium uppercase tracking-widest text-inherit lg:py-12 lg:text-7xl lg:tracking-[.3em]"
+		class="py-8 text-center text-3xl font-medium tracking-widest text-inherit uppercase lg:py-12 lg:text-7xl lg:tracking-[.3em]"
 	>
 		super napkin
 	</h1>
@@ -51,7 +51,7 @@
 				</a>
 			</li>
 		</ul>
-		<p class="pb-4 pt-8 text-center font-medium capitalize">contact</p>
+		<p class="pt-8 pb-4 text-center font-medium capitalize">contact</p>
 		<div class="flex justify-center pb-8">
 			<a href="mailto:supernapkinsogood@gmail.com" target="_blank" rel="noreferrer"
 				>supernapkinsogood@gmail.com</a

@@ -3,7 +3,7 @@
 </script>
 
 <h1
-	class="pt-8 text-center text-3xl font-medium uppercase tracking-widest text-neutral-900 sm:pt-16 lg:text-7xl lg:tracking-[.3em]"
+	class="pt-8 text-center text-3xl font-medium tracking-widest text-neutral-900 uppercase sm:pt-16 lg:text-7xl lg:tracking-[.3em]"
 >
 	super napkin
 </h1>
@@ -22,7 +22,7 @@
 <style lang="postcss">
 	@reference '../../app.css';
 	.page-links a {
-		@apply mx-4 px-0 py-10 text-sm font-medium uppercase text-neutral-600 transition hover:text-neutral-800 lg:text-lg;
+		@apply mx-4 px-0 py-10 text-sm font-medium text-neutral-600 uppercase transition hover:text-neutral-800 lg:text-lg;
 		word-spacing: -0.3em;
 	}
 </style>

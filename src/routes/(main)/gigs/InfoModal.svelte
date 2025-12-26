@@ -2,15 +2,26 @@
 	import closeIcon from '$lib/assets/icons/close-square-svgrepo-com.svg';
 	import { onDestroy, onMount } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
+	import type { GigRecord } from '$lib/models/gig';
+	import { fileUrl } from '$lib/utils/pb';
 	interface Props {
-		gigData: any;
+		gigData: GigRecord;
 		onclose: () => void;
 	}
 
 	let { gigData, onclose }: Props = $props();
-	const posterUrl = `${import.meta.env.VITE_POCKETBASE}/api/files/sngigs/${gigData.id}/${gigData.gigbanner}?thumb=300x225f`;
+	const posterUrl =
+		gigData?.id && gigData?.gigbanner
+			? fileUrl({
+					collection: 'sngigs',
+					id: gigData.id,
+					filename: gigData.gigbanner as string,
+					query: 'thumb=300x225f'
+				})
+			: '';
 
-	const reduced = typeof window !== 'undefined' &&
+	const reduced =
+		typeof window !== 'undefined' &&
 		window.matchMedia &&
 		window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -25,7 +36,7 @@
 	class="relative flex h-[520px] w-[90%] flex-col justify-between rounded-md bg-neutral-50 p-2 uppercase lg:w-[45%] lg:p-8"
 	transition:scale={modal}
 >
-	<div class="absolute right-1 top-2 w-6 bg-neutral-50" onclick={onclose} aria-hidden="true">
+	<div class="absolute top-2 right-1 w-6 bg-neutral-50" onclick={onclose} aria-hidden="true">
 		<img src={closeIcon} alt="" />
 	</div>
 	<div
@@ -36,7 +47,7 @@
 		<p class="pt-6">{gigData.gigdate.slice(0, 10)}</p>
 		<p class="pt-6">{gigData.gigvenue} / {gigData.giglocation}</p>
 		{#if gigData.gignote}
-			<p class="pt-6 text-xs normal-case text-gray-500">{gigData.gignote}</p>
+			<p class="pt-6 text-xs text-gray-500 normal-case">{gigData.gignote}</p>
 		{/if}
 	</div>
 	<div class="flex flex-col items-center pt-8">

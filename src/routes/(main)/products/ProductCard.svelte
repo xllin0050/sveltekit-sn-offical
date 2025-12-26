@@ -29,7 +29,7 @@
 			<SizeGuide data={data.itemsize} />
 		{/if}
 		{#if data.itemnote}
-			<div class="pl-4 pt-8 text-left sm:pt-12">
+			<div class="pt-8 pl-4 text-left sm:pt-12">
 				<div class="pb-2">Notice:</div>
 				{#each Object.entries(data.itemnote) as [line, text]}
 					<div class="pb-2">{text}</div>

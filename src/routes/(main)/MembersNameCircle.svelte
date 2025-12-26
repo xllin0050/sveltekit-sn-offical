@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
-	let shihDrum: HTMLElement = $state();
-	let yauGtr: HTMLElement = $state();
-	let weitingBass: HTMLElement = $state();
+	let shihDrum: HTMLElement | null = $state(null);
+	let yauGtr: HTMLElement | null = $state(null);
+	let weitingBass: HTMLElement | null = $state(null);
 	let hiddenCircle = $state(true);
 	onMount(() => {
 		const nameCircle = (nameText: HTMLElement, position: number) => {
@@ -14,9 +14,9 @@
 				)
 				.join('');
 		};
-		nameCircle(shihDrum, 15);
-		nameCircle(yauGtr, 0);
-		nameCircle(weitingBass, 28);
+		if (shihDrum) nameCircle(shihDrum, 15);
+		if (yauGtr) nameCircle(yauGtr, 0);
+		if (weitingBass) nameCircle(weitingBass, 28);
 		hiddenCircle = false;
 	});
 
@@ -67,12 +67,12 @@
 	</div>
 	{#each membersName as name}
 		<div
-			class="absolute left-1/2 top-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:h-[320px] lg:w-[320px] {name}"
+			class="absolute top-1/2 left-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:h-[320px] lg:w-[320px] {name}"
 			class:opacity-100={name === backgroundName}
 			class:opacity-0={name !== backgroundName}
 		>
 			<div
-				class="absolute bottom-4 w-full text-center uppercase tracking-widest text-neutral-50 opacity-100 lg:opacity-0"
+				class="absolute bottom-4 w-full text-center tracking-widest text-neutral-50 uppercase opacity-100 lg:opacity-0"
 			>
 				{name}
 			</div>

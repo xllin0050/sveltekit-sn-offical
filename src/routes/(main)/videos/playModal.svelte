@@ -1,14 +1,16 @@
 <script lang="ts">
 	import { fade, scale } from 'svelte/transition';
 	import closeIcon from '$lib/assets/icons/close-square-svgrepo-com.svg';
-	interface Props {
-		videoData: any;
-		onclose: () => void;
-	}
+	export let videoData: {
+		id: string;
+		title?: string;
+		url?: string;
+		snapshot?: string;
+	};
+	export let onclose: () => void;
 
-	let { videoData, onclose }: Props = $props();
-
-	const reduced = typeof window !== 'undefined' &&
+	const reduced =
+		typeof window !== 'undefined' &&
 		window.matchMedia &&
 		window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -23,7 +25,7 @@
 	class="relative flex max-h-screen w-3/4 flex-col justify-between rounded-md bg-neutral-50 p-2 uppercase md:px-12 md:py-8"
 	transition:scale={modal}
 >
-	<div class="absolute right-1 top-1 w-6 bg-neutral-50" onclick={onclose} aria-hidden="true">
+	<div class="absolute top-1 right-1 w-6 bg-neutral-50" onclick={onclose} aria-hidden="true">
 		<img src={closeIcon} alt="" />
 	</div>
 	<div class="resp-container">

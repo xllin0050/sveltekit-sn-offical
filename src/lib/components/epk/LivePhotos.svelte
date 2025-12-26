@@ -1,23 +1,16 @@
 <script lang="ts">
-	import { pb } from '$lib/pocketbase';
-
 	import { onMount } from 'svelte';
-
-	const thumbnailUrlPreifx = `${import.meta.env.VITE_POCKETBASE}/api/files/snphotos`;
-	let photos: any = $state();
-	async function getPhotos() {
+	import type { PhotoRecord } from '$lib/models/photo';
+	import { getPhotos } from '$lib/services/photos';
+	import { fileUrl } from '$lib/utils/pb';
+	let photos: PhotoRecord[] = $state([]);
+	async function fetchPhotos() {
 		const year = new Date().getFullYear();
-		const photos = await pb
-			.collection('snphotos')
-			.getList(1, 3, { filter: `photodate>"${year}-01-01"` });
-
-		if (Object.hasOwn(photos, 'items')) {
-			return photos.items;
-		}
-		return [];
+		const all = await getPhotos();
+		return all.filter((p) => (p.photodate ?? '').startsWith(`${year}`));
 	}
 	onMount(async () => {
-		photos = await getPhotos();
+		photos = await fetchPhotos();
 	});
 </script>
 
@@ -26,9 +19,14 @@
 		{#each photos as photo}
 			<figure class="flex w-full flex-col items-center" aria-hidden="true">
 				<img
-					src={`${thumbnailUrlPreifx}/${photo.id}/${photo.photo}?thumb=500x375`}
+					src={fileUrl({
+						collection: 'snphotos',
+						id: photo.id as string,
+						filename: photo.photo as string,
+						query: 'thumb=300x300'
+					})}
 					alt=""
-					class="w-full"
+					class="h-full w-full object-cover"
 				/>
 			</figure>
 		{/each}

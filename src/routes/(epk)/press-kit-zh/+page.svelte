@@ -73,7 +73,7 @@
 		至今超過百場演出，參與過包含大港開唱、浪人祭、貴人散步等大型音樂祭。Super Napkin
 		多樣的面貌也讓他們成為國外樂團共演，以及台灣友團發片暖場的受邀常客。無論音量大小，超級紙巾都有可以說的故事。他們舉辦過兩小時的專場，未來計畫挑戰三小時。
 	</p>
-	<p class="mx-auto px-4 pb-4 pt-2 text-justify sm:w-[50ch] lg:w-[80ch]">
+	<p class="mx-auto px-4 pt-2 pb-4 text-justify sm:w-[50ch] lg:w-[80ch]">
 		更多資訊，請至<a href="www.supernapkin.com">www.supernapkin.com</a>
 	</p>
 	<LivePhotos />
@@ -101,7 +101,7 @@
 			allowfullscreen
 		></iframe>
 	</div>
-	<p class="pb-4 pt-8 text-center font-medium capitalize md:py-8 md:text-lg">recent gigs</p>
+	<p class="pt-8 pb-4 text-center font-medium capitalize md:py-8 md:text-lg">recent gigs</p>
 	<LastGigList />
 </section>
 

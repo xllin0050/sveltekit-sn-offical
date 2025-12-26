@@ -6,9 +6,9 @@
 	let { nextGig }: Props = $props();
 </script>
 
-<div class="mx-auto flex flex-col items-center justify-center pb-20 pt-10 lg:pb-52 lg:pt-36">
+<div class="mx-auto flex flex-col items-center justify-center pt-10 pb-20 lg:pt-36 lg:pb-52">
 	<h3
-		class="pb-6 text-xl font-medium uppercase tracking-widest text-neutral-800 lg:pb-12 lg:text-3xl"
+		class="pb-6 text-xl font-medium tracking-widest text-neutral-800 uppercase lg:pb-12 lg:text-3xl"
 	>
 		next gig
 	</h3>
@@ -32,17 +32,17 @@
 							{nextGig.gigtitle}
 						</div>
 					{/if}
-					<div class="pb-2 text-xs uppercase text-gray-800 lg:py-4 lg:text-sm">
+					<div class="pb-2 text-xs text-gray-800 uppercase lg:py-4 lg:text-sm">
 						{nextGig.giglocation}
 					</div>
-					<div class="pb-4 text-xs uppercase text-gray-800 lg:pb-4 lg:pt-1 lg:text-sm">
+					<div class="pb-4 text-xs text-gray-800 uppercase lg:pt-1 lg:pb-4 lg:text-sm">
 						{nextGig.gigvenue}
 					</div>
 				</a>
 			</div>
 		{:else}
 			<div class="card-shadow rounded-lg bg-neutral-50 text-center">
-				<div class="py-12 text-sm uppercase tracking-widest lg:text-base">tba</div>
+				<div class="py-12 text-sm tracking-widest uppercase lg:text-base">tba</div>
 			</div>
 		{/if}
 	</div>
