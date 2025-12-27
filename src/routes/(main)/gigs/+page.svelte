@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import PageHead from '$lib/components/PageHead.svelte';
+	import PageHead from '$lib/components/base/PageHead.svelte';
 	import type { GigRecord } from '$lib/models/gig';
 	import { getAllGigs } from '$lib/services/gigs';
 	import Modal from './InfoModal.svelte';

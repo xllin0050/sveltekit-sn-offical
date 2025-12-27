@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { userLanguage } from '$lib/stores';
-	import PageHead from '$lib/components/PageHead.svelte';
+	import PageHead from '$lib/components/base/PageHead.svelte';
 	import TextSwitch from '$lib/components/base/TextSwitch.svelte';
 	import src from '$lib/assets/images/band-image-2022.jpg';
 

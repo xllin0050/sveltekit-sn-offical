@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import WebsiteTitle from './base/WebsiteTitle.svelte';
+	import WebsiteTitle from './WebsiteTitle.svelte';
 	const navLinks = [
 		{ href: '/', text: 'home', activePath: '/' },
 		{ href: '/about#banner', text: 'about us', activePath: '/about' },

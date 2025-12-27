@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 	import { goto } from '$app/navigation';
 	import enterIcon from '$lib/assets/icons/enter-svgrepo-com.svg';
-	import PageHead from '$lib/components/PageHead.svelte';
+	import PageHead from '$lib/components/base/PageHead.svelte';
 	import Modal from './playModal.svelte';
 	import videos from './data';
 	import 'lazysizes';

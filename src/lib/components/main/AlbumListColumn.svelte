@@ -18,26 +18,23 @@
 	let { albums }: Props = $props();
 </script>
 
-<div class="relative">
-	<h3 class="text-center text-xl font-medium tracking-widest text-neutral-800 uppercase">
-		releases
-	</h3>
-	{#each albums as album}
-		<div class="relative">
-			<div class="mx-auto max-w-[65%]">
+<div class="max-w-hero relative mx-auto pt-8">
+	<h3 class="pt-2 text-center text-xl uppercase">releases</h3>
+	<div class="wrapper">
+		{#each albums as album}
+			<div class="group relative">
+				<h5 class="pt-8 pb-2 text-center font-light uppercase group-first:pt-2">
+					{album.title}
+				</h5>
 				<a href={`/records/${album.release}/${album.url}`}>
 					<img
 						src={album.cover}
 						alt={album.title}
-						class="card-shadow hover:card-shadow-elev mx-auto block w-full object-cover transition-all duration-600 hover:scale-105 hover:rounded-2xl"
+						sizes="clamp(300px, 90vw, 768px)"
+						class="mx-auto block w-[clamp(300px,90vw,768px)] object-cover"
 					/>
 				</a>
 			</div>
-			<h5 class=" text-center text-sm font-medium text-neutral-800 uppercase">
-				<span class="rounded-lg p-6 drop-shadow-sm">
-					{album.title}
-				</span>
-			</h5>
-		</div>
-	{/each}
+		{/each}
+	</div>
 </div>

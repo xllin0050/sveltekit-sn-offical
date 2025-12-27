@@ -25,15 +25,10 @@
 	</h1>
 </section>
 <!-- normal title -->
-<section class="">
+<section class="py-8">
 	<header class="max-w-hero mx-auto hidden lg:block">
-		<!-- <h1 class="flex justify-between text-base uppercase lg:text-5xl xl:text-7xl">
-			{#each 'super napkin'.split('') as char}
-				<span>{char === ' ' ? '\u00A0' : char}</span>
-			{/each}
-		</h1> -->
 		<WebsiteTitle />
-		<nav class="page-links flex flex-col bg-white">
+		<nav class="page-links flex flex-col bg-white pt-4">
 			<ul>
 				{#each linkList as link}
 					<li
@@ -46,7 +41,9 @@
 		</nav>
 	</header>
 </section>
-<HeroPhoto />
+<section class="pb-8">
+	<HeroPhoto />
+</section>
 
 <section class="max-w-container mx-auto">
 	{#await getNextGig() then nextGig}

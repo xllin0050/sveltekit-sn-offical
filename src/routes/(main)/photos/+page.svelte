@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import PageHead from '$lib/components/PageHead.svelte';
+	import PageHead from '$lib/components/base/PageHead.svelte';
 	import type { PhotoRecord } from '$lib/models/photo';
 	import { getPhotos } from '$lib/services/photos';
 	import { fileUrl } from '$lib/utils/pb';

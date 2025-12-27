@@ -7,3 +7,4 @@ trigger: always_on
 - Svelte v5
 - SvelteKit v2
 - Tailwind v4
+- PNPM v10 for package manager

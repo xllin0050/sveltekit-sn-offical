@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import PageHead from '$lib/components/PageHead.svelte';
+	import PageHead from '$lib/components/base/PageHead.svelte';
 	import type { ProductRecord } from '$lib/models/product';
 	import { getRecords, getTshirts } from '$lib/services/products';
 	import Card from './ProductCard.svelte';

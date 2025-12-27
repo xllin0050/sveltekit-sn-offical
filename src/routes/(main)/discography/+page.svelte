@@ -1,6 +1,6 @@
 <script lang="ts">
 	import 'lazysizes';
-	import PageHead from '$lib/components/PageHead.svelte';
+	import PageHead from '$lib/components/base/PageHead.svelte';
 	import type { PageData } from './$types';
 	interface Props {
 		data?: PageData | { [index: string]: any };
