@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation';
-	import { fade } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 	import menuIcon from '$lib/assets/icons/menu-04-svgrepo-com.svg';
 	import closeIcon from '$lib/assets/icons/close-square-svgrepo-com.svg';
+
 	let isMenuOpen = $state(false);
 	const menuSwitch = () => {
 		isMenuOpen = !isMenuOpen;
@@ -11,67 +12,42 @@
 		isMenuOpen = false;
 	});
 
-	const reduced =
-		typeof window !== 'undefined' &&
-		window.matchMedia &&
-		window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-	const t = { duration: reduced ? 0 : 150 };
+	const navLinks = [
+		{ href: '/', text: 'home' },
+		{ href: '/about', text: 'about us' },
+		{ href: '/discography', text: 'discography' },
+		{ href: '/gigs', text: 'gigs' },
+		{ href: '/videos', text: 'videos' },
+		{ href: '/photos', text: 'photos' },
+		{ href: '/products', text: 'products' }
+	];
 </script>
 
-{#if !isMenuOpen}
-	<nav class="absolute top-4 right-4 z-50 block md:hidden">
-		<div class="w-8 opacity-70 hover:opacity-100" onclick={menuSwitch} aria-hidden="true">
-			<img src={menuIcon} alt="" />
+<nav class="sticky top-0 z-50 flex w-full flex-col bg-white/90 md:hidden">
+	<div class="border-b border-neutral-200 py-2">
+		<div class="flex items-center justify-center">
+			<button
+				onclick={menuSwitch}
+				class="flex items-center rounded px-2 py-1 transition-all duration-200"
+				class:bg-neutral-200={isMenuOpen}
+			>
+				<span class="text-sm uppercase">Menu</span>
+			</button>
 		</div>
-	</nav>
-{/if}
-{#if isMenuOpen}
-	<section class="fixed top-0 z-10 flex min-h-screen w-full bg-neutral-50" transition:fade={t}>
-		<ul class="pt-10 font-medium tracking-wider uppercase">
-			<li>
-				<a href="/">home</a>
-			</li>
-			<li>
-				<a href="/about">about us</a>
-			</li>
-			<li>
-				<a href="/discography">discography</a>
-			</li>
-			<li>
-				<a href="/gigs">gigs</a>
-			</li>
-			<li>
-				<a href="/videos">videos</a>
-			</li>
-			<li>
-				<a href="/photos">photos</a>
-			</li>
-			<li>
-				<a href="/products">products</a>
-			</li>
-		</ul>
-		<div class="relative grow">
-			<figure class="absolute top-6 right-6 w-8" onclick={menuSwitch} aria-hidden="true">
-				<img src={closeIcon} alt="" />
-			</figure>
-		</div>
-	</section>
-{/if}
+	</div>
 
-<style>
-	ul {
-		word-spacing: -0.3em;
-	}
-	ul li {
-		width: 100dvw;
-		padding: 0.5rem 1em;
-		margin: 0.5rem 0;
-	}
-	ul li:hover {
-		text-decoration-line: underline;
-	}
-	ul li a {
-		display: block;
-	}
-</style>
+	{#if isMenuOpen}
+		<ul transition:slide={{ duration: 300 }} class="flex flex-col bg-white">
+			{#each navLinks as link}
+				<li class="border-b border-neutral-100">
+					<a
+						href={link.href}
+						class="block py-2 pl-8 text-sm font-light uppercase hover:bg-neutral-50"
+					>
+						{link.text}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	{/if}
+</nav>

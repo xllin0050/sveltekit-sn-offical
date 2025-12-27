@@ -16,23 +16,14 @@
 	];
 </script>
 
-<!-- mobile title -->
-<section class="block w-full text-neutral-900 lg:hidden">
-	<h1
-		class="text-center text-3xl tracking-widest text-inherit uppercase lg:ml-[.3em] lg:text-7xl lg:tracking-[.3em]"
-	>
-		super napkin
-	</h1>
-</section>
-<!-- normal title -->
 <section class="py-8">
-	<header class="max-w-hero mx-auto hidden lg:block">
+	<header class="max-w-hero mx-auto">
 		<WebsiteTitle />
-		<nav class="page-links flex flex-col bg-white pt-4">
+		<nav class="hidden pt-4 md:flex md:flex-col">
 			<ul>
 				{#each linkList as link}
 					<li
-						class="my-2 p-2 text-sm font-light text-neutral-600 uppercase transition-all duration-300 hover:-skew-x-12 hover:text-neutral-800 lg:text-xl"
+						class="my-2 p-2 text-sm font-light uppercase transition-all duration-300 hover:-skew-x-12 md:text-xl"
 					>
 						<a href={link.path}>{link.text}</a>
 					</li>
