@@ -14,7 +14,7 @@
 <svelte:head>
 	<title>Super Napkin Offical</title>
 </svelte:head>
-<div id="layout" class="font-sans">
+<div id="layout" class="bg-white font-sans">
 	<AppNav />
 	<ScrollHandler />
 	<main class="grow" style="view-transition-name: page" tabindex="-1" data-autofocus>

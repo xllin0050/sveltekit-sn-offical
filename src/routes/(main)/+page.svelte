@@ -26,7 +26,7 @@
 </section>
 <!-- normal title -->
 <section class="">
-	<header class="mx-auto hidden max-w-(--breakpoint-md) lg:block">
+	<header class="max-w-hero mx-auto hidden lg:block">
 		<!-- <h1 class="flex justify-between text-base uppercase lg:text-5xl xl:text-7xl">
 			{#each 'super napkin'.split('') as char}
 				<span>{char === ' ' ? '\u00A0' : char}</span>
@@ -48,7 +48,7 @@
 </section>
 <HeroPhoto />
 
-<section class="mx-auto max-w-(--breakpoint-lg)">
+<section class="max-w-container mx-auto">
 	{#await getNextGig() then nextGig}
 		<NextGigCard nextGig={nextGig ?? {}} />
 	{/await}

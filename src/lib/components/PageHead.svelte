@@ -12,11 +12,11 @@
 	];
 </script>
 
-<header class="mx-auto max-w-(--breakpoint-md)">
+<header class="max-w-hero mx-auto">
 	<WebsiteTitle />
 </header>
 <nav
-	class="page-links hidden max-w-(--breakpoint-lg) bg-white pt-6 md:mx-auto md:flex md:justify-center md:underline-offset-8"
+	class="page-links max-w-container hidden bg-white pt-6 md:mx-auto md:flex md:justify-center md:underline-offset-8"
 >
 	{#each navLinks as link}
 		<a

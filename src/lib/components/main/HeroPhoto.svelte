@@ -9,7 +9,7 @@
 </script>
 
 <section>
-	<div class="max-w-(--breakpoint-md) relative mx-auto overflow-hidden">
+	<div class="max-w-hero relative mx-auto overflow-hidden">
 		<img src={heroPhoto} alt="Super Napkin" class="block w-full object-cover" />
 
 		<!-- Hover Zones -->
