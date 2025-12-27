@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { getStores } from '$app/stores';
+	import { navigating } from '$app/state';
 	import { goto } from '$app/navigation';
 	import upArrowIcon from '$lib/assets/icons/up-arrow-circle-svgrepo-com.svg';
 	import leftArrowIcon from '$lib/assets/icons/left-arrow-circle-svgrepo-com.svg';
@@ -8,7 +8,15 @@
 	let scrollButton: HTMLElement | null = $state(null);
 	let scrollHeight: number = $state(0);
 	let screenHeight: number = $state(0);
+
 	let previousPage: string | null = $state(null);
+
+	$effect(() => {
+		if (navigating?.from) {
+			previousPage = navigating.from.url.pathname;
+		}
+	});
+
 	// let forwardPage: string | null | undefined;
 	const scrollHandler = () => {
 		if (!scrollButton) return;
@@ -20,15 +28,6 @@
 		stopAnimationFrame = requestAnimationFrame(scrollHandler);
 	};
 	onMount(() => {
-		const { navigating } = getStores();
-		navigating.subscribe((nav) => {
-			if (nav?.from) {
-				previousPage = nav.from.url.pathname;
-			}
-			// if (nav?.to) {
-			// 	forwardPage = nav.to.url.pathname;
-			// }
-		});
 		if (scrollButton) {
 			scrollHandler();
 			scrollButton.classList.add('opacity-0');

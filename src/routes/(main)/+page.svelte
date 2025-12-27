@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getNextGig } from '$lib/services/gigs';
-
+	import WebsiteTitle from '$lib/components/base/WebsiteTitle.svelte';
 	import albums from '$lib/data/discography';
 	import AlbumListColumn from '../../lib/components/main/AlbumListColumn.svelte';
 	import HeroPhoto from '$lib/components/main/HeroPhoto.svelte';
@@ -26,12 +26,13 @@
 </section>
 <!-- normal title -->
 <section class="">
-	<div class="mx-auto hidden max-w-(--breakpoint-md) lg:block">
-		<h1 class="flex justify-between text-base uppercase lg:text-5xl xl:text-7xl">
+	<header class="mx-auto hidden max-w-(--breakpoint-md) lg:block">
+		<!-- <h1 class="flex justify-between text-base uppercase lg:text-5xl xl:text-7xl">
 			{#each 'super napkin'.split('') as char}
 				<span>{char === ' ' ? '\u00A0' : char}</span>
 			{/each}
-		</h1>
+		</h1> -->
+		<WebsiteTitle />
 		<nav class="page-links flex flex-col bg-white">
 			<ul>
 				{#each linkList as link}
@@ -43,7 +44,7 @@
 				{/each}
 			</ul>
 		</nav>
-	</div>
+	</header>
 </section>
 <HeroPhoto />
 
