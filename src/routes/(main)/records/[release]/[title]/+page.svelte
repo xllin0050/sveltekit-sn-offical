@@ -2,7 +2,7 @@
 	import { userLanguage } from '$lib/stores';
 	import backIcon from '$lib/assets/icons/arrow-back-circle-outline-svgrepo-com.svg';
 	import PageHead from '$lib/components/PageHead.svelte';
-	import TextSwitch from '$lib/components/TextSwitch.svelte';
+	import TextSwitch from '$lib/components/base/TextSwitch.svelte';
 	interface Props {
 		data: any;
 	}

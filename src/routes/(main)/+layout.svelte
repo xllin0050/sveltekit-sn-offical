@@ -1,8 +1,8 @@
 <script lang="ts">
 	import '../../app.css';
-	import AppNav from '$lib/components/main/AppNavbar.svelte';
-	import AppFooter from '$lib/components/main/AppFooter.svelte';
-	import ScrollHandler from '$lib/components/main/ScrollHandler.svelte';
+	import AppNav from './AppNavbar.svelte';
+	import AppFooter from './AppFooter.svelte';
+	import ScrollHandler from './ScrollHandler.svelte';
 
 	interface Props {
 		children?: import('svelte').Snippet;
