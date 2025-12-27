@@ -32,7 +32,12 @@
 	<ul class="footer-links flex items-center justify-center pt-2">
 		{#each socialLinks as link}
 			<li class="mx-2">
-				<a href={link.href} target="_blank" rel="noreferrer" class="block w-6">
+				<a
+					href={link.href}
+					target="_blank"
+					rel="noreferrer"
+					class="block w-6 opacity-60 transition-all duration-300 hover:scale-110 hover:opacity-100"
+				>
 					<img src={link.icon} alt={link.alt} />
 				</a>
 			</li>

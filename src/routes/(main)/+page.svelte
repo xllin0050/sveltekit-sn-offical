@@ -32,7 +32,7 @@
 			<ul>
 				{#each linkList as link}
 					<li
-						class="my-2 p-2 text-sm font-light text-neutral-600 uppercase transition hover:text-neutral-800 lg:text-xl"
+						class="my-2 p-2 text-sm font-light text-neutral-600 uppercase transition-all duration-300 hover:-skew-x-12 hover:text-neutral-800 lg:text-xl"
 					>
 						<a href={link.path}>{link.text}</a>
 					</li>

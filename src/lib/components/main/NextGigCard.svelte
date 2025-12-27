@@ -11,7 +11,9 @@
 
 	<div class="w-[clamp(300px,90vw,768px)]">
 		{#if Object.keys(nextGig).length}
-			<div class="flex flex-col items-center bg-black px-2 py-8 text-white md:px-0">
+			<div
+				class="hover:ring-primary hover:ring-offset-bg flex flex-col items-center bg-black px-2 py-8 text-white transition-all duration-300 hover:ring-2 hover:ring-offset-2 md:px-0"
+			>
 				<a href={nextGig.gigurl} target="_blank" rel="noreferrer" class="block">
 					<div>
 						{nextGig.gigdate.slice(0, 10)}

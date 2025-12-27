@@ -23,7 +23,7 @@
 <PageHead />
 <h2 class="pt-8 text-center text-sm font-medium text-neutral-500 uppercase sm:hidden">Gigs</h2>
 
-<section class="mx-auto min-h-screen max-w-xs pb-16 lg:max-w-4xl lg:pt-6">
+<section class="mx-auto min-h-screen max-w-xs pb-16 md:pt-0 lg:max-w-4xl">
 	<ul class="pt-10 md:pt-0">
 		{#each gigs as gig}
 			<li

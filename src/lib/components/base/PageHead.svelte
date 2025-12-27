@@ -12,16 +12,16 @@
 	];
 </script>
 
-<header class="max-w-hero mx-auto">
+<header class="max-w-hero mx-auto pt-8">
 	<WebsiteTitle />
 </header>
 <nav
-	class="page-links max-w-container hidden bg-white pt-6 md:mx-auto md:flex md:justify-center md:underline-offset-8"
+	class="page-links max-w-hero hidden bg-white py-8 md:mx-auto md:flex md:justify-between md:underline-offset-8"
 >
 	{#each navLinks as link}
 		<a
 			href={link.href}
-			class=" text-neutral-600 uppercase transition hover:text-neutral-800 lg:text-lg"
+			class="mx-2 font-light uppercase transition-all duration-300 hover:-skew-x-12 lg:text-lg"
 			class:underline={page.url.pathname === link.activePath}
 		>
 			{link.text}

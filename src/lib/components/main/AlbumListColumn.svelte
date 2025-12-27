@@ -26,12 +26,15 @@
 				<h5 class="pt-8 pb-2 text-center font-light uppercase group-first:pt-2">
 					{album.title}
 				</h5>
-				<a href={`/records/${album.release}/${album.url}`}>
+				<a
+					href={`/records/${album.release}/${album.url}`}
+					class="hover:ring-primary hover:ring-offset-bg mx-auto block w-[clamp(300px,90vw,768px)] transition-all duration-300 hover:ring-2 hover:ring-offset-2"
+				>
 					<img
 						src={album.cover}
 						alt={album.title}
 						sizes="clamp(300px, 90vw, 768px)"
-						class="mx-auto block w-[clamp(300px,90vw,768px)] object-cover"
+						class="block w-full object-cover"
 					/>
 				</a>
 			</div>
