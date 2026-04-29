@@ -12,9 +12,6 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"type": "module",
-	"engines": {
-		"node": "22.x"
-	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^7.0.0",
 		"@sveltejs/kit": "^2.47.3",
